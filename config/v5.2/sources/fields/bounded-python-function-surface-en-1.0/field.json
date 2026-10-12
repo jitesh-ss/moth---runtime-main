@@ -1,0 +1,129 @@
+{
+  "schema": "moth-surface-instruction-field/1.0",
+  "field_id": "bounded-python-function-surface-en-1.0",
+  "language": "en",
+  "layers": {
+    "L1": {
+      "actions": [
+        "VALIDATE_SEMANTIC_RESULT",
+        "PLAN_PROGRAM",
+        "BIND_INPUT_VARIABLES",
+        "DEFINE_BOOLEAN_TEXT",
+        "DEFINE_SELECT_PLAN",
+        "DEFINE_BUILD_DECISION",
+        "COMPUTE_SELECTED_PLAN",
+        "BIND_LOCAL_VARIABLES",
+        "CALL_BUILD_DECISION",
+        "PRINT_DECISION",
+        "PARSE_PROGRAM_AST",
+        "VERIFY_AST_ALLOWLIST",
+        "VERIFY_PROGRAM_SHAPE",
+        "EXECUTE_CONSTRAINED",
+        "PARSE_EXECUTION_OUTPUT",
+        "VERIFY_EXACT_VALUE",
+        "BIND_SEMANTIC_HASH",
+        "BIND_POLICY_HASH",
+        "EMIT_PROGRAM"
+      ],
+      "states": ["ANSWER", "REFUSED"]
+    },
+    "L2": {
+      "operators": ["SEQUENCE", "MUST", "MUST_NOT", "DEFAULT_IF", "REFUSE_IF", "COMPLETE_IF"],
+      "conditions": [
+        "SEMANTIC_RESULT_MALFORMED",
+        "PRESENTATION_UNSUPPORTED",
+        "PROGRAM_SHAPE_INVALID",
+        "PYTHON_AST_UNSAFE",
+        "EXECUTION_FAILED",
+        "EXECUTION_TIMED_OUT",
+        "EXECUTION_VALUE_MISMATCH",
+        "RESOURCE_LIMIT_EXCEEDED",
+        "HASH_BINDING_INVALID"
+      ]
+    },
+    "L3": {
+      "workflow_macros": {
+        "INSPECT_RESULT": ["VALIDATE_SEMANTIC_RESULT"],
+        "PLAN_SOURCE": ["PLAN_PROGRAM", "BIND_INPUT_VARIABLES", "DEFINE_BOOLEAN_TEXT", "DEFINE_SELECT_PLAN", "DEFINE_BUILD_DECISION", "COMPUTE_SELECTED_PLAN", "BIND_LOCAL_VARIABLES", "CALL_BUILD_DECISION", "PRINT_DECISION"],
+        "VERIFY_SOURCE": ["PARSE_PROGRAM_AST", "VERIFY_AST_ALLOWLIST", "VERIFY_PROGRAM_SHAPE"],
+        "RUN_SOURCE": ["EXECUTE_CONSTRAINED", "PARSE_EXECUTION_OUTPUT", "VERIFY_EXACT_VALUE"],
+        "BIND_RESULT": ["BIND_SEMANTIC_HASH", "BIND_POLICY_HASH"],
+        "RETURN_SOURCE": ["EMIT_PROGRAM"]
+      }
+    }
+  },
+  "interpretation_rules": [
+    {"id": "TRIGGER_PYTHON_FUNCTION", "sections": ["description"], "groups": [["render", "produce"], ["verified plan decision", "confirmed plan outcome"], ["python"], ["functions", "routines"], ["variables", "variable bindings"]]},
+    {"id": "STEP_INSPECT", "sections": ["workflow"], "groups": [["inspect", "examine"], ["verified semantic result", "confirmed semantic outcome"], ["before", "prior to"]]},
+    {"id": "STEP_BIND_INPUTS", "sections": ["workflow"], "groups": [["proposed validity"], ["backup validity"], ["failure reason"], ["module variables", "top-level bindings"]]},
+    {"id": "STEP_DEFINE_FUNCTIONS", "sections": ["workflow"], "groups": [["boolean_text"], ["select_plan"], ["build_decision"], ["named functions", "named routines"]]},
+    {"id": "STEP_COMPUTE_SELECTION", "sections": ["workflow"], "groups": [["selected plan", "chosen plan"], ["inside select_plan", "within select_plan"], ["rather than embedding", "instead of copying"]]},
+    {"id": "STEP_LOCAL_VARIABLES", "sections": ["workflow"], "groups": [["local"], ["decision"], ["variables", "bindings"], ["inside build_decision", "within build_decision"]]},
+    {"id": "STEP_CALL_PRINT", "sections": ["workflow"], "groups": [["build_decision"], ["once", "exactly once"], ["print", "display"], ["decision dictionary", "decision mapping"]]},
+    {"id": "STEP_PARSE_AST", "sections": ["workflow"], "groups": [["parse"], ["complete python syntax tree", "whole python abstract syntax tree"], ["before", "prior to"], ["execution", "running"]]},
+    {"id": "POLICY_AST_ALLOWLIST", "sections": ["fidelity"], "groups": [["only", "exclusively"], ["assignments", "bindings"], ["function definitions", "routine declarations"], ["conditionals", "branches"], ["returns"], ["dictionary", "mapping"], ["calls", "invocations"]]},
+    {"id": "POLICY_FORBID_CAPABILITIES", "sections": ["fidelity"], "groups": [["imports"], ["attributes", "member access"], ["loops", "iteration"], ["file", "filesystem"], ["network"], ["subprocesses", "child processes"]]},
+    {"id": "POLICY_REFUSE", "sections": ["fidelity"], "groups": [["refuse", "fail closed"], ["malformed semantic result", "invalid semantic outcome"], ["unsupported presentation request", "unknown presentation instruction"], ["unsafe syntax tree", "disallowed syntax tree"]]},
+    {"id": "POLICY_BIND", "sections": ["fidelity"], "groups": [["bind", "attach"], ["program", "source"], ["execution result", "computed outcome"], ["verified semantic result", "confirmed semantic result"], ["compiled policy", "compiled instructions"]]},
+    {"id": "POLICY_SIZE", "sections": ["size"], "groups": [["deterministic"], ["readable", "legible"], ["program"], ["line"], ["byte"]]},
+    {"id": "COMPLETE_EXECUTE", "sections": ["completion"], "groups": [["only", "only when"], ["constrained execution", "limited execution"], ["dictionary", "mapping"], ["exactly equal", "identical"], ["verified semantic value", "confirmed semantic value"]]},
+    {"id": "COMPLETE_EMIT", "sections": ["completion"], "groups": [["return", "emit"], ["only", "just"], ["verified python program artifact", "validated python source artifact"]]}
+  ],
+  "skill_profiles": {
+    "PYTHON_FUNCTION_OUTPUT": {
+      "required_rules": [
+        "TRIGGER_PYTHON_FUNCTION",
+        "STEP_INSPECT",
+        "STEP_BIND_INPUTS",
+        "STEP_DEFINE_FUNCTIONS",
+        "STEP_COMPUTE_SELECTION",
+        "STEP_LOCAL_VARIABLES",
+        "STEP_CALL_PRINT",
+        "STEP_PARSE_AST",
+        "POLICY_AST_ALLOWLIST",
+        "POLICY_FORBID_CAPABILITIES",
+        "POLICY_REFUSE",
+        "POLICY_BIND",
+        "POLICY_SIZE",
+        "COMPLETE_EXECUTE",
+        "COMPLETE_EMIT"
+      ],
+      "trigger": "VERIFIED_PLAN_DECISION_FOR_PYTHON",
+      "workflow": ["INSPECT_RESULT", "PLAN_SOURCE", "VERIFY_SOURCE", "RUN_SOURCE", "BIND_RESULT", "RETURN_SOURCE"],
+      "policies": [
+        {"id": "EXACT_EXECUTION_VALUE", "mode": "MUST", "condition": "EXECUTION_VALUE_MISMATCH", "outcome": "SEMANTIC_DRIFT"},
+        {"id": "FIXED_PROGRAM_SHAPE", "mode": "MUST", "condition": "PROGRAM_SHAPE_INVALID", "outcome": "INVALID_PROGRAM_SHAPE"},
+        {"id": "HASH_BINDING", "mode": "MUST", "condition": "HASH_BINDING_INVALID", "outcome": "HASH_BINDING_INVALID"},
+        {"id": "MALFORMED_REFUSES", "mode": "REFUSE_IF", "condition": "SEMANTIC_RESULT_MALFORMED", "outcome": "MALFORMED_SEMANTIC_RESULT"},
+        {"id": "RESOURCE_BOUNDS", "mode": "REFUSE_IF", "condition": "RESOURCE_LIMIT_EXCEEDED", "outcome": "RESOURCE_LIMIT"},
+        {"id": "SAFE_AST_ONLY", "mode": "MUST_NOT", "condition": "PYTHON_AST_UNSAFE", "outcome": "UNSAFE_PYTHON"},
+        {"id": "UNKNOWN_PRESENTATION_REFUSES", "mode": "REFUSE_IF", "condition": "PRESENTATION_UNSUPPORTED", "outcome": "UNSUPPORTED_PRESENTATION"}
+      ],
+      "completion": ["AST_ALLOWLIST_CONFIRMED", "EXECUTION_SUCCEEDED", "EXACT_VALUE_PRESERVED", "HASHES_BOUND", "PROGRAM_EMITTED"]
+    }
+  },
+  "size_signals": {
+    "CONCISE": ["compact function program"],
+    "STANDARD": ["actual python code"],
+    "DETAILED": ["readable function program"]
+  },
+  "size_bands": {
+    "CONCISE": {"minimum_words": 20, "maximum_words": 180, "minimum_sentences": 1, "maximum_sentences": 16},
+    "STANDARD": {"minimum_words": 20, "maximum_words": 180, "minimum_sentences": 1, "maximum_sentences": 16},
+    "DETAILED": {"minimum_words": 20, "maximum_words": 220, "minimum_sentences": 1, "maximum_sentences": 20}
+  },
+  "presentation_routes": [
+    "return python with functions and variables",
+    "return an actual python code block with functions and variables"
+  ],
+  "program_shape": {
+    "module_variables": ["proposed_valid", "backup_valid", "failure_reason", "decision"],
+    "functions": ["boolean_text", "select_plan", "build_decision"],
+    "allowed_calls": ["boolean_text", "select_plan", "build_decision", "print"],
+    "maximum_ast_nodes": 128,
+    "maximum_lines": 40,
+    "maximum_bytes": 4096,
+    "execution_timeout_seconds": 2
+  },
+  "limits": {"maximum_skill_bytes": 65536, "maximum_clauses": 64, "maximum_graph_units": 128, "maximum_artifact_bytes": 4096}
+}

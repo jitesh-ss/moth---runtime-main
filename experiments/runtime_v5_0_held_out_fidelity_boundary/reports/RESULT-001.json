@@ -1,0 +1,66 @@
+{
+  "schema": "moth-v5-held-out-fidelity-result/1.0",
+  "verdict": "HELD_OUT_FIDELITY_BOUNDARY_CONFIRMED",
+  "cases": 40,
+  "calibration_cases": 2,
+  "classifications": {
+    "CORRECT_ACCEPT": 8,
+    "SAFE_REFUSAL": 32
+  },
+  "categories": {
+    "ENTITY_SURFACE_HOLDOUT": {
+      "CORRECT_ACCEPT": 8,
+      "SAFE_REFUSAL": 4
+    },
+    "RELATION_FRAME_HOLDOUT": {
+      "SAFE_REFUSAL": 12
+    },
+    "MIXED_HOLDOUT": {
+      "SAFE_REFUSAL": 8
+    },
+    "ADVERSARIAL": {
+      "SAFE_REFUSAL": 8
+    }
+  },
+  "correct_accept_ids": ["e01", "e02", "e03", "e04", "e07", "e08", "e09", "e10"],
+  "safe_refusal_ids": {
+    "ENTITY_SURFACE_HOLDOUT": ["e05", "e06", "e11", "e12"],
+    "RELATION_FRAME_HOLDOUT": ["f01", "f02", "f03", "f04", "f05", "f06", "f07", "f08", "f09", "f10", "f11", "f12"],
+    "MIXED_HOLDOUT": ["m01", "m02", "m03", "m04", "m05", "m06", "m07", "m08"],
+    "ADVERSARIAL": ["a01-unknown-candidate", "a02-reversed-types", "a03-wrong-object-type", "a04-ambiguous-pronoun", "a05-unsupported-modality", "a06-unsupported-time", "a07-unsupported-intent", "a08-unknown-domain"]
+  },
+  "refusal_codes": {
+    "AMBIGUOUS_REFERENCE": 1,
+    "INCOMPLETE_FACT_GRAPH": 17,
+    "UNKNOWN_CAPABILITY": 5,
+    "UNKNOWN_ENTITY": 8,
+    "UNSUPPORTED_INTENT": 1
+  },
+  "unsafe_acceptances": 0,
+  "adversarial_refusals": 8,
+  "encoder_free_replays": 40,
+  "semantic_tamper_detected": true,
+  "network_attempts": 0,
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "encoder": {
+    "dimension": 1024,
+    "fingerprint": "c027792ab279e7a8881a42ba2cb85c4934037f9d121dbe83b114010571975509",
+    "verified": true
+  },
+  "thresholds": {
+    "score": 0.82,
+    "margin": 0.05
+  },
+  "accepted_vector_score_range": [0.833699, 0.915721],
+  "accepted_vector_margin_range": [0.126402, 0.282638],
+  "protected_hashes_unchanged": true,
+  "protected_hashes": {
+    "runtime_tree": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6",
+    "configuration_tree": "349b277c0251e53ecb33651982b062f30d5cb499b1ba4d35d11bb57d0dd24ef1",
+    "architecture_lock": "8d527b89751d32770a54028801b59e988ef706cf3ec9e75a88a373d68cec89a4",
+    "production_store": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b"
+  },
+  "fixture_sha256": "859619e8eb192e36d20bdba965799d1ec1775fcab07b579524c0bf4b92b4793c",
+  "result_manifest_sha256": "7d010f58c647152e5aeac51d6c0f2cd6dc1248785736c1453f5b93339bc47744"
+}

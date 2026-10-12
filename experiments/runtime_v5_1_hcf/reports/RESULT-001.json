@@ -1,0 +1,12 @@
+{
+  "case_count": 6,
+  "chain_trace_hash": "65602987960f775293d1c81b6b7045d72f1c72585a6c9a28b5ac33530de3f3ea",
+  "direct_trace_hash": "a8e85ea076bba378b0e98ee3ebf34f7f39c5b2ce408f0f0611cea539705f118f",
+  "failed": 0,
+  "hierarchy": ["BASE", "SYSTEM", "CONTEXT", "GROUNDING"],
+  "passed": 6,
+  "result_hash": "47cc58ab689b8ab6663555f5a1897c2647bd4edd528035c5ed1385dc5115d64a",
+  "runtime": "5.1",
+  "schema": "moth-hcf-campaign-result/1.0",
+  "verdict": "THREE_LEVEL_HCF_SETTLEMENT_CONFIRMED"
+}

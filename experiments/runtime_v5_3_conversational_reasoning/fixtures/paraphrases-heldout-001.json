@@ -1,0 +1,34 @@
+[
+  {
+    "message": "Please bring package A to room three.",
+    "status": "ANSWER"
+  },
+  {
+    "message": "Where's package A?",
+    "status": "ANSWER"
+  },
+  {
+    "message": "Parcel A is at room four.",
+    "status": "ACKNOWLEDGED"
+  },
+  {
+    "message": "Please make sure my parcel eventually ends up somewhere warmer.",
+    "status": "CLARIFICATION_REQUIRED"
+  },
+  {
+    "message": "Could you pop over and grab the thing I mentioned?",
+    "status": "CLARIFICATION_REQUIRED"
+  },
+  {
+    "message": "Robot one does not have a key.",
+    "status": "ACKNOWLEDGED"
+  },
+  {
+    "message": "The door to room two is locked.",
+    "status": "ACKNOWLEDGED"
+  },
+  {
+    "message": "Please find a plan to move package B to room two.",
+    "status": "ANSWER"
+  }
+]

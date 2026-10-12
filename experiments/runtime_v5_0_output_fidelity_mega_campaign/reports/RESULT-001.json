@@ -1,0 +1,72 @@
+{
+  "schema": "moth-v5-output-fidelity-mega-result/1.0",
+  "verdict": "BOUNDED_MULTI_PHASE_LLM_LIKE_OUTPUT_FIDELITY_CONFIRMED",
+  "scope_boundary": "BOUNDED_CLOSED_WORLD_SURFACE_NOT_OPEN_DOMAIN_LLM_EQUIVALENCE",
+  "total_realized_outputs": 168,
+  "runtime_byte_parity": 168,
+  "presentation_mode_count": 16,
+  "compiled_skill_family_count": 7,
+  "source_skill_variant_count": 14,
+  "deterministic_compilation_trials": 70,
+  "total_adversarial_gates": 92,
+  "phase_verdicts": {
+    "natural": "BOUNDED_COMPILED_NATURAL_SURFACE_CONFIRMED",
+    "rich": "BOUNDED_COMPILED_RICH_OUTPUT_SURFACE_CONFIRMED",
+    "structured": "BOUNDED_COMPILED_JSON_PYTHON_SURFACE_CONFIRMED",
+    "executable": "BOUNDED_COMPILED_PYTHON_FUNCTION_SURFACE_CONFIRMED"
+  },
+  "output_counts": {
+    "natural_prose": 48,
+    "rich_outputs": 64,
+    "json_and_inert_python": 40,
+    "executable_python": 16
+  },
+  "semantic_failures": {
+    "omissions": 0,
+    "unsupported_additions": 0,
+    "drift": 0,
+    "unsafe_python_accepted": 0,
+    "refusals_converted": 0
+  },
+  "rich_phase": {
+    "semantic_cases": 8,
+    "presentation_modes": 8,
+    "artifacts": 64,
+    "inverse_recovery_exact": 64,
+    "archive_replays": 64,
+    "distinct_artifact_hashes": 56,
+    "invalid_skill_gates": 16,
+    "causal_ablations": 20,
+    "tamper_probes": 6,
+    "refusal_checks": 8
+  },
+  "executable_phase": {
+    "programs": 16,
+    "ast_valid": 16,
+    "executed_exact_value": 16,
+    "archive_replays": 16,
+    "positive_execution_count_including_replay_verification": 48,
+    "unsafe_python_accepted": 0,
+    "execution_boundary": "CONSTRAINED_LOCAL_SUBPROCESS_NOT_HARDENED_CONTAINER"
+  },
+  "isolation": {
+    "production_store_accesses": 0,
+    "temporary_instances_removed": true,
+    "temporary_execution_directories_removed": true,
+    "protected_hashes_unchanged": true
+  },
+  "tests": {
+    "mega_campaign": {"passed": 8, "failed": 0},
+    "runtime_v5_and_launcher": {"passed": 54, "failed": 0},
+    "repository_baseline": {"passed": 150, "failed": 1, "unrelated_preexisting_failure": "runtime_4_8_architecture_lock"}
+  },
+  "fixture_freeze_hash": "4bf2b286820beb0d33cf36759a0649bd55d078be996a6310cfb8c65dbb0e64f6",
+  "phase_result_hashes": {
+    "natural": "4d6af08b5eba7b6d8a4840298dd13eb8662f992ee55dde9e70ddbd42511aa894",
+    "rich": "6be169cc8583bc02d13bffa539051ce8a91d0c5e745988e915c745f4395fb455",
+    "structured": "df83263b1e3f8b7748a8e7b008667be396aa49085b27a474104a8bd2bbdfb783",
+    "executable": "d7c412dd883038067ab07d93d844c71cbc128cc3b325842ff5a3c8173c0fe0e0"
+  },
+  "campaign_result_hash": "7414702f1fb709822b35bfed833850f9dcd80000505f68e516b7edcb3d522f4f"
+}
+

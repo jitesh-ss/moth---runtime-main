@@ -1,0 +1,13 @@
+.venv/
+.DS_Store
+models/*
+!models/README.md
+__pycache__/
+.pytest_cache/
+*.pyc
+*.egg-info/
+data/*.sqlite3
+data/*.sqlite3-wal
+data/*.sqlite3-shm
+data/store-*/
+tests/runs/

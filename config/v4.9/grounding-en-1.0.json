@@ -1,0 +1,11 @@
+{
+  "schema": "moth-world-grounding/4.9",
+  "score_precision": 6,
+  "comparison": "strict",
+  "thresholds": {
+    "default": {"score": 0.82, "margin": 0.05},
+    "INSTRUCTION": {"score": 0.82, "margin": 0.08}
+  },
+  "source_attempt": "runtime_v4_6_capability_lab/002",
+  "status": "FROZEN"
+}

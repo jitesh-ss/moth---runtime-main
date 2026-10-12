@@ -1,0 +1,32 @@
+{
+  "schema": "moth-architecture-lock/4.7",
+  "runtime": "4.7",
+  "canonical": true,
+  "default_runtime": "4.7",
+  "architecture": {
+    "path": "ARCHITECTURE.md",
+    "sha256": "0eba150c51afd20511be4d1e7831856166866c7ad061c157af66d1ab467cf80f"
+  },
+  "product": {
+    "path": "PRODUCT.md",
+    "sha256": "4ccfa483a5938ba93f79bd381f9effb445cf72be2bba1a3c59da333a5da7246b"
+  },
+  "qualification": {
+    "source_record": "Runtime 4.7 qualification Attempt 001",
+    "verdict": "PASS"
+  },
+  "candidate": {
+    "experiment": "live/experiments/runtime_v4_6_capability_lab",
+    "attempt": "002",
+    "verdict": "GO_CAPABILITY_LAB",
+    "quick_cases": 1688,
+    "held_out_cases": 2400
+  },
+  "store_schema": "proof-energy-capability-store/4.7",
+  "result_schema": "moth-capability-result/4.7",
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "earlier_stores_migrated": false,
+  "standalone": true,
+  "production_store": "data/store-4.7.sqlite3"
+}

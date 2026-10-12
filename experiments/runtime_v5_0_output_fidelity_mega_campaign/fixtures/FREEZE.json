@@ -1,0 +1,30 @@
+{
+  "schema": "moth-v5-output-fidelity-mega-freeze/1.0",
+  "frozen_before_execution": true,
+  "date": "2026-09-03",
+  "fixtures": {
+    "campaign-en-1.0.json": "7bfa82e1d15b1afaef96764c960c2a42b59c951a5aebd107b4d2051cc2799e37",
+    "granular-policy-oracle-en-1.0.json": "4ce505a29f6548d75121ace3b02d5b4fd37b1a1f0cd829e2d3ab8f1dc38f171e",
+    "markdown-structure": "d1ec3f895d816ba716ea6bf0a9336c6bae736dd32eb2e51cd1e790f00a142fbc",
+    "markdown-structure-paraphrase": "3ccab6f17f1f920053b5aa30c68e81983271e4de8b90e5becc8981f59a8deb7f",
+    "mixed-response": "c4284b9c2dd0185c56846e6d57b533f47cde495293fce2dcb4970eae2b6096d3",
+    "mixed-response-paraphrase": "5c9ac5a927e2e7eec5d0d0026f968c373725cd5974dc07d5506cfc045e9c473a",
+    "prose-range": "2cbc41dfad3adb8b6127b2ef8488adba81c1c15006f5b03142aeca64c946a84c",
+    "prose-range-paraphrase": "fc764355a790b57f4816a4faf3038bed684ef37f009434c5991d9cde178025af",
+    "rich-surface-field-en-1.0.json": "6021c3a910d2538a00a12d6528a52e57bbe8fbd4389e01149d893d73c0075e64",
+    "tone-adaptation": "dfa2e2f27da557196c8bdb193f50dc7795c86ee264adf3d0c6ce916a7a4d22ba",
+    "tone-adaptation-paraphrase": "61202a8ad21df1a3811a12017b5609754d3025128bc5bccea3eaa80a43754013"
+  },
+  "protected": {
+    "config/v5.0": "349b277c0251e53ecb33651982b062f30d5cb499b1ba4d35d11bb57d0dd24ef1",
+    "data/store-5.0.sqlite3": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b",
+    "docs/v5.0": "92245bf763f7fb559dc232d48ca63b2f8cc4d94de352117e4ec23957ef8f7e12",
+    "experiments/runtime_v5_0_compiled_json_python_surface": "68bc090e5dccf1e0b88309e7f0229315e31eea3f4b3eeddfbd2593fbf1158e80",
+    "experiments/runtime_v5_0_compiled_python_function_surface": "318f76fcfce91a2777632d343761fe8f2b9a67613c20dcc3cd80a1c1dad82bc4",
+    "experiments/runtime_v5_0_compiled_surface_skill": "dca25c59e358d38b6f4f288bad693bb4d8469b47b92adab7a32cf7e43783cf17",
+    "experiments/runtime_v5_0_instruction_compression": "c790fef3b30b76191eddfc516e17c9186ac0f15f8291f86ee94b89cba555f982",
+    "reports/RUNTIME-5.0-LANGUAGE-FIDELITY-QUALIFICATION-001.md": "ffee8f2ffe23cd76a8952ccb4934b2bc02882d4c0cc89b2a72272e8abe7cb798",
+    "src/moth_launcher_v5": "00efd1f14d49a1f5beedc0f12fdd3d6203bd40a70c76784f8a6a7ecf0c8807b5",
+    "src/moth_runtime_v5_0": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moth-hcf-source/5.2",
+  "title": "Human-authored Runtime 5.2 HCF source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entries", "activations"],
+  "properties": {
+    "schema": {"const": "moth-hcf-source/5.2"},
+    "entries": {"type": "array", "items": {"type": "object"}},
+    "activations": {"type": "array", "items": {"type": "object"}}
+  }
+}

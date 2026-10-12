@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moth-runtime"
+version = "5.3.0"
+description = "Standalone versioned Moth closed-world proof-carrying energy runtimes"
+authors = [{ name = "jitesh-ss" }]
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "numpy==2.4.6",
+  "scipy==1.17.1",
+  "sentence-transformers==5.6.1",
+  "torch==2.13.0",
+  "safetensors==0.8.0"
+]
+
+[dependency-groups]
+dev = ["pytest==9.1.1"]
+
+[project.scripts]
+moth = "moth_launcher_v5_3.cli:main"
+"moth-4.7" = "moth_runtime.cli:main"
+"moth-5.1" = "moth_runtime_v5_1.cli:main"
+"moth-5.2" = "moth_runtime_v5_2.cli:main"
+"moth-5.3" = "moth_runtime_v5_3.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["moth_runtime*", "moth_runtime_v4_8*", "moth_runtime_v4_9*", "moth_runtime_v5_0*", "moth_launcher*", "moth_launcher_v5*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.setuptools.package-data]
+moth_runtime_v5_3 = ["sources/*.json", "sources/base/*.json", "sources/fields/*/*.json", "sources/skills/*/*.md"]

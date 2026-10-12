@@ -1,0 +1,11 @@
+{
+  "schema": "moth-runtime-baseline/5.0",
+  "captured_at": "2026-09-01",
+  "git_head": "80471aa955a32751fd5a97a633759326654664fc",
+  "runtime_v4_9_aggregate_sha256": "3ddad5a0f486179c3a9d56665bdbd1aeb1f770a660bcaf7828a490c7746beccb",
+  "semantic_experiments_aggregate_sha256": "e1b92641fc6dddc642977e32b4278f19d3da986083647ee6ec911ba3930404a3",
+  "runtime_v4_9_test_sha256": "03d64ccda627f735076404b62faab21e4c0ab3b9a23c34d93d248edc9adfd6f0",
+  "root_readme_sha256": "fe1e9ee7f1b561eb64493dcce529de8f62cee034603c0b21397741093a126365",
+  "mother_architecture_sha256": "8867587f8442b7b9f845d254e299356f14aaa351bed4d6e55c41aa6e58e14ab6",
+  "report_index_sha256": "f5a81ff8354a54775ca76033df17203984c15460e698a7d4f6e2d7da129c1dd1"
+}

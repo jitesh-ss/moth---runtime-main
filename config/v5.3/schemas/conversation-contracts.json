@@ -1,0 +1,35 @@
+{
+  "schema": "moth-conversation-contracts/5.3",
+  "compiled_objects": [
+    "moth-conversation-foundation/5.3",
+    "moth-knowledge/5.3"
+  ],
+  "container": "numeric typed trees in Safetensors",
+  "outcomes": [
+    "ANSWER",
+    "ACKNOWLEDGED",
+    "CLARIFICATION_REQUIRED",
+    "INSUFFICIENT_INFORMATION",
+    "IMPOSSIBLE",
+    "BUDGET_EXHAUSTED",
+    "REFUSAL",
+    "INTEGRITY_FAILURE"
+  ],
+  "knowledge_revision_fields": [
+    "revision_id",
+    "conversation_id",
+    "parent_id",
+    "object_hash",
+    "turn_id"
+  ],
+  "kernel_request_fields": [
+    "domain",
+    "initial",
+    "goals",
+    "facts",
+    "constraints",
+    "prior_results",
+    "bindings",
+    "limits"
+  ]
+}

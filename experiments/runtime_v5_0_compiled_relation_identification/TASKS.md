@@ -1,0 +1,21 @@
+# Tasks
+
+- [x] Freeze the relation-rule and campaign fixtures.
+  - Acceptance: hashes and case counts are stable before execution.
+  - Verify: fixture validator rejects any schema or count mismatch.
+- [x] Implement deterministic bounded rule compilation.
+  - Acceptance: six rules generate six safe typed frames and invalid rules fail atomically.
+  - Verify: focused compiler tests.
+- [x] Build isolated control and instructed Runtime 5.0 stores.
+  - Acceptance: stores use temporary paths and byte-identical Main/Surface programs.
+  - Verify: world and bundle evidence in campaign result.
+- [x] Execute and classify the frozen A/B campaign.
+  - Acceptance target: control 0/12 relation accepts; instructed 12/12 correct relation accepts; zero unsafe.
+  - Observed: control 0/12; instructed 11/12; zero unsafe. Capability target partially met without weakening it.
+  - Verify: real-BGE campaign test.
+- [x] Verify replay, tampering, and isolation.
+  - Acceptance: 28/28 instructed replays exact, tamper rejected, protected hashes unchanged.
+  - Verify: campaign integrity gates and production hash audit.
+- [x] Seal result and conclusion.
+  - Acceptance: compact manifest and report state exact causal boundary.
+  - Verify: report values match campaign output.

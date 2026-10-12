@@ -1,0 +1,12 @@
+{
+  "schema": "moth-world-grounding/5.0",
+  "score_precision": 6,
+  "comparison": "strict",
+  "thresholds": {
+    "default": {"score": 0.82, "margin": 0.05},
+    "INSTRUCTION": {"score": 0.82, "margin": 0.08},
+    "SEMANTIC_SURFACE": {"score": 0.82, "margin": 0.05}
+  },
+  "source_attempt": "runtime_v4_9_semantic_language_experiments",
+  "status": "FROZEN_FOR_5.0"
+}

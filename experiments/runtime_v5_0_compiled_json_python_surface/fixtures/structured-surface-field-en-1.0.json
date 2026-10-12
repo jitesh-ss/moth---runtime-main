@@ -1,0 +1,124 @@
+{
+  "schema": "moth-surface-instruction-field/1.0",
+  "field_id": "bounded-json-python-surface-en-1.0",
+  "language": "en",
+  "layers": {
+    "L1": {
+      "actions": [
+        "VALIDATE_SEMANTIC_RESULT",
+        "SELECT_MATERIAL_FIELDS",
+        "DETECT_FORMAT_SIGNAL",
+        "DETECT_LAYOUT_SIGNAL",
+        "PLAN_EXACT_SCHEMA",
+        "SERIALIZE_JSON",
+        "SERIALIZE_PYTHON_LITERAL",
+        "FORMAT_COMPACT",
+        "FORMAT_READABLE",
+        "PARSE_JSON_OUTPUT",
+        "PARSE_PYTHON_AST",
+        "VERIFY_EXACT_VALUE",
+        "VERIFY_SAFE_AST",
+        "VERIFY_LAYOUT",
+        "BIND_SEMANTIC_HASH",
+        "BIND_POLICY_HASH",
+        "EMIT_ARTIFACT"
+      ],
+      "states": ["ANSWER", "REFUSED"]
+    },
+    "L2": {
+      "operators": ["SEQUENCE", "MUST", "MUST_NOT", "DEFAULT_IF", "REFUSE_IF", "COMPLETE_IF"],
+      "conditions": [
+        "SEMANTIC_RESULT_MALFORMED",
+        "FORMAT_SIGNAL_ABSENT",
+        "FORMAT_SIGNAL_UNSUPPORTED",
+        "LAYOUT_SIGNAL_ABSENT",
+        "LAYOUT_SIGNAL_UNSUPPORTED",
+        "MATERIAL_FIELD_MISSING",
+        "EXTRA_FIELD_PRESENT",
+        "PYTHON_AST_UNSAFE",
+        "LAYOUT_INVALID",
+        "HASH_BINDING_INVALID"
+      ]
+    },
+    "L3": {
+      "workflow_macros": {
+        "INSPECT_RESULT": ["VALIDATE_SEMANTIC_RESULT", "SELECT_MATERIAL_FIELDS"],
+        "ROUTE_OUTPUT": ["DETECT_FORMAT_SIGNAL", "DETECT_LAYOUT_SIGNAL"],
+        "PLAN_STRUCTURE": ["PLAN_EXACT_SCHEMA"],
+        "SERIALIZE_FORMAT": ["SERIALIZE_JSON", "SERIALIZE_PYTHON_LITERAL", "FORMAT_COMPACT", "FORMAT_READABLE"],
+        "VERIFY_ARTIFACT": ["PARSE_JSON_OUTPUT", "PARSE_PYTHON_AST", "VERIFY_EXACT_VALUE", "VERIFY_SAFE_AST", "VERIFY_LAYOUT", "BIND_SEMANTIC_HASH", "BIND_POLICY_HASH"],
+        "RETURN_ARTIFACT": ["EMIT_ARTIFACT"]
+      }
+    }
+  },
+  "interpretation_rules": [
+    {"id": "TRIGGER_STRUCTURED_OUTPUT", "sections": ["description"], "groups": [["serialize", "convert"], ["verified structured decision", "confirmed decision object"], ["json"], ["python"], ["layout", "presentation shape"]]},
+    {"id": "STEP_INSPECT_RESULT", "sections": ["workflow"], "groups": [["inspect", "examine"], ["verified semantic result", "confirmed semantic outcome"], ["before", "prior to"]]},
+    {"id": "STEP_ROUTE_FORMAT", "sections": ["workflow"], "groups": [["select", "choose"], ["json"], ["python"], ["supported format request", "recognized output-language instruction"]]},
+    {"id": "STEP_ROUTE_LAYOUT", "sections": ["workflow"], "groups": [["compact", "compact representation"], ["default", "fall back"], ["readable", "readable representation"], ["request"]]},
+    {"id": "STEP_EXACT_FIELDS", "sections": ["workflow"], "groups": [["every material field", "all important entries"], ["exact key", "unchanged names"], ["value", "contents"], ["type", "data types"]]},
+    {"id": "STEP_JSON", "sections": ["workflow"], "groups": [["json"], ["one object", "single object"], ["standard json parser", "built-in json decoder"]]},
+    {"id": "STEP_PYTHON", "sections": ["workflow"], "groups": [["python"], ["one literal assignment", "one data-only binding"], ["decision"], ["ast parser", "syntax tree"], ["without execution", "without running"]]},
+    {"id": "POLICY_PRESERVE", "sections": ["fidelity"], "groups": [["every key", "every name"], ["value", "content"], ["string type", "string data type"], ["adding or omitting", "extra or missing"]]},
+    {"id": "POLICY_SAFE_PYTHON", "sections": ["fidelity"], "groups": [["imports"], ["calls", "function invocation"], ["attributes", "member access"], ["control flow", "branching"], ["executable behavior", "active python behavior"]]},
+    {"id": "POLICY_REFUSE", "sections": ["fidelity"], "groups": [["refuse", "fail closed"], ["malformed semantic result", "invalid semantic outcome"], ["unsupported format", "unrecognized language"], ["layout"]]},
+    {"id": "POLICY_BIND", "sections": ["fidelity"], "groups": [["bind", "attach"], ["verified semantic result", "confirmed semantic outcome"], ["compiled policy", "compiled instructions"]]},
+    {"id": "POLICY_LAYOUT", "sections": ["size"], "groups": [["compact"], ["one line"], ["readable"], ["multiline", "multiple lines"], ["indent"]]},
+    {"id": "COMPLETE_VERIFY", "sections": ["completion"], "groups": [["only", "only after"], ["parsing", "decoding"], ["exact value equality", "identical data"], ["safe python syntax", "inert python tree"]]},
+    {"id": "COMPLETE_EMIT", "sections": ["completion"], "groups": [["emit", "return"], ["only", "just"], ["verified json or python artifact", "validated json or python output"]]}
+  ],
+  "skill_profiles": {
+    "STRUCTURED_OUTPUT": {
+      "required_rules": [
+        "TRIGGER_STRUCTURED_OUTPUT",
+        "STEP_INSPECT_RESULT",
+        "STEP_ROUTE_FORMAT",
+        "STEP_ROUTE_LAYOUT",
+        "STEP_EXACT_FIELDS",
+        "STEP_JSON",
+        "STEP_PYTHON",
+        "POLICY_PRESERVE",
+        "POLICY_SAFE_PYTHON",
+        "POLICY_REFUSE",
+        "POLICY_BIND",
+        "POLICY_LAYOUT",
+        "COMPLETE_VERIFY",
+        "COMPLETE_EMIT"
+      ],
+      "trigger": "VERIFIED_PLAN_DECISION",
+      "workflow": ["INSPECT_RESULT", "ROUTE_OUTPUT", "PLAN_STRUCTURE", "SERIALIZE_FORMAT", "VERIFY_ARTIFACT", "RETURN_ARTIFACT"],
+      "policies": [
+        {"id": "DEFAULT_COMPACT", "mode": "DEFAULT_IF", "condition": "LAYOUT_SIGNAL_ABSENT", "outcome": "COMPACT"},
+        {"id": "DEFAULT_JSON", "mode": "DEFAULT_IF", "condition": "FORMAT_SIGNAL_ABSENT", "outcome": "JSON"},
+        {"id": "EXACT_FIELDS", "mode": "MUST", "condition": "MATERIAL_FIELD_MISSING", "outcome": "SEMANTIC_OMISSION"},
+        {"id": "HASH_BINDING", "mode": "MUST", "condition": "HASH_BINDING_INVALID", "outcome": "HASH_BINDING_INVALID"},
+        {"id": "LAYOUT_REQUIRED", "mode": "MUST", "condition": "LAYOUT_INVALID", "outcome": "LAYOUT_INVALID"},
+        {"id": "MALFORMED_REFUSES", "mode": "REFUSE_IF", "condition": "SEMANTIC_RESULT_MALFORMED", "outcome": "MALFORMED_SEMANTIC_RESULT"},
+        {"id": "NO_EXTRA_FIELDS", "mode": "MUST_NOT", "condition": "EXTRA_FIELD_PRESENT", "outcome": "UNSUPPORTED_FIELD"},
+        {"id": "SAFE_PYTHON_ONLY", "mode": "MUST_NOT", "condition": "PYTHON_AST_UNSAFE", "outcome": "UNSAFE_PYTHON"},
+        {"id": "UNKNOWN_FORMAT_REFUSES", "mode": "REFUSE_IF", "condition": "FORMAT_SIGNAL_UNSUPPORTED", "outcome": "UNSUPPORTED_FORMAT"},
+        {"id": "UNKNOWN_LAYOUT_REFUSES", "mode": "REFUSE_IF", "condition": "LAYOUT_SIGNAL_UNSUPPORTED", "outcome": "UNSUPPORTED_LAYOUT"}
+      ],
+      "completion": ["ARTIFACT_PARSED", "EXACT_VALUE_PRESERVED", "HASHES_BOUND", "LAYOUT_SATISFIED", "SAFE_FORMAT_EMITTED"]
+    }
+  },
+  "size_signals": {
+    "CONCISE": ["compact output", "single-line output"],
+    "STANDARD": ["default layout"],
+    "DETAILED": ["readable output", "multiline output"]
+  },
+  "size_bands": {
+    "CONCISE": {"minimum_words": 1, "maximum_words": 32, "minimum_sentences": 1, "maximum_sentences": 1},
+    "STANDARD": {"minimum_words": 1, "maximum_words": 32, "minimum_sentences": 1, "maximum_sentences": 1},
+    "DETAILED": {"minimum_words": 1, "maximum_words": 64, "minimum_sentences": 1, "maximum_sentences": 8}
+  },
+  "presentation_routes": [
+    {"request": "", "format": "JSON", "layout": "COMPACT"},
+    {"request": "return compact json", "format": "JSON", "layout": "COMPACT"},
+    {"request": "return readable json", "format": "JSON", "layout": "READABLE"},
+    {"request": "return compact python", "format": "PYTHON", "layout": "COMPACT"},
+    {"request": "return readable python", "format": "PYTHON", "layout": "READABLE"}
+  ],
+  "limits": {"maximum_skill_bytes": 65536, "maximum_clauses": 64, "maximum_graph_units": 128, "maximum_artifact_bytes": 4096}
+}
+

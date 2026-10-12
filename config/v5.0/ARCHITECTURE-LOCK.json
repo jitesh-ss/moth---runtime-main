@@ -1,0 +1,108 @@
+{
+  "schema": "moth-architecture-lock/5.0",
+  "runtime": "5.0",
+  "canonical": false,
+  "canonical_runtime": "4.7",
+  "launcher_default_runtime": null,
+  "status": "OPT_IN_BOUNDED_LANGUAGE_FIDELITY_CONFIRMED",
+  "documents": {
+    "architecture": {
+      "path": "docs/v5.0/ARCHITECTURE.md",
+      "sha256": "5f36e1bd0494eaf06d85a2ddc9a1faf610bfc4fc425ae9687d49497eb5c77192"
+    },
+    "product": {
+      "path": "docs/v5.0/PRODUCT.md",
+      "sha256": "a2a5a8aaafb45f39ae780f3b15950cf0e844e8e347f51f6316bad6eb6f49e908"
+    },
+    "specification": {
+      "path": "docs/v5.0/SPEC.md",
+      "sha256": "59577fea3c7414d608755006136d6238025356e8aa99cf4c6b8782a12b889b96"
+    }
+  },
+  "configuration": {
+    "runtime": {
+      "path": "config/v5.0/runtime.json",
+      "sha256": "9479a6bfc3205c1bd693aa05f52921e5126e81997d92129f3490184f48557394"
+    },
+    "world_contracts": {
+      "path": "config/v5.0/worlds.json",
+      "sha256": "28072866a4cdc243bc2caf545733582d85f04bd986002cd1ad2c8d3c6a1f2322"
+    },
+    "grounding": {
+      "path": "config/v5.0/grounding-en-1.0.json",
+      "sha256": "e3e43fc24f7b0b62ef3e04b7df3f758cdb07e3a117eea96ba8a7c58e69d6931c"
+    },
+    "encoder": {
+      "path": "config/v5.0/encoder-text-en-1.0.json",
+      "sha256": "be8e9f3525c1102ff8b1a6afc0c8d81d69023d3a333665b07899e7045f92189b"
+    }
+  },
+  "implementation": {
+    "path": "src/moth_runtime_v5_0",
+    "tree_hash_algorithm": "sha256(path-relative-root || NUL || sha256(file-bytes) for sorted top-level Python files)",
+    "tree_sha256": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6",
+    "imports_runtime_4_9": false,
+    "imports_experiments": false
+  },
+  "launcher": {
+    "path": "src/moth_launcher_v5",
+    "tree_hash_algorithm": "sha256(path-relative-root || NUL || sha256(file-bytes) for sorted top-level Python files)",
+    "tree_sha256": "00efd1f14d49a1f5beedc0f12fdd3d6203bd40a70c76784f8a6a7ecf0c8807b5",
+    "explicit_runtime_required": true,
+    "supported_runtimes": ["4.7", "4.8", "4.9", "5.0"]
+  },
+  "schemas": {
+    "store": "proof-energy-world-store/5.0",
+    "archive": "proof-energy-world-archive/5.0",
+    "result": "moth-world-result/5.0",
+    "handoff": "moth-world-handoff/5.0",
+    "bundle": "moth-world-bundle/5.0",
+    "factor_trace": "moth-factor-settlement/5.0",
+    "semantic_trace": "moth-semantic-settlement/5.0"
+  },
+  "worlds": {
+    "roles": ["INPUT", "MAIN", "SURFACE"],
+    "production_content_empty": true,
+    "active_bundle": null
+  },
+  "production_store": {
+    "path": "data/store-5.0.sqlite3",
+    "initialized": true,
+    "generation_count": 0,
+    "episode_count": 0,
+    "sha256": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b"
+  },
+  "runtime_4_9_preservation": {
+    "implementation_path": "src/moth_runtime_v4_9",
+    "implementation_tree_sha256": "ecd29d68e4a91a5da5c834ba53e51ecbddb61fe8acd8138702eb910534d30233",
+    "launcher_path": "src/moth_launcher",
+    "launcher_tree_sha256": "adbf50256eaf9b7702a8229be57923f9559930bc3c8de5f84e4ac349e1649351",
+    "baseline_aggregate_sha256": "3ddad5a0f486179c3a9d56665bdbd1aeb1f770a660bcaf7828a490c7746beccb",
+    "preserved_after_implementation": true
+  },
+  "semantic_experiment_preservation": {
+    "baseline_aggregate_sha256": "e1b92641fc6dddc642977e32b4278f19d3da986083647ee6ec911ba3930404a3",
+    "production_imports": false,
+    "preserved_after_implementation": true
+  },
+  "verification": {
+    "focused_runtime_5_0_tests": {"passed": 54, "failed": 0},
+    "full_regression": {"passed": 150, "failed": 1, "known_preexisting_failure": "Runtime 4.8 architecture-lock mismatch"},
+    "offline_real_bge_smoke": {
+      "passed": true,
+      "encoder_dimension": 1024,
+      "encoder_fingerprint": "c027792ab279e7a8881a42ba2cb85c4934037f9d121dbe83b114010571975509",
+      "network_attempts": 0
+    }
+  },
+  "qualification": {
+    "verdict": "BOUNDED_COMPILED_LANGUAGE_FIDELITY_CONFIRMED",
+    "unsafe_semantic_acceptances": 0,
+    "unrestricted_language_claimed": false,
+    "surface_generation_claimed": false
+  },
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "earlier_stores_migrated": false,
+  "standalone": true
+}

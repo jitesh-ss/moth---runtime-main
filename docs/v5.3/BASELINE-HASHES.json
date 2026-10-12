@@ -1,0 +1,6 @@
+{
+  "schema": "moth-runtime-baseline-hashes/5.3",
+  "artifact_hash": "354eb41918e2ba98d0b20564642c6f711d5086ce0dee94bcac017dc1e86788b8",
+  "lock_sha256": "f6700f71d8b1a1d4c09b8ae2406c4518571ded849c764be72ff8cb00fb76362c",
+  "qualification_sha256": "901b2619b85dc9e6057fa1c32c459c350e016504d36f7cc2352e76714eb69da2"
+}

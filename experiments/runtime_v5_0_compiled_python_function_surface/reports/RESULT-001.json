@@ -1,0 +1,51 @@
+{
+  "schema": "moth-v5-python-function-surface-result/1.0",
+  "verdict": "BOUNDED_COMPILED_PYTHON_FUNCTION_SURFACE_CONFIRMED",
+  "execution_boundary": "CONSTRAINED_LOCAL_SUBPROCESS_NOT_HARDENED_CONTAINER",
+  "policy_hash": "b369596064dddf617b1636b86b254f845704d90888c84d127715450f2b6814ab",
+  "field_hash": "1c5846453228fef3c75bc2d98bb8b94f145fb10b84dce99c30d164114f4c5570",
+  "fixture_freeze_hash": "e328820ee97a5effc969ec20e1f47e6154000c32058ef5dc0086b9f276e8a099",
+  "campaign_result_hash": "d7c412dd883038067ab07d93d844c71cbc128cc3b325842ff5a3c8173c0fe0e0",
+  "policy_equivalence": {
+    "primary_equals_paraphrase": true,
+    "primary_equals_granular_oracle": true
+  },
+  "deterministic_compilations": 10,
+  "program_campaign": {
+    "semantic_cases": 8,
+    "presentation_requests": 2,
+    "programs": 16,
+    "ast_valid": 16,
+    "executed_exact_value": 16,
+    "runtime_byte_parity": 16,
+    "archive_replays": 16,
+    "positive_execution_count_including_replay_verification": 48,
+    "functions_per_program": 3,
+    "module_variables_per_program": 4,
+    "line_counts": [30],
+    "byte_range": {"minimum": 745, "maximum": 752},
+    "ast_node_counts": [107],
+    "semantic_drift": 0,
+    "unsafe_python_accepted": 0
+  },
+  "refusal_preservation": {
+    "cases": 2,
+    "byte_exact_with_control": 2,
+    "converted_to_programs": 0
+  },
+  "adversarial_gates": {
+    "invalid_skill_cases": 4,
+    "unsafe_program_cases": 5,
+    "causal_ablations": 7,
+    "tamper_probes": 6,
+    "failures_detected": 22
+  },
+  "isolation": {
+    "independent_store_count": 2,
+    "production_store_accesses": 0,
+    "network_capable_ast_nodes": 0,
+    "temporary_instances_removed": true,
+    "temporary_execution_directories_removed": true,
+    "protected_hashes_unchanged": true
+  }
+}

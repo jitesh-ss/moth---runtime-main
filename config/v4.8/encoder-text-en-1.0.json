@@ -1,0 +1,19 @@
+{
+  "schema": "moth-world-encoder/4.8",
+  "encoder": "BAAI/bge-large-en-v1.5",
+  "model_path": "models/bge-large-en-v1.5",
+  "query_prefix": "Represent this sentence for searching relevant passages: ",
+  "dimension": 1024,
+  "dtype": "<f4",
+  "normalized": true,
+  "device": "cpu",
+  "batch_size": 8,
+  "model_files": {
+    "config.json": "446712fac367857b4b1302762fe1cd7bfa8b3c4b77b4dc5d77c4025407660896",
+    "model.safetensors": "45e1954914e29bd74080e6c1510165274ff5279421c89f76c418878732f64ae7",
+    "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+    "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+    "tokenizer_config.json": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+    "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+  }
+}

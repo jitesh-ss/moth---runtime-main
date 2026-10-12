@@ -1,0 +1,10 @@
+{
+  "schema": "moth-runtime-baseline/5.1",
+  "source_commit": "93b78ada83a6ab6d2833104a084279de2f6f820e",
+  "runtime_5_0_architecture_lock": {
+    "path": "config/v5.0/ARCHITECTURE-LOCK.json",
+    "sha256": "8d527b89751d32770a54028801b59e988ef706cf3ec9e75a88a373d68cec89a4"
+  },
+  "runtime_5_0_implementation_tree_sha256": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6",
+  "focused_runtime_5_0_tests": 54
+}

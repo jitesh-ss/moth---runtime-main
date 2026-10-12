@@ -1,0 +1,128 @@
+{
+  "attempt": 1,
+  "base_artifact_hash": "bae305a2c7b92459443608730c3788b9123b2767b7fa0defff6ef05b1546a9c5",
+  "candidate_artifact_hash": "f2cc39fc6b5f5cd9124f2e9513c8b457a582765899a253e750a2f2784469040f",
+  "causal": {
+    "controls": {
+      "fresh_store_replay": true,
+      "no_skill": true,
+      "oracle_leak_scan": true,
+      "policy_hash_corruption": true,
+      "router_ablation": true,
+      "trigger_corruption": true,
+      "unrelated_skill": true,
+      "workflow_corruption": true
+    },
+    "passed": 8,
+    "required": 8
+  },
+  "claim": "ONE_COMPILED_JSON_SKILL_AUTONOMOUS_VARIETY_CONFIRMED",
+  "compilation": {
+    "compilation_id": "b1cb136ca50233a5450d29fbcfc22e7805b8074bb057210e6b5c7190e57bca0c",
+    "field_hash": "16d5650d2aa70666e636340fab3e68035ca2b49e7b2730764eb4363d975939a2",
+    "field_id": "autonomous-json-formatting-en-1.0",
+    "graph_unit_count": 50,
+    "normative_clause_count": 14,
+    "policy_hash": "18ee133863026ea671dea0af2707eba57af887085b93e575a9d7803bd8ac6b2c",
+    "profile_id": "AUTONOMOUS_JSON_FORMATTING",
+    "repetitions": 10
+  },
+  "metamorphic": {
+    "cases": 64,
+    "passed": 64,
+    "relations": {
+      "different_value": 8,
+      "same_response": 8,
+      "same_result": 16,
+      "same_value": 24,
+      "same_value_different_bytes": 8
+    }
+  },
+  "negative": {
+    "cases": 96,
+    "categories": {
+      "ambiguous_field": 8,
+      "authority": 8,
+      "contradictory_layout": 8,
+      "duplicate_rename": 8,
+      "hcf_conflict": 8,
+      "lossy": 8,
+      "malformed": 8,
+      "missing_field": 8,
+      "resource_limit": 8,
+      "unrelated": 8,
+      "unsupported_calculation": 8,
+      "unsupported_format": 8
+    },
+    "correct_typed_refusals": 96
+  },
+  "positive": {
+    "autonomously_routed": 240,
+    "byte_exact": 240,
+    "cases": 240,
+    "families": {
+      "canonical_order": 15,
+      "compact_json": 15,
+      "flat_selection": 15,
+      "grouped_records": 15,
+      "heterogeneous_array": 15,
+      "homogeneous_records": 15,
+      "keyed_map": 15,
+      "nested_object": 15,
+      "nullable_sparse": 15,
+      "paginated_envelope": 15,
+      "pretty_json": 15,
+      "projection_rename": 15,
+      "result_envelope": 15,
+      "scalar_array": 15,
+      "source_order": 15,
+      "success_error_union": 15
+    },
+    "layout_cases": 60,
+    "layout_exact": 60,
+    "policy_attributed": 240,
+    "semantic_exact": 240,
+    "shape_exact": 240
+  },
+  "preservation": {
+    "artifact_hash_after": "bae305a2c7b92459443608730c3788b9123b2767b7fa0defff6ef05b1546a9c5",
+    "artifact_hash_before": "bae305a2c7b92459443608730c3788b9123b2767b7fa0defff6ef05b1546a9c5",
+    "summary": "30 passed in 7.04s",
+    "tests_passed": true,
+    "unchanged": true
+  },
+  "repeatability": {
+    "digests": {
+      "1": [
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c"
+      ],
+      "777": [
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c",
+        "87ffc11e857008a82e7ff6c88fa49bc0e302e59fc69cd29e1e5f0df9e264f07c"
+      ]
+    },
+    "hash_seeds": [
+      1,
+      777
+    ],
+    "identical": true,
+    "runs_per_seed": 5
+  },
+  "report_hash": "9372655c6b23fed5e0662bce083f9294ba703b158089031ce5bdae8417dde60e",
+  "schema": "moth-autonomous-json-qualification/5.1-experiment",
+  "side_effects": {
+    "code_executions": 0,
+    "network": 0,
+    "tool_dispatches": 0,
+    "workspace_writes": 0
+  },
+  "source_manifest_hash": "928ba0bd51e82e29d41fdbfbf16763eedd81daabac6ff6656c8db99653ae4157",
+  "verdict": "PASS"
+}

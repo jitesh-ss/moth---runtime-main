@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moth-layered-compiled-field/5.1",
+  "title": "Moth layered compiled field archive 5.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "field_id", "kind", "source_schema", "source_hash", "inventory", "interpretation_rule_hashes", "skill_profile_hashes", "capabilities", "compiler", "verifier", "limits", "source", "field_hash"],
+  "properties": {
+    "schema": {"const": "moth-layered-compiled-field/5.1"},
+    "field_id": {"type": "string", "minLength": 1},
+    "kind": {"enum": ["INSTRUCTION", "SURFACE_NATURAL", "SURFACE_RICH", "SURFACE_STRUCTURED", "SURFACE_PYTHON"]},
+    "source_schema": {"type": "string"},
+    "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "inventory": {"type": "object"},
+    "interpretation_rule_hashes": {"type": "object"},
+    "skill_profile_hashes": {"type": "object"},
+    "capabilities": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string"}},
+    "compiler": {"const": "moth-layered-skill-compiler/5.1"},
+    "verifier": {"const": "moth-layered-field-verifier/5.1"},
+    "limits": {"type": "object"},
+    "source": {"type": "object"},
+    "field_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

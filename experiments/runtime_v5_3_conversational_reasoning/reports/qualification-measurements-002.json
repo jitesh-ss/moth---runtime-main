@@ -1,0 +1,132 @@
+{
+  "artifact": {
+    "artifact_hash": "354eb41918e2ba98d0b20564642c6f711d5086ce0dee94bcac017dc1e86788b8",
+    "candidate_count": 16,
+    "energy_foundation_file_hash": "f11aebe0305c310884b637342fae64fc697a6b075b72d8c7f0eaeb33aede37a8",
+    "energy_foundation_logical_hash": "8c78d45e5a3c6ce4b8253eab8a513c90ce18fd0d8610053a694e8a068f5b6c55",
+    "field_count": 5,
+    "kernel_foundation_hash": "a24145f82e056bcd7f34bef5ded3674255444bbbc23206bb47711d9c1b2c6be1",
+    "kernel_foundation_id": "kernel-foundation-a24145f82e056bcd7f34bef5",
+    "model_id": "moth-energy-native-model/5.3",
+    "schema": "moth-model-artifact-verification/5.3",
+    "skill_count": 10,
+    "verified": true
+  },
+  "chat_plan_turn_median_ns": 10546583.0,
+  "legacy_skills": {
+    "accepted": 9,
+    "cases": 36,
+    "dispatch_count": 0,
+    "task_workspace_writes": 0
+  },
+  "legacy_surface": {
+    "candidate_dictionary_reconstructions": 0,
+    "generated_python_executions": 0,
+    "modes": {
+      "action_plan": 8,
+      "compact_prose": 8,
+      "concise": 16,
+      "conversational_tone": 8,
+      "detailed": 16,
+      "detailed_prose": 8,
+      "explanation_json": 8,
+      "formal_tone": 8,
+      "json_compact": 16,
+      "json_readable": 8,
+      "markdown_bullets": 8,
+      "markdown_table": 8,
+      "python_function": 16,
+      "python_literal_compact": 8,
+      "python_literal_readable": 8,
+      "standard": 16
+    },
+    "outputs": 168,
+    "semantic_preservation": 168
+  },
+  "performance": {
+    "median": {
+      "5.2": {
+        "baseline_rss": 35995648,
+        "incremental_rss": 6520832,
+        "median_ns": 214792.0,
+        "peak_rss": 42467328
+      },
+      "5.3": {
+        "baseline_rss": 38928384,
+        "incremental_rss": 5324800,
+        "median_ns": 220708.5,
+        "peak_rss": 44253184
+      }
+    },
+    "memory_ratio": 0.8165829145728644,
+    "samples": {
+      "5.2": [
+        {
+          "baseline_rss": 35913728,
+          "incremental_rss": 6520832,
+          "median_ns": 216208.0,
+          "peak_rss": 42434560
+        },
+        {
+          "baseline_rss": 36061184,
+          "incremental_rss": 6225920,
+          "median_ns": 220750.0,
+          "peak_rss": 42287104
+        },
+        {
+          "baseline_rss": 36126720,
+          "incremental_rss": 6406144,
+          "median_ns": 214708.0,
+          "peak_rss": 42532864
+        },
+        {
+          "baseline_rss": 35995648,
+          "incremental_rss": 6651904,
+          "median_ns": 214333.5,
+          "peak_rss": 42647552
+        },
+        {
+          "baseline_rss": 35913728,
+          "incremental_rss": 6553600,
+          "median_ns": 214792.0,
+          "peak_rss": 42467328
+        }
+      ],
+      "5.3": [
+        {
+          "baseline_rss": 38912000,
+          "incremental_rss": 5357568,
+          "median_ns": 220292.0,
+          "peak_rss": 44269568
+        },
+        {
+          "baseline_rss": 39043072,
+          "incremental_rss": 5193728,
+          "median_ns": 221208.5,
+          "peak_rss": 44236800
+        },
+        {
+          "baseline_rss": 38928384,
+          "incremental_rss": 5324800,
+          "median_ns": 220708.5,
+          "peak_rss": 44253184
+        },
+        {
+          "baseline_rss": 39108608,
+          "incremental_rss": 5259264,
+          "median_ns": 222958.0,
+          "peak_rss": 44367872
+        },
+        {
+          "baseline_rss": 38912000,
+          "incremental_rss": 5341184,
+          "median_ns": 220333.0,
+          "peak_rss": 44253184
+        }
+      ]
+    },
+    "time_ratio": 1.0275452530820515
+  },
+  "protected_changes": [],
+  "three_identical_builds": true
+}

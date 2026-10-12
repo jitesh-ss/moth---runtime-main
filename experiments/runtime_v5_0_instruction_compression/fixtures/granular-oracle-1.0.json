@@ -1,0 +1,92 @@
+{
+  "schema": "moth-instruction-oracle/1.0",
+  "single": {
+    "schema": "moth-compiled-skill-policy/1.0",
+    "policy_id": "SAFE_TEXT_PATCH",
+    "trigger": "TEXT_REPLACEMENT_REQUEST",
+    "workflow": [
+      "LOCATE_TARGET",
+      "READ_TARGET",
+      "CHECK_TEXT_FILE",
+      "CHECK_SCOPE",
+      "COUNT_MATCHES",
+      "STAGE_REPLACEMENT",
+      "APPLY_REPLACEMENT",
+      "READ_RESULT",
+      "VERIFY_EXACT_CHANGE",
+      "HASH_RESULT",
+      "REPORT_RESULT"
+    ],
+    "edges": [
+      ["LOCATE_TARGET", "READ_TARGET"],
+      ["READ_TARGET", "CHECK_TEXT_FILE"],
+      ["CHECK_TEXT_FILE", "CHECK_SCOPE"],
+      ["CHECK_SCOPE", "COUNT_MATCHES"],
+      ["COUNT_MATCHES", "STAGE_REPLACEMENT"],
+      ["STAGE_REPLACEMENT", "APPLY_REPLACEMENT"],
+      ["APPLY_REPLACEMENT", "READ_RESULT"],
+      ["READ_RESULT", "VERIFY_EXACT_CHANGE"],
+      ["VERIFY_EXACT_CHANGE", "HASH_RESULT"],
+      ["HASH_RESULT", "REPORT_RESULT"]
+    ],
+    "policies": [
+      {"id": "MISSING_OR_AMBIGUOUS_REFUSES", "mode": "REFUSE_IF", "condition": "TARGET_MISSING_OR_AMBIGUOUS", "outcome": "TARGET_NOT_UNIQUE"},
+      {"id": "NO_UNRELATED_CHANGES", "mode": "MUST_NOT", "condition": "MODIFICATION_OUTSIDE_SCOPE", "outcome": "SCOPE_VIOLATION"},
+      {"id": "PRECONDITION_FAILURE_REFUSES", "mode": "REFUSE_IF", "condition": "PRECONDITION_UNPROVEN", "outcome": "PRECONDITION_FAILED"},
+      {"id": "PROTECTED_REQUIRES_AUTHORITY", "mode": "ASK_FIRST", "condition": "TARGET_PROTECTED", "outcome": "PROTECTED_TARGET"}
+    ],
+    "completion": ["EXACT_REPLACEMENT_APPLIED", "REPORT_EMITTED", "UNRELATED_STATE_UNCHANGED", "VERIFICATION_PASSED"]
+  },
+  "evidence": {
+    "schema": "moth-compiled-skill-policy/1.0",
+    "policy_id": "EVIDENCE_LEDGER",
+    "trigger": "VERIFIED_FILE_CHANGE",
+    "workflow": ["RECORD_EVIDENCE"],
+    "edges": [],
+    "policies": [
+      {"id": "NO_FALSE_SUCCESS", "mode": "MUST_NOT", "condition": "VERIFICATION_FAILED", "outcome": "VERIFICATION_FAILED"}
+    ],
+    "completion": ["EVIDENCE_RECORDED"]
+  },
+  "composite": {
+    "schema": "moth-compiled-skill-policy/1.0",
+    "policy_id": "SAFE_TEXT_PATCH+EVIDENCE_LEDGER",
+    "trigger": "TEXT_REPLACEMENT_REQUEST",
+    "workflow": [
+      "LOCATE_TARGET",
+      "READ_TARGET",
+      "CHECK_TEXT_FILE",
+      "CHECK_SCOPE",
+      "COUNT_MATCHES",
+      "STAGE_REPLACEMENT",
+      "APPLY_REPLACEMENT",
+      "READ_RESULT",
+      "VERIFY_EXACT_CHANGE",
+      "HASH_RESULT",
+      "RECORD_EVIDENCE",
+      "REPORT_RESULT"
+    ],
+    "edges": [
+      ["LOCATE_TARGET", "READ_TARGET"],
+      ["READ_TARGET", "CHECK_TEXT_FILE"],
+      ["CHECK_TEXT_FILE", "CHECK_SCOPE"],
+      ["CHECK_SCOPE", "COUNT_MATCHES"],
+      ["COUNT_MATCHES", "STAGE_REPLACEMENT"],
+      ["STAGE_REPLACEMENT", "APPLY_REPLACEMENT"],
+      ["APPLY_REPLACEMENT", "READ_RESULT"],
+      ["READ_RESULT", "VERIFY_EXACT_CHANGE"],
+      ["VERIFY_EXACT_CHANGE", "HASH_RESULT"],
+      ["HASH_RESULT", "RECORD_EVIDENCE"],
+      ["RECORD_EVIDENCE", "REPORT_RESULT"]
+    ],
+    "policies": [
+      {"id": "MISSING_OR_AMBIGUOUS_REFUSES", "mode": "REFUSE_IF", "condition": "TARGET_MISSING_OR_AMBIGUOUS", "outcome": "TARGET_NOT_UNIQUE"},
+      {"id": "NO_FALSE_SUCCESS", "mode": "MUST_NOT", "condition": "VERIFICATION_FAILED", "outcome": "VERIFICATION_FAILED"},
+      {"id": "NO_UNRELATED_CHANGES", "mode": "MUST_NOT", "condition": "MODIFICATION_OUTSIDE_SCOPE", "outcome": "SCOPE_VIOLATION"},
+      {"id": "PRECONDITION_FAILURE_REFUSES", "mode": "REFUSE_IF", "condition": "PRECONDITION_UNPROVEN", "outcome": "PRECONDITION_FAILED"},
+      {"id": "PROTECTED_REQUIRES_AUTHORITY", "mode": "ASK_FIRST", "condition": "TARGET_PROTECTED", "outcome": "PROTECTED_TARGET"}
+    ],
+    "completion": ["EVIDENCE_RECORDED", "EXACT_REPLACEMENT_APPLIED", "REPORT_EMITTED", "UNRELATED_STATE_UNCHANGED", "VERIFICATION_PASSED"]
+  }
+}
+

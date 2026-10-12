@@ -1,0 +1,14 @@
+{
+  "schema": "moth-v5-typed-determiner-extension/1.0",
+  "frozen_before_new_prompts": true,
+  "base_field_sha256": "2275ac182e275c021c0587a33b04fc65b2d42a01872d373d4cb13acdbc89a11c",
+  "operator": {
+    "id": "optional-capability-determiner",
+    "grammar": "DETERMINER? + COMPILED_CAPABILITY_SURFACE",
+    "determiners": ["a", "an", "the"],
+    "roles": ["RESOURCE", "PERMISSION", "DEADLINE"],
+    "maximum_prefixes": 1,
+    "semantic_contribution": "NONE",
+    "existing_determiner_policy": "EXACT_ONLY"
+  }
+}

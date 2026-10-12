@@ -1,0 +1,72 @@
+{
+  "schema": "moth-v5-compositional-language-field/1.0",
+  "frozen_before_prompts": true,
+  "language": "en",
+  "domain": "delivery",
+  "entities": [
+    {
+      "id": "proposed",
+      "canonical": "direct courier",
+      "role": "PROPOSED",
+      "surfaces": ["direct courier", "our primary carrier", "the primary carrier", "our proposed carrier", "the proposed carrier", "the first plan"]
+    },
+    {
+      "id": "backup",
+      "canonical": "backup courier",
+      "role": "BACKUP",
+      "surfaces": ["backup courier", "the reserve carrier", "our reserve carrier", "the alternative carrier", "the backup carrier", "the second plan"]
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "resource",
+      "canonical": "cold storage",
+      "role": "RESOURCE",
+      "surfaces": ["cold storage", "refrigeration", "cold-chain support", "refrigerated capacity"]
+    },
+    {
+      "id": "permission",
+      "canonical": "road permit",
+      "role": "PERMISSION",
+      "surfaces": ["road permit", "delivery authorization", "delivery permission"]
+    },
+    {
+      "id": "deadline",
+      "canonical": "delivery deadline",
+      "role": "DEADLINE",
+      "surfaces": ["delivery deadline", "the cutoff", "the required time"]
+    }
+  ],
+  "relation_rules": [
+    {"id": "resource-negative-short", "fragment": "is short of {RESOURCE}", "emit": "{SUBJECT} lacks {RESOURCE}"},
+    {"id": "resource-negative-without", "fragment": "operates without {RESOURCE}", "emit": "{SUBJECT} lacks {RESOURCE}"},
+    {"id": "resource-negative-missing", "fragment": "is missing {RESOURCE}", "emit": "{SUBJECT} lacks {RESOURCE}"},
+    {"id": "resource-positive-has", "fragment": "has {RESOURCE}", "emit": "{SUBJECT} has {RESOURCE}"},
+    {"id": "resource-positive-possesses", "fragment": "possesses {RESOURCE}", "emit": "{SUBJECT} has {RESOURCE}"},
+    {"id": "resource-positive-carries", "fragment": "carries {RESOURCE}", "emit": "{SUBJECT} has {RESOURCE}"},
+    {"id": "permission-positive-retains", "fragment": "retains {PERMISSION}", "emit": "{SUBJECT} has {PERMISSION}"},
+    {"id": "permission-positive-remains", "fragment": "remains authorized", "emit": "{SUBJECT} has road permit"},
+    {"id": "permission-positive-has", "fragment": "has {PERMISSION}", "emit": "{SUBJECT} has {PERMISSION}"},
+    {"id": "permission-negative-lacks", "fragment": "lacks {PERMISSION}", "emit": "{SUBJECT} lacks {PERMISSION}"},
+    {"id": "deadline-positive-still", "fragment": "can still arrive on time", "emit": "{SUBJECT} can meet the deadline"},
+    {"id": "deadline-positive-cutoff", "fragment": "can arrive before {DEADLINE}", "emit": "{SUBJECT} can meet the deadline"},
+    {"id": "deadline-positive-meets", "fragment": "will meet {DEADLINE}", "emit": "{SUBJECT} can meet the deadline"},
+    {"id": "deadline-negative-misses", "fragment": "will miss {DEADLINE}", "emit": "{SUBJECT} cannot meet the deadline"}
+  ],
+  "coordination": {
+    "operators": ["but", "and", "while"],
+    "policy": "INHERIT_UNIQUE_SENTENCE_SUBJECT",
+    "maximum_facts_per_sentence": 3
+  },
+  "intent": {
+    "id": "validate-and-select",
+    "validation_markers": ["determine whether the first plan is viable", "assess whether the proposed plan is valid", "check whether our primary option is workable"],
+    "selection_markers": ["choose the permitted alternative if necessary", "select the reserve option when needed", "use the backup plan if it is not"]
+  },
+  "pronouns": {"surfaces": ["it"], "policy": "MOST_RECENT_UNAMBIGUOUS"},
+  "forbidden_markers": {
+    "modality": ["might", "possibly", "perhaps"],
+    "time": ["last year", "previously", "yesterday"]
+  },
+  "limits": {"sentences": 8, "facts": 8, "tokens": 128}
+}

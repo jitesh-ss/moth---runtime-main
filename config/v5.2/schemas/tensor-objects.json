@@ -1,0 +1,25 @@
+{
+  "schema": "moth-tensor-schema-catalog/5.2",
+  "container": "SAFETENSORS",
+  "container_version": "0.8.0",
+  "numeric_only": true,
+  "little_endian": true,
+  "objects": {
+    "moth-energy-foundation/5.2": {
+      "purpose": "immutable candidates, properties, BASE HCF, capabilities, and presentation routing",
+      "required_tensors": ["candidate_id", "semantic_id", "candidate_enabled_default", "grounding_cost_units", "modality", "scope_hash", "candidate_property_present", "candidate_property_value_hash", "candidate_field_hash", "candidate_skill_hash", "payload_handle", "request_hash", "request_candidate_index", "base_entry_id", "base_entry_hash", "base_effect", "base_scope_index", "base_value_hash", "base_target_level", "base_redelegable", "base_source_hash", "base_source_span", "label_bytes", "label_offsets"]
+    },
+    "moth-hcf-field/5.2": {
+      "purpose": "SYSTEM, persistent CONTEXT, and transient CONTEXT HCF arrays",
+      "required_tensors": ["declared_level", "entry_id", "entry_hash", "level", "effect", "scope_index", "value_hash", "target_level", "redelegable", "source_hash", "source_span", "activation_candidate", "activation_scope_index", "activation_state", "label_bytes", "label_offsets"]
+    },
+    "moth-compiled-field/5.2": {
+      "purpose": "typed L1-L6 field structure",
+      "required_tensors": ["node_kind", "node_parent", "node_key_label", "node_text_label", "node_int_index", "node_int_value", "binding_label_index", "capability_label_index", "identity_hash", "label_bytes", "label_offsets"]
+    },
+    "moth-compiled-skill/5.2": {
+      "purpose": "inert skill opcode/workflow policy",
+      "required_tensors": ["binding_label_index", "workflow_label_index", "workflow_edge", "completion_label_index", "policy_hash", "label_bytes", "label_offsets"]
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "schema": "moth-semantic-equivalence-experiment/1.0",
+  "entity_types": ["AGENT", "CAPABILITY"],
+  "entities": [
+    {
+      "key": "direct-courier",
+      "type": "AGENT",
+      "canonical_name": "direct courier",
+      "surfaces": ["direct courier", "proposed courier", "direct carrier", "proposed carrier"],
+      "description": "direct courier proposed primary delivery carrier"
+    },
+    {
+      "key": "backup-courier",
+      "type": "AGENT",
+      "canonical_name": "backup courier",
+      "surfaces": ["backup courier", "alternative courier", "backup carrier", "alternative carrier"],
+      "description": "backup courier alternative secondary delivery carrier"
+    },
+    {
+      "key": "deployment-engineer",
+      "type": "AGENT",
+      "canonical_name": "deployment engineer",
+      "surfaces": ["deployment engineer", "proposed engineer", "primary engineer"],
+      "description": "proposed primary software deployment engineer"
+    },
+    {
+      "key": "backup-engineer",
+      "type": "AGENT",
+      "canonical_name": "backup engineer",
+      "surfaces": ["backup engineer", "alternate engineer", "alternative engineer"],
+      "description": "backup alternative software deployment engineer"
+    },
+    {
+      "key": "cold-storage",
+      "type": "CAPABILITY",
+      "canonical_name": "cold storage",
+      "surfaces": ["cold storage", "refrigeration", "refrigerated storage"],
+      "description": "cold storage refrigeration equipment for temperature-sensitive cargo"
+    },
+    {
+      "key": "production-approval",
+      "type": "CAPABILITY",
+      "canonical_name": "production approval",
+      "surfaces": ["production approval", "deployment approval", "production permission"],
+      "description": "production approval permission to deploy software"
+    }
+  ],
+  "predicates": [
+    {
+      "key": "HAS_CAPABILITY",
+      "subject_type": "AGENT",
+      "object_type": "CAPABILITY"
+    }
+  ],
+  "meanings": [
+    {
+      "key": "direct-courier-lacks-cold-storage",
+      "coordinate": {"predicate": "HAS_CAPABILITY", "subject": "direct-courier", "object": "cold-storage", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"}
+    },
+    {
+      "key": "backup-courier-lacks-cold-storage",
+      "coordinate": {"predicate": "HAS_CAPABILITY", "subject": "backup-courier", "object": "cold-storage", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"}
+    },
+    {
+      "key": "direct-courier-has-cold-storage",
+      "coordinate": {"predicate": "HAS_CAPABILITY", "subject": "direct-courier", "object": "cold-storage", "polarity": "POSITIVE", "modality": "ASSERTED", "time": "CURRENT"}
+    },
+    {
+      "key": "direct-courier-may-have-cold-storage",
+      "coordinate": {"predicate": "HAS_CAPABILITY", "subject": "direct-courier", "object": "cold-storage", "polarity": "POSITIVE", "modality": "POSSIBLE", "time": "FUTURE"}
+    },
+    {
+      "key": "direct-courier-lacked-cold-storage",
+      "coordinate": {"predicate": "HAS_CAPABILITY", "subject": "direct-courier", "object": "cold-storage", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "PAST"}
+    },
+    {
+      "key": "deployment-engineer-lacks-approval",
+      "coordinate": {"predicate": "HAS_CAPABILITY", "subject": "deployment-engineer", "object": "production-approval", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"}
+    },
+    {
+      "key": "backup-engineer-has-approval",
+      "coordinate": {"predicate": "HAS_CAPABILITY", "subject": "backup-engineer", "object": "production-approval", "polarity": "POSITIVE", "modality": "ASSERTED", "time": "CURRENT"}
+    }
+  ],
+  "language_frames": [
+    {"key": "subject-lacks-object", "pattern": "^(?P<subject>.+?)\\s+lacks\\s+(?P<object>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "subject-does-not-have-object", "pattern": "^(?P<subject>.+?)\\s+does\\s+not\\s+have\\s+(?P<object>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "subject-is-without-object", "pattern": "^(?P<subject>.+?)\\s+is\\s+without\\s+(?P<object>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "object-unavailable-to-subject", "pattern": "^(?P<object>.+?)\\s+is\\s+unavailable\\s+to\\s+(?P<subject>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "subject-cannot-provide-object", "pattern": "^(?P<subject>.+?)\\s+cannot\\s+provide\\s+(?P<object>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "subject-has-object", "pattern": "^(?P<subject>.+?)\\s+has\\s+(?P<object>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "POSITIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "subject-might-obtain-object", "pattern": "^(?P<subject>.+?)\\s+might\\s+obtain\\s+(?P<object>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "POSITIVE", "modality": "POSSIBLE", "time": "FUTURE"},
+    {"key": "subject-lacked-object", "pattern": "^(?P<subject>.+?)\\s+lacked\\s+(?P<object>.+?)\\.?$", "predicate": "HAS_CAPABILITY", "subject_group": "subject", "object_group": "object", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "PAST"}
+  ],
+  "internal_transforms": [
+    {"key": "lacks", "source_relation": "LACKS", "predicate": "HAS_CAPABILITY", "subject_argument": "holder", "object_argument": "capability", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "capability-unavailable", "source_relation": "CAPABILITY_UNAVAILABLE_TO", "predicate": "HAS_CAPABILITY", "subject_argument": "recipient", "object_argument": "capability", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "has-capability-negative", "source_relation": "HAS_CAPABILITY_NEGATIVE", "predicate": "HAS_CAPABILITY", "subject_argument": "subject", "object_argument": "object", "polarity": "NEGATIVE", "modality": "ASSERTED", "time": "CURRENT"},
+    {"key": "has-capability-positive", "source_relation": "HAS_CAPABILITY_POSITIVE", "predicate": "HAS_CAPABILITY", "subject_argument": "subject", "object_argument": "object", "polarity": "POSITIVE", "modality": "ASSERTED", "time": "CURRENT"}
+  ],
+  "thresholds": {
+    "entity_score": 0.55,
+    "entity_window": 0.12,
+    "meaning_margin": 0.05
+  }
+}

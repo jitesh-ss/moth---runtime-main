@@ -1,0 +1,83 @@
+{
+  "schema": "moth-v5-adversarial-semantic-campaign/1.0",
+  "frozen_before_execution": true,
+  "equivalence_cases_per_domain": 20,
+  "domains": ["delivery", "deployment"],
+  "generation": {
+    "pronoun_on_odd_cases": true,
+    "rotate_explicit_clauses": true,
+    "swap_pronoun_blocks": true
+  },
+  "contrasts": [
+    {
+      "id": "c01-proposed-resource-polarity",
+      "domain": "delivery",
+      "kind": "ANSWER_DIFFERENT",
+      "prompt": "Direct courier has cold storage. Direct courier has road permit. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has road permit. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "true", "backup-valid": "true", "selected-plan": "PROPOSED", "failure-reason": "NONE"}
+    },
+    {
+      "id": "c02-backup-permission-polarity",
+      "domain": "delivery",
+      "kind": "ANSWER_DIFFERENT",
+      "prompt": "Direct courier lacks cold storage. Direct courier has road permit. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier lacks authorization. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "false", "selected-plan": "NONE", "failure-reason": "RESOURCE"}
+    },
+    {
+      "id": "c03-role-assignment-swap",
+      "domain": "delivery",
+      "kind": "ANSWER_DIFFERENT",
+      "prompt": "Direct courier has cold storage. Direct courier has road permit. Direct courier can meet the deadline. Backup courier lacks refrigeration. Backup courier has road permit. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "true", "backup-valid": "false", "selected-plan": "PROPOSED", "failure-reason": "NONE"}
+    },
+    {
+      "id": "c04-ambiguous-pronoun",
+      "domain": "delivery",
+      "kind": "REFUSAL",
+      "prompt": "Direct courier and backup courier are available. It lacks refrigeration. Direct courier has permission. Direct courier can meet the deadline. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "AMBIGUOUS_REFERENCE"
+    },
+    {
+      "id": "c05-conflicting-polarity",
+      "domain": "delivery",
+      "kind": "REFUSAL",
+      "prompt": "Direct courier lacks cold storage. Direct courier has refrigeration. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "CONFLICTING_FACTS"
+    },
+    {
+      "id": "c06-missing-coordinate",
+      "domain": "delivery",
+      "kind": "REFUSAL",
+      "prompt": "Direct courier lacks cold storage. Direct courier has permission. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "INCOMPLETE_FACT_GRAPH"
+    },
+    {
+      "id": "c07-unknown-entity",
+      "domain": "delivery",
+      "kind": "REFUSAL",
+      "prompt": "Drone courier lacks cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "UNKNOWN_ENTITY"
+    },
+    {
+      "id": "c08-unsupported-modality",
+      "domain": "delivery",
+      "kind": "REFUSAL",
+      "prompt": "Direct courier lacks cold storage. Direct courier has permission. Direct courier might meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "UNKNOWN_CAPABILITY"
+    },
+    {
+      "id": "c09-unsupported-time-and-quantity",
+      "domain": "delivery",
+      "kind": "REFUSAL",
+      "prompt": "Direct courier lacks two cold storage units. Direct courier has permission. Direct courier met the deadline yesterday. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "UNKNOWN_ENTITY"
+    },
+    {
+      "id": "c10-unsupported-intent",
+      "domain": "delivery",
+      "kind": "REFUSAL",
+      "prompt": "Direct courier lacks cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Write a poem about these couriers.",
+      "expected_refusal": "UNSUPPORTED_INTENT"
+    }
+  ]
+}

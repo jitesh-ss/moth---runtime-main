@@ -1,0 +1,17 @@
+{
+  "schema": "moth-runtime-release/4.7",
+  "runtime": "4.7",
+  "runtime_id": "moth-runtime/4.7",
+  "canonical": true,
+  "default": true,
+  "store_schema": "proof-energy-capability-store/4.7",
+  "result_schema": "moth-capability-result/4.7",
+  "source_candidate": "runtime_v4_6_capability_lab/attempt-002",
+  "capability_level": "L8",
+  "text_only": true,
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "maximum_relational_depth": 50,
+  "maximum_program_steps": 16,
+  "status": "QUALIFIED_CANONICAL"
+}

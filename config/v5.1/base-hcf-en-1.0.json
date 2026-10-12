@@ -1,0 +1,31 @@
+{
+  "schema": "moth-hcf-base-field/5.1",
+  "field_id": "moth-base-hcf-en/1.0",
+  "entries": [
+    {
+      "meaning_id": "base.no-network",
+      "effect": "REQUIRE",
+      "scope": "runtime.network",
+      "value": false
+    },
+    {
+      "meaning_id": "base.no-tool-execution",
+      "effect": "REQUIRE",
+      "scope": "runtime.tool_execution",
+      "value": false
+    },
+    {
+      "meaning_id": "base.no-world-management",
+      "effect": "REQUIRE",
+      "scope": "runtime.world_management",
+      "value": false
+    },
+    {
+      "meaning_id": "base.delegate-response-mode",
+      "effect": "DELEGATE",
+      "scope": "response.mode",
+      "target_level": "SYSTEM",
+      "redelegable": true
+    }
+  ]
+}

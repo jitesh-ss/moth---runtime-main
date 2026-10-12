@@ -1,0 +1,12 @@
+{
+  "schema": "moth-runtime-baseline-hashes/5.2",
+  "artifact_hash": "8652fbbc6842fd3e6781be465055eca8666e4d32a611e97c5513dbfa680ebcf5",
+  "artifact_manifest_sha256": "ec0183a66b0aed70553deb6a3f129f799adea767491dcdf00620a870169e37fd",
+  "energy_foundation_logical_hash": "3242040be6750822ab4c540bd9a9da2360f3510f14446b1285c78369cfb8568f",
+  "energy_foundation_file_hash": "3ba8d291507614a6359cd8fc577bbb3b6089042997eb86bba2a6342ed2760377",
+  "kernel_foundation_hash": "763371dff4060e4a8eae8259ca515e041b881a734adba38d3da3caa660da9da6",
+  "runtime_tree_sha256": "c3b14fb10a0fab5b25ec96ab6b6b7e31872ed90d385d0e397a6504e85f5af2a6",
+  "launcher_tree_sha256": "813582fc5630bdbf3e3547804f9deb17281b88d1027d486ea7a276c299223a2b",
+  "qualification_hash": "edc14b46260dea57989359d9305af5dd865292fa790ae6b75dea83f2b02e4cf3",
+  "qualification_verdict": "ENERGY_NATIVE_MUTABLE_RUNTIME_5_2_CONFIRMED"
+}

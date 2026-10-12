@@ -1,0 +1,27 @@
+{
+  "schema": "moth-runtime-release/5.3",
+  "runtime": "5.3",
+  "runtime_id": "moth-runtime/5.3",
+  "canonical": false,
+  "default": false,
+  "canonical_runtime": "4.7",
+  "kernel_runtime": "5.3",
+  "imports_older_runtimes": false,
+  "compiled_container": "safetensors==0.8.0",
+  "catalog": "SQLite WAL synchronous FULL",
+  "store_schema": "proof-energy-conversation-store/5.3",
+  "result_schema": "moth-conversation-turn/5.3",
+  "model_artifact_schema": "moth-model-artifact/5.3",
+  "network": false,
+  "tool_execution": false,
+  "production_store": "data/store-5.3/",
+  "status": "QUALIFIED_CONVERSATIONAL_REASONING_5_3",
+  "limits": {
+    "actions": 8192,
+    "clauses": 256,
+    "depth": 32,
+    "expansions": 100000,
+    "facts": 4096,
+    "message_tokens": 512
+  }
+}

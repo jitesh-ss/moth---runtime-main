@@ -1,0 +1,116 @@
+{
+  "schema": "moth-json-formatting-field/1.0",
+  "field_id": "autonomous-json-formatting-en-1.0",
+  "language": "en",
+  "layers": {
+    "L1": {
+      "actions": [
+        "PARSE_SOURCE_DATA",
+        "DETECT_JSON_INTENT",
+        "BIND_OUTPUT_SHAPE",
+        "SELECT_FIELDS",
+        "RENAME_FIELDS",
+        "NEST_FIELDS",
+        "BUILD_ARRAY",
+        "BUILD_KEYED_MAP",
+        "BUILD_ENVELOPE",
+        "BUILD_UNION",
+        "GROUP_RECORDS",
+        "HANDLE_NULLS",
+        "ORDER_KEYS",
+        "FORMAT_JSON",
+        "PARSE_EMITTED_JSON",
+        "VERIFY_EXACT_DATA",
+        "VERIFY_REQUESTED_SHAPE",
+        "BIND_HASHES",
+        "EMIT_JSON"
+      ],
+      "states": ["ANSWER", "REFUSED"]
+    },
+    "L2": {
+      "operators": ["SEQUENCE", "MUST", "MUST_NOT", "DEFAULT_IF", "REFUSE_IF", "COMPLETE_IF"],
+      "conditions": [
+        "JSON_INTENT_ABSENT",
+        "SOURCE_MALFORMED",
+        "FORMAT_AMBIGUOUS",
+        "FIELD_AMBIGUOUS",
+        "FIELD_MISSING",
+        "DUPLICATE_OUTPUT_KEY",
+        "LOSSY_UNAUTHORIZED",
+        "TRANSFORMATION_UNSUPPORTED",
+        "OUTPUT_NOT_STRICT_JSON",
+        "VALUE_MISMATCH",
+        "SHAPE_MISMATCH",
+        "RESOURCE_LIMIT_EXCEEDED",
+        "AUTHORITY_VIOLATION"
+      ]
+    },
+    "L3": {
+      "workflow_macros": {
+        "INSPECT_REQUEST": ["DETECT_JSON_INTENT", "PARSE_SOURCE_DATA"],
+        "PLAN_FORMAT": ["BIND_OUTPUT_SHAPE", "SELECT_FIELDS", "RENAME_FIELDS"],
+        "BUILD_STRUCTURE": ["NEST_FIELDS", "BUILD_ARRAY", "BUILD_KEYED_MAP", "BUILD_ENVELOPE", "BUILD_UNION", "GROUP_RECORDS", "HANDLE_NULLS"],
+        "APPLY_LAYOUT": ["ORDER_KEYS", "FORMAT_JSON"],
+        "VERIFY_OUTPUT": ["PARSE_EMITTED_JSON", "VERIFY_EXACT_DATA", "VERIFY_REQUESTED_SHAPE"],
+        "RETURN_OUTPUT": ["BIND_HASHES", "EMIT_JSON"]
+      }
+    }
+  },
+  "interpretation_rules": [
+    {"id":"TRIGGER_JSON_FORMATTING","sections":["description"],"groups":[["json"],["format", "organize", "shape"],["natural", "request", "instruction"]]},
+    {"id":"STEP_PARSE_SOURCE","sections":["workflow"],"groups":[["parse", "read"],["source json", "input json"],["before", "first"]]},
+    {"id":"STEP_ROUTE_INTENT","sections":["workflow"],"groups":[["recognize", "detect"],["natural request", "user request"],["exactly one", "single"],["shape", "format"]]},
+    {"id":"STEP_PROJECT_RENAME","sections":["workflow"],"groups":[["select", "project"],["rename"],["field", "fields"]]},
+    {"id":"STEP_BUILD_SHAPES","sections":["workflow"],"groups":[["build", "construct"],["nested"],["array"],["keyed map"],["envelope"],["union"],["sparse"],["group"]]},
+    {"id":"STEP_ORDER","sections":["workflow"],"groups":[["preserve source order", "source order"],["canonical key order", "canonical order"],["requested"]]},
+    {"id":"STEP_LAYOUT","sections":["workflow"],"groups":[["compact", "minified"],["pretty"],["two", "2"],["four", "4"],["indentation", "indent"]]},
+    {"id":"STEP_VERIFY","sections":["workflow"],"groups":[["parse"],["emitted json", "output json"],["verify"],["shape"],["data"]]},
+    {"id":"POLICY_TYPES","sections":["fidelity"],"groups":[["preserve"],["scalar"],["json type", "types"],["exact"]]},
+    {"id":"POLICY_NO_INVENTION","sections":["fidelity"],"groups":[["never", "do not"],["invent", "fabricate"],["field", "value"]]},
+    {"id":"POLICY_REFUSE","sections":["fidelity"],"groups":[["refuse"],["ambiguous"],["missing"],["duplicate"],["loss", "lossy"],["unsupported"]]},
+    {"id":"POLICY_CLOSED","sections":["fidelity"],"groups":[["never", "do not"],["network"],["tool"],["write"],["execute", "execution"]]},
+    {"id":"POLICY_LIMITS","sections":["size"],"groups":[["limit"],["bytes"],["depth"],["record", "records"]]},
+    {"id":"COMPLETE_VERIFIED","sections":["completion"],"groups":[["complete", "success"],["valid json"],["exact data"],["requested shape"],["hash", "hashes"]]}
+  ],
+  "skill_profiles": {
+    "AUTONOMOUS_JSON_FORMATTING": {
+      "required_rules": [
+        "TRIGGER_JSON_FORMATTING",
+        "STEP_PARSE_SOURCE",
+        "STEP_ROUTE_INTENT",
+        "STEP_PROJECT_RENAME",
+        "STEP_BUILD_SHAPES",
+        "STEP_ORDER",
+        "STEP_LAYOUT",
+        "STEP_VERIFY",
+        "POLICY_TYPES",
+        "POLICY_NO_INVENTION",
+        "POLICY_REFUSE",
+        "POLICY_CLOSED",
+        "POLICY_LIMITS",
+        "COMPLETE_VERIFIED"
+      ],
+      "workflow": ["INSPECT_REQUEST", "PLAN_FORMAT", "BUILD_STRUCTURE", "APPLY_LAYOUT", "VERIFY_OUTPUT", "RETURN_OUTPUT"],
+      "trigger": "NATURAL_JSON_FORMAT_REQUEST",
+      "policies": [
+        {"id":"STRICT_JSON_ONLY","mode":"MUST","condition":"OUTPUT_NOT_STRICT_JSON","outcome":"UNSUPPORTED_FORMAT"},
+        {"id":"PRESERVE_TYPES","mode":"MUST_NOT","condition":"VALUE_MISMATCH","outcome":"VALUE_MISMATCH"},
+        {"id":"MATCH_REQUESTED_SHAPE","mode":"MUST_NOT","condition":"SHAPE_MISMATCH","outcome":"SHAPE_MISMATCH"},
+        {"id":"REFUSE_AMBIGUITY","mode":"REFUSE_IF","condition":"FORMAT_AMBIGUOUS","outcome":"AMBIGUOUS_FORMAT"},
+        {"id":"REFUSE_MISSING","mode":"REFUSE_IF","condition":"FIELD_MISSING","outcome":"MISSING_FIELD"},
+        {"id":"REFUSE_DUPLICATE_KEYS","mode":"REFUSE_IF","condition":"DUPLICATE_OUTPUT_KEY","outcome":"DUPLICATE_OUTPUT_KEY"},
+        {"id":"CLOSED_EXECUTION","mode":"MUST_NOT","condition":"AUTHORITY_VIOLATION","outcome":"AUTHORITY_VIOLATION"}
+      ],
+      "completion": ["STRICT_JSON_PARSED", "EXACT_DATA_PRESERVED", "REQUESTED_SHAPE_VERIFIED", "HASHES_BOUND", "JSON_EMITTED"]
+    }
+  },
+  "composition_rules": [],
+  "limits": {
+    "maximum_skill_bytes": 65536,
+    "maximum_normative_clauses": 64,
+    "maximum_source_bytes": 32768,
+    "maximum_depth": 8,
+    "maximum_records": 256,
+    "maximum_graph_units": 512
+  }
+}

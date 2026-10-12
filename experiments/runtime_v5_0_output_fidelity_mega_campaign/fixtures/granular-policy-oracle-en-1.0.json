@@ -1,0 +1,22 @@
+{
+  "schema": "moth-v5-rich-surface-policy-oracle/1.0",
+  "workflow": [
+    "VALIDATE_SEMANTIC_RESULT",
+    "SELECT_PRESENTATION_ROUTE",
+    "PLAN_DISCOURSE",
+    "REALIZE_MATERIAL_FACTS",
+    "FORMAT_OUTPUT",
+    "VERIFY_INVERSE_RECOVERY",
+    "VERIFY_LAYOUT",
+    "VERIFY_SIZE",
+    "BIND_HASHES",
+    "EMIT_ARTIFACT"
+  ],
+  "policy_hashes": {
+    "MARKDOWN_STRUCTURE": "f042bfdbae353452df57dc18d4743487ff2d4dae5cc20ae117c822f02b5c0d02",
+    "MIXED_RESPONSE": "e9d31e971ddcdc28beb93fff424e1b8af6d914fb5fe9aa86b541411a400ee03a",
+    "PROSE_RANGE": "bb34d30b951185e876acaa21acbc7354273a9e38b736530f12fdd73b419609e3",
+    "TONE_ADAPTATION": "1bf9a2667e00e4fa30aefc95382fd13c9f991f935c476a5783527211bec5ce1e"
+  }
+}
+

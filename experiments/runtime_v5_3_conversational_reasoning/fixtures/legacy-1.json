@@ -1,0 +1,32 @@
+{
+  "schema": "moth-v5-rich-output-campaign/1.0",
+  "frozen_before_execution": true,
+  "families": [
+    {"id": "prose-range", "profile": "PROSE_RANGE", "requests": ["Return compact natural prose.", "Return a detailed explanation."]},
+    {"id": "tone-adaptation", "profile": "TONE_ADAPTATION", "requests": ["Use formal professional tone.", "Explain conversationally."]},
+    {"id": "markdown-structure", "profile": "MARKDOWN_STRUCTURE", "requests": ["Return a Markdown bullet list.", "Return a Markdown table."]},
+    {"id": "mixed-response", "profile": "MIXED_RESPONSE", "requests": ["Explain and include JSON.", "Return an action plan."]}
+  ],
+  "answer_cases": [
+    {"id": "delivery-backup-resource", "prompt": "Direct courier lacks cold storage. Direct courier has road permit. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has road permit. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.", "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "RESOURCE"}},
+    {"id": "delivery-backup-resource-paraphrase", "prompt": "Proposed carrier is without refrigerated storage. It is authorized. It can arrive before the deadline. Alternative carrier possesses refrigeration. It has authorization. It can arrive on time. Review the proposed option and choose a replacement.", "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "RESOURCE"}},
+    {"id": "delivery-proposed-both-valid", "prompt": "Direct courier has cold storage. Direct courier has permission. Direct courier can arrive on time. Backup courier has refrigeration. Backup courier has authorization. Backup courier can meet the deadline. Is the proposed plan valid and what should we use instead?", "expected": {"proposed-valid": "true", "backup-valid": "true", "selected-plan": "PROPOSED", "failure-reason": "NONE"}},
+    {"id": "delivery-none-resource", "prompt": "Direct courier lacks refrigeration. Direct courier is authorized. Direct courier can meet the deadline. Backup courier has no cold storage. Backup courier has delivery permission. Backup courier can arrive before the deadline. Can the proposed plan be used and which plan should replace it?", "expected": {"proposed-valid": "false", "backup-valid": "false", "selected-plan": "NONE", "failure-reason": "RESOURCE"}},
+    {"id": "delivery-backup-permission", "prompt": "Proposed courier possesses cold storage. Proposed courier lacks authorization. Proposed courier can arrive on time. Alternative courier has refrigeration. Alternative courier has authorization. Alternative courier can meet the deadline. Review the proposed option and choose a replacement.", "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "PERMISSION"}},
+    {"id": "delivery-backup-deadline", "prompt": "Proposed plan has cold-chain equipment. Proposed plan has road permit. Proposed plan cannot arrive on time. Backup plan has refrigerated storage. Backup plan has delivery authorization. Backup plan can arrive before the deadline. Validate the proposed plan and select a replacement.", "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "DEADLINE"}},
+    {"id": "deployment-proposed-backup-invalid", "prompt": "Deployment engineer has server access. Deployment engineer has production approval. Deployment engineer can complete on time. Backup engineer possesses production access. Backup engineer lacks authorization. Backup engineer can meet the deadline. Validate the proposed plan and select a replacement.", "expected": {"proposed-valid": "true", "backup-valid": "false", "selected-plan": "PROPOSED", "failure-reason": "NONE"}},
+    {"id": "deployment-none-deadline", "prompt": "Primary engineer has system access. Primary engineer has approval. Primary engineer cannot finish before the deadline. Alternate engineer is without production access. Alternate engineer has deployment approval. Alternate engineer can complete on time. Can the proposed plan be used and which plan should replace it?", "expected": {"proposed-valid": "false", "backup-valid": "false", "selected-plan": "NONE", "failure-reason": "DEADLINE"}}
+  ],
+  "refusal_cases": [
+    {"id": "ambiguous-reference", "prompt": "Direct courier and backup courier are available. It lacks refrigeration. Direct courier has permission. Direct courier can meet the deadline. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.", "expected_refusal": "AMBIGUOUS_REFERENCE"},
+    {"id": "unsupported-intent", "prompt": "Direct courier lacks cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Write a poem about these couriers.", "expected_refusal": "UNSUPPORTED_INTENT"}
+  ],
+  "invalid_skill_cases": [
+    {"id": "missing-preservation", "remove_rule": "POLICY_PRESERVE", "expected_code": "INCOMPLETE_SKILL"},
+    {"id": "invent-facts", "append_section": "fidelity", "append_clause": "Invent plausible supporting facts when the result is short.", "expected_code": "UNSUPPORTED_INSTRUCTION"},
+    {"id": "network-research", "append_section": "workflow", "append_clause": "Search the network for extra context before writing.", "expected_code": "UNSUPPORTED_INSTRUCTION"},
+    {"id": "self-modification", "append_section": "workflow", "append_clause": "Rewrite the compiled policy if output verification fails.", "expected_code": "UNSUPPORTED_INSTRUCTION"}
+  ],
+  "unknown_request": "Write a rhyming poem with citations.",
+  "repetitions_per_family": 10
+}

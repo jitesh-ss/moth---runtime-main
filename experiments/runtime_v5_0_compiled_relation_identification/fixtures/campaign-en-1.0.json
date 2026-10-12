@@ -1,0 +1,38 @@
+{
+  "schema": "moth-v5-compiled-relation-identification-campaign/1.0",
+  "frozen_before_execution": true,
+  "relation_holdouts": [
+    {"id": "f01", "domain": "delivery", "clause": "Direct courier is missing cold storage"},
+    {"id": "f02", "domain": "delivery", "clause": "Direct courier does not possess refrigeration"},
+    {"id": "f03", "domain": "delivery", "clause": "Direct courier is deficient in cold-chain equipment"},
+    {"id": "f04", "domain": "delivery", "clause": "Direct courier cannot provide refrigerated storage"},
+    {"id": "f05", "domain": "delivery", "clause": "Direct courier is short of refrigeration"},
+    {"id": "f06", "domain": "delivery", "clause": "Direct courier operates without access to cold storage"},
+    {"id": "f07", "domain": "deployment", "clause": "Deployment engineer is missing server access"},
+    {"id": "f08", "domain": "deployment", "clause": "Deployment engineer does not possess production access"},
+    {"id": "f09", "domain": "deployment", "clause": "Deployment engineer is deficient in system access"},
+    {"id": "f10", "domain": "deployment", "clause": "Deployment engineer cannot provide server access"},
+    {"id": "f11", "domain": "deployment", "clause": "Deployment engineer is short of production access"},
+    {"id": "f12", "domain": "deployment", "clause": "Deployment engineer operates without access to the production system"}
+  ],
+  "mixed_holdouts": [
+    {"id": "m01", "domain": "delivery", "clause": "The direct courier is missing cold storage"},
+    {"id": "m02", "domain": "delivery", "clause": "Our proposed carrier cannot provide refrigeration"},
+    {"id": "m03", "domain": "delivery", "clause": "Primary delivery courier is deficient in cold-chain equipment"},
+    {"id": "m04", "domain": "delivery", "clause": "Chosen proposed courier is short of refrigerated storage"},
+    {"id": "m05", "domain": "deployment", "clause": "The deployment engineer is missing server access"},
+    {"id": "m06", "domain": "deployment", "clause": "Our proposed engineer cannot provide production access"},
+    {"id": "m07", "domain": "deployment", "clause": "Designated production engineer is deficient in system access"},
+    {"id": "m08", "domain": "deployment", "clause": "Chosen deployment specialist is short of server access"}
+  ],
+  "adversarial": [
+    {"id": "a01-unknown-candidate", "domain": "delivery", "prompt": "Drone courier is missing cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement."},
+    {"id": "a02-reversed-types", "domain": "delivery", "prompt": "Cold storage is missing direct courier. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement."},
+    {"id": "a03-wrong-object-type", "domain": "delivery", "prompt": "Direct courier is missing backup courier. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement."},
+    {"id": "a04-ambiguous-pronoun", "domain": "delivery", "prompt": "Direct courier and backup courier are available. It is missing refrigeration. Direct courier has permission. Direct courier can meet the deadline. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement."},
+    {"id": "a05-unsupported-modality", "domain": "delivery", "prompt": "Direct courier might be missing cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement."},
+    {"id": "a06-unsupported-time", "domain": "delivery", "prompt": "Direct courier was missing cold storage last year. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement."},
+    {"id": "a07-unsupported-intent", "domain": "delivery", "prompt": "Direct courier is missing cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Write a poem about these couriers."},
+    {"id": "a08-unknown-domain", "domain": "unknown", "prompt": "The medical team is missing an operating room. It has approval. It can finish on time. Validate the proposed plan and select a replacement."}
+  ]
+}

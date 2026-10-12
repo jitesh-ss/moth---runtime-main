@@ -1,0 +1,49 @@
+{
+  "schema": "moth-compositional-language-contract/1.0",
+  "candidate_roles": ["PROPOSED", "BACKUP"],
+  "requirements": ["RESOURCE", "PERMISSION", "DEADLINE"],
+  "intent": "VALIDATE_AND_SELECT",
+  "domains": [
+    {
+      "key": "delivery",
+      "domain_surfaces": ["courier", "delivery", "carrier"],
+      "candidates": [
+        {"role": "PROPOSED", "key": "direct-courier", "surfaces": ["direct courier", "proposed courier", "direct carrier", "proposed carrier", "direct plan", "proposed plan"]},
+        {"role": "BACKUP", "key": "backup-courier", "surfaces": ["backup courier", "alternative courier", "backup carrier", "alternative carrier", "backup plan", "alternative plan"]}
+      ],
+      "capabilities": [
+        {"requirement": "RESOURCE", "key": "cold-storage", "surfaces": ["cold storage", "refrigeration", "refrigerated storage", "cold-chain equipment"]},
+        {"requirement": "PERMISSION", "key": "road-permit", "surfaces": ["road permit", "delivery authorization", "delivery permission", "permission"]}
+      ],
+      "deadline_phrases": ["meet the deadline", "arrive before the deadline", "arrive on time"]
+    },
+    {
+      "key": "deployment",
+      "domain_surfaces": ["deployment", "engineer", "production"],
+      "candidates": [
+        {"role": "PROPOSED", "key": "deployment-engineer", "surfaces": ["deployment engineer", "proposed engineer", "primary engineer", "proposed plan"]},
+        {"role": "BACKUP", "key": "backup-engineer", "surfaces": ["backup engineer", "alternative engineer", "alternate engineer", "backup plan", "alternative plan"]}
+      ],
+      "capabilities": [
+        {"requirement": "RESOURCE", "key": "server-access", "surfaces": ["server access", "production access", "system access"]},
+        {"requirement": "PERMISSION", "key": "production-approval", "surfaces": ["production approval", "deployment approval", "production permission", "approval"]}
+      ],
+      "deadline_phrases": ["meet the deadline", "finish before the deadline", "complete on time"]
+    }
+  ],
+  "language_laws": {
+    "positive_possession": ["has", "possesses"],
+    "negative_possession": ["lacks", "does not have", "has no", "is without"],
+    "positive_permission": ["is authorized", "has authorization"],
+    "negative_permission": ["is not authorized", "lacks authorization"],
+    "positive_deadline": ["can"],
+    "negative_deadline": ["cannot", "can not"],
+    "positive_unavailability": ["is unavailable to"]
+  },
+  "intent_surfaces": [
+    "validate the proposed plan and select a replacement",
+    "can the proposed plan be used and which plan should replace it",
+    "review the proposed option and choose a replacement",
+    "is the proposed plan valid and what should we use instead"
+  ]
+}

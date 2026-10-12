@@ -1,0 +1,25 @@
+{
+  "schema": "moth-runtime-architecture-lock/5.2",
+  "runtime": "5.2",
+  "documents": {
+    "architecture": {"path": "docs/v5.2/ARCHITECTURE.md", "sha256": "2692ba9ae2961adbf79a2352bf680fe315543ddfe99b06c0e934166e9e827f22"},
+    "product": {"path": "docs/v5.2/PRODUCT.md", "sha256": "a6173ce0f132fc66bc59bdda0eb56cd3a7512284746feb2809f2085a6fecb33f"},
+    "spec": {"path": "docs/v5.2/SPEC.md", "sha256": "d575f40b921ac80bda02492703ac92f7d9ba56a61c6ac017a7c3d898083f210e"},
+    "tasks": {"path": "docs/v5.2/TASKS.md", "sha256": "9dbf3662df2ed20363960182a8650dfd6bb248245a71ed57b6fe8f111d9c3214"},
+    "baseline": {"path": "docs/v5.2/BASELINE-HASHES.json", "sha256": "f9693f6307e05a2e40d63d7a404b37ebabe0b5fec91c1934c34c9241f508e8c7"}
+  },
+  "configuration": {
+    "runtime": {"path": "config/v5.2/runtime.json", "sha256": "da14720c9b85acb3cc7ca578826b5b6786d6f44467ffcfdb0182768165b29312"},
+    "artifact_schema": {"path": "config/v5.2/schemas/model-artifact.schema.json", "sha256": "b45ed7dc4a9d92324282f43750b3346540060826ec5bb93073668d54af04e0ee"},
+    "hcf_source_schema": {"path": "config/v5.2/schemas/hcf-source.schema.json", "sha256": "3cb5f6ee622112a4535e3228acdc1b3fdf615a37f883799cdcf1e475ef35337c"},
+    "tensor_objects": {"path": "config/v5.2/schemas/tensor-objects.json", "sha256": "2b940604d310092411a81cb3f81c5d414abadaea3cb883d0d3c7f3deb5d26d3d"},
+    "artifact_manifest": {"path": "config/v5.2/model/model-5.2/model-artifact.json", "sha256": "ec0183a66b0aed70553deb6a3f129f799adea767491dcdf00620a870169e37fd"}
+  },
+  "implementation": {"path": "src/moth_runtime_v5_2", "tree_sha256": "c3b14fb10a0fab5b25ec96ab6b6b7e31872ed90d385d0e397a6504e85f5af2a6"},
+  "launcher": {"path": "src/moth_launcher_v5_2", "tree_sha256": "813582fc5630bdbf3e3547804f9deb17281b88d1027d486ea7a276c299223a2b"},
+  "qualification": {
+    "path": "reports/RUNTIME-5.2-ENERGY-NATIVE-QUALIFICATION-001.md",
+    "sha256": "e28c9a6ebc7f4125a63c0e5c8f926b656ba9f8dcffd832778d9ca72c156d2722",
+    "verdict": "ENERGY_NATIVE_MUTABLE_RUNTIME_5_2_CONFIRMED"
+  }
+}

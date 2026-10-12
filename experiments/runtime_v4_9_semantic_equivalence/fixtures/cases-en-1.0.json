@@ -1,0 +1,36 @@
+{
+  "schema": "moth-semantic-equivalence-cases/1.0",
+  "frozen_before_campaign": true,
+  "text_cases": [
+    {"id": "p01", "group": "equivalent", "text": "Direct courier lacks cold storage.", "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "p02", "group": "equivalent", "text": "The proposed courier does not have refrigerated storage.", "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "p03", "group": "equivalent", "text": "Refrigeration is unavailable to the direct carrier.", "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "p04", "group": "equivalent", "text": "The proposed carrier is without cold storage.", "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "p05", "group": "equivalent", "text": "The direct courier cannot provide refrigeration.", "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "p06", "group": "equivalent_vector", "text": "The primary delivery operator lacks cold-chain equipment.", "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "p07", "group": "cross_domain", "text": "The proposed engineer lacks production approval.", "expected_meaning": "deployment-engineer-lacks-approval"},
+    {"id": "p08", "group": "cross_domain", "text": "Production permission is unavailable to the deployment engineer.", "expected_meaning": "deployment-engineer-lacks-approval"},
+    {"id": "p09", "group": "cross_domain", "text": "The primary engineer does not have deployment approval.", "expected_meaning": "deployment-engineer-lacks-approval"},
+
+    {"id": "c01", "group": "wrong_entity", "text": "The backup courier lacks refrigeration.", "expected_meaning": "backup-courier-lacks-cold-storage"},
+    {"id": "c02", "group": "polarity", "text": "The direct courier has cold storage.", "expected_meaning": "direct-courier-has-cold-storage"},
+    {"id": "c03", "group": "modality", "text": "The direct courier might obtain refrigeration.", "expected_meaning": "direct-courier-may-have-cold-storage"},
+    {"id": "c04", "group": "time", "text": "The direct carrier lacked refrigerated storage.", "expected_meaning": "direct-courier-lacked-cold-storage"},
+    {"id": "c05", "group": "cross_domain_polarity", "text": "The backup engineer has production approval.", "expected_meaning": "backup-engineer-has-approval"},
+
+    {"id": "r01", "group": "role_reversal", "text": "Cold storage lacks the direct courier.", "expected_refusal": "TYPE_MISMATCH"},
+    {"id": "r02", "group": "ambiguity", "text": "Courier lacks refrigeration.", "expected_refusal": "AMBIGUOUS_SEMANTICS"},
+    {"id": "r03", "group": "unsupported_language", "text": "Please reason about the delivery options.", "expected_refusal": "UNSUPPORTED_LANGUAGE"},
+    {"id": "r04", "group": "closed_world", "text": "The deployment engineer has production approval.", "expected_refusal": "UNSUPPORTED_MEANING"},
+    {"id": "r05", "group": "closed_world", "text": "The backup engineer lacks deployment approval.", "expected_refusal": "UNSUPPORTED_MEANING"}
+  ],
+  "internal_cases": [
+    {"id": "i01", "group": "equivalent", "observation": {"relation": "LACKS", "arguments": {"holder": "direct-courier", "capability": "cold-storage"}}, "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "i02", "group": "equivalent", "observation": {"relation": "CAPABILITY_UNAVAILABLE_TO", "arguments": {"capability": "cold-storage", "recipient": "direct-courier"}}, "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "i03", "group": "equivalent", "observation": {"relation": "HAS_CAPABILITY_NEGATIVE", "arguments": {"subject": "direct-courier", "object": "cold-storage"}}, "expected_meaning": "direct-courier-lacks-cold-storage"},
+    {"id": "i04", "group": "polarity", "observation": {"relation": "HAS_CAPABILITY_POSITIVE", "arguments": {"subject": "direct-courier", "object": "cold-storage"}}, "expected_meaning": "direct-courier-has-cold-storage"},
+    {"id": "i05", "group": "wrong_entity", "observation": {"relation": "LACKS", "arguments": {"holder": "backup-courier", "capability": "cold-storage"}}, "expected_meaning": "backup-courier-lacks-cold-storage"},
+    {"id": "i06", "group": "role_reversal", "observation": {"relation": "LACKS", "arguments": {"holder": "cold-storage", "capability": "direct-courier"}}, "expected_refusal": "TYPE_MISMATCH"},
+    {"id": "i07", "group": "unsupported_relation", "observation": {"relation": "OWNS", "arguments": {"owner": "direct-courier", "object": "cold-storage"}}, "expected_refusal": "UNSUPPORTED_MEANING"}
+  ]
+}

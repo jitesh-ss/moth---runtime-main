@@ -1,0 +1,18 @@
+{
+  "artifact_hash": "354eb41918e2ba98d0b20564642c6f711d5086ce0dee94bcac017dc1e86788b8",
+  "candidate_promoted_file_parity": 67,
+  "candidate_suite": {
+    "failed": 0,
+    "passed": 127
+  },
+  "installed_cli_chat_reexecution_inspection": true,
+  "protected_files_unchanged": 267,
+  "python": "3.11.15",
+  "root_suite": {
+    "new_failures": 0,
+    "passed": 200,
+    "preexisting_failures": 5
+  },
+  "runtime": "5.3",
+  "status": "VERIFIED_AFTER_PROMOTION"
+}

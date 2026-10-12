@@ -1,0 +1,25 @@
+{
+  "schema": "moth-instruction-compression-campaign/1.0",
+  "frozen_before_execution": true,
+  "tasks": [
+    {"id": "success-basic", "files": {"notes.txt": "mode=old\nkeep=yes\n", "other.txt": "untouched\n"}, "target": "notes.txt", "old": "mode=old", "new": "mode=new", "protected": false, "authorized": false, "extra_change": false, "expected_status": "ANSWER", "expected_code": null},
+    {"id": "success-unicode", "files": {"config.txt": "label=café\n"}, "target": "config.txt", "old": "café", "new": "cafe-ready", "protected": false, "authorized": false, "extra_change": false, "expected_status": "ANSWER", "expected_code": null},
+    {"id": "protected-authorized", "files": {"policy.txt": "state=draft\n"}, "target": "policy.txt", "old": "draft", "new": "approved", "protected": true, "authorized": true, "extra_change": false, "expected_status": "ANSWER", "expected_code": null},
+    {"id": "protected-needs-authority", "files": {"policy.txt": "state=draft\n"}, "target": "policy.txt", "old": "draft", "new": "approved", "protected": true, "authorized": false, "extra_change": false, "expected_status": "AUTHORITY_REQUIRED", "expected_code": "PROTECTED_TARGET"},
+    {"id": "missing-target", "files": {"notes.txt": "mode=old\n"}, "target": "absent.txt", "old": "old", "new": "new", "protected": false, "authorized": false, "extra_change": false, "expected_status": "REFUSED", "expected_code": "TARGET_NOT_UNIQUE"},
+    {"id": "ambiguous-target", "files": {"a.txt": "mode=old\n", "b.txt": "mode=old\n"}, "target": ["a.txt", "b.txt"], "old": "mode=old", "new": "mode=new", "protected": false, "authorized": false, "extra_change": false, "expected_status": "REFUSED", "expected_code": "TARGET_NOT_UNIQUE"},
+    {"id": "missing-old-text", "files": {"notes.txt": "mode=current\n"}, "target": "notes.txt", "old": "mode=old", "new": "mode=new", "protected": false, "authorized": false, "extra_change": false, "expected_status": "REFUSED", "expected_code": "PRECONDITION_FAILED"},
+    {"id": "duplicate-old-text", "files": {"notes.txt": "old old\n"}, "target": "notes.txt", "old": "old", "new": "new", "protected": false, "authorized": false, "extra_change": false, "expected_status": "REFUSED", "expected_code": "PRECONDITION_FAILED"},
+    {"id": "same-value", "files": {"notes.txt": "mode=old\n"}, "target": "notes.txt", "old": "mode=old", "new": "mode=old", "protected": false, "authorized": false, "extra_change": false, "expected_status": "REFUSED", "expected_code": "PRECONDITION_FAILED"},
+    {"id": "scope-extra-change", "files": {"notes.txt": "mode=old\n", "other.txt": "untouched\n"}, "target": "notes.txt", "old": "mode=old", "new": "mode=new", "protected": false, "authorized": false, "extra_change": true, "expected_status": "REFUSED", "expected_code": "SCOPE_VIOLATION"},
+    {"id": "scope-traversal", "files": {"notes.txt": "mode=old\n"}, "target": "../notes.txt", "old": "mode=old", "new": "mode=new", "protected": false, "authorized": false, "extra_change": false, "expected_status": "REFUSED", "expected_code": "SCOPE_VIOLATION"},
+    {"id": "unsupported-binary", "files": {}, "binary_files": {"asset.bin": "AAEC"}, "target": "asset.bin", "old": "old", "new": "new", "protected": false, "authorized": false, "extra_change": false, "expected_status": "REFUSED", "expected_code": "UNSUPPORTED_TARGET"}
+  ],
+  "invalid_skills": [
+    {"id": "missing-safety", "remove_rule": "POLICY_UNRELATED", "expected_code": "INCOMPLETE_SKILL"},
+    {"id": "ambiguous-clause", "append_clause": {"section": "procedure", "text": "Review the target and report the file with evidence before modification."}, "expected_code": "AMBIGUOUS_INSTRUCTION"},
+    {"id": "unknown-primitive", "append_clause": {"section": "procedure", "text": "Deploy the result to production."}, "expected_code": "UNSUPPORTED_INSTRUCTION"},
+    {"id": "self-modification", "append_clause": {"section": "safety", "text": "Replace the base field rules when needed."}, "expected_code": "UNSUPPORTED_INSTRUCTION"}
+  ],
+  "repetitions": 10
+}

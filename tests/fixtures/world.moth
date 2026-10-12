@@ -1,0 +1,60 @@
+# Small standalone Runtime 4.7 smoke world.
+Entity "Node-00" is declared.
+Entity "Node-01" is declared.
+Entity "Node-02" is declared.
+Entity "Node-03" is declared.
+Entity "Node-04" is declared.
+Entity "Node-05" is declared.
+Entity "Node-06" is declared.
+Entity "Node-07" is declared.
+Entity "Node-08" is declared.
+
+Directional relation "route" maps Meaning to Meaning and is functional.
+Directional relation "contains" maps Meaning to Meaning and is multi-valued.
+Directional relation "defines" maps Meaning to Meaning and is multi-valued.
+Directional relation "imports" maps Meaning to Meaning and is multi-valued.
+Directional relation "calls" maps Meaning to Meaning and is multi-valued.
+Directional relation "inherits" maps Meaning to Meaning and is multi-valued.
+Directional relation "decorated-by" maps Meaning to Meaning and is multi-valued.
+Directional relation "references" maps Meaning to Meaning and is multi-valued.
+Directional relation "tests" maps Meaning to Meaning and is multi-valued.
+Operation "lookup" selects kernel primitive "LOOKUP".
+Operation "chain_advance" selects kernel primitive "CHAIN_ADVANCE".
+Operation "render_compiled_json" selects kernel primitive "RENDER_COMPILED_JSON".
+Operation "build_patch_plan" selects kernel primitive "BUILD_PATCH_PLAN".
+Numeral "8" denotes 8 steps.
+
+Output schema "answer-json" selects kernel schema "ANSWER_WITH_PROOF".
+Output schema "compiled-json" selects kernel schema "COMPILED_JSON".
+Output schema "patch-json" selects kernel schema "PATCH_PLAN".
+Scalar type "text" selects kernel type "STRING".
+Scalar type "integer" selects kernel type "INTEGER".
+Value "message-alpha" has type "text" and canonical JSON "\"alpha\"".
+Value "count-one" has type "integer" and canonical JSON "1".
+
+Structured schema "basic-payload" is canonical JSON Schema "{\"additionalProperties\":false,\"properties\":{\"count\":{\"type\":\"integer\",\"x-moth-field\":\"count\"},\"message\":{\"type\":\"string\",\"x-moth-field\":\"message\"}},\"required\":[\"message\",\"count\"],\"type\":\"object\"}".
+Schema field "message" in schema "basic-payload" has type "text" and is required.
+Schema field "count" in schema "basic-payload" has type "integer" and is required.
+Tool "reporter" uses schema "basic-payload".
+Tool argument "reporter-message" for tool "reporter" selects field "message".
+Tool argument "reporter-count" for tool "reporter" selects field "count".
+
+Relation form "route-form" for relation "route" accepts "The route from {SOURCE} leads to {DESTINATION}.".
+Instruction "lookup-entity" selects operation "lookup" accepts "Return {ENTITY} using {SCHEMA}.".
+Instruction "advance-relation" selects operation "chain_advance" accepts "Starting from {ENTITY}, follow {RELATION} for {NUMERAL} steps using {SCHEMA}.".
+Instruction prototype "advance-alt" for instruction "advance-relation" is "Move from {ENTITY} through {RELATION} for {NUMERAL} links using {SCHEMA}.".
+Instruction "render-json" selects operation "render_compiled_json" accepts "Render {STRUCTURE} with {BINDINGS} using {SCHEMA}.".
+Instruction "tool-plan" selects operation "render_compiled_json" accepts "Plan tool {TOOL} with {BINDINGS} using {SCHEMA}.".
+Instruction "patch-plan" selects operation "build_patch_plan" accepts "Build {PATCH} for {SPAN} with {FRAGMENT} using {SCHEMA}.".
+
+The route from "Node-00" leads to "Node-01".
+The route from "Node-01" leads to "Node-02".
+The route from "Node-02" leads to "Node-03".
+The route from "Node-03" leads to "Node-04".
+The route from "Node-04" leads to "Node-05".
+The route from "Node-05" leads to "Node-06".
+The route from "Node-06" leads to "Node-07".
+The route from "Node-07" leads to "Node-08".
+
+Text fragment "replacement-function" is "def format_name(name: str) -> str:\n    return f\"hello {name}\"\n".
+Patch template "replace-symbol" selects operation "REPLACE_SPAN".

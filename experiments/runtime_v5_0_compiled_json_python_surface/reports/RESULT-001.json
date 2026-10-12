@@ -1,0 +1,92 @@
+{
+  "archive_replays": 40,
+  "artifact_campaign": {
+    "artifacts": 40,
+    "byte_ranges": {
+      "JSON_COMPACT": {"maximum": 103, "minimum": 98},
+      "JSON_READABLE": {"maximum": 120, "minimum": 115},
+      "PYTHON_COMPACT": {"maximum": 121, "minimum": 116},
+      "PYTHON_READABLE": {"maximum": 140, "minimum": 135}
+    },
+    "compact_artifacts": 24,
+    "distinct_artifact_hashes": 28,
+    "json_artifacts": 24,
+    "layout_violations": 0,
+    "parsed_exact_value": 40,
+    "presentation_requests": 5,
+    "python_artifacts": 16,
+    "readable_artifacts": 16,
+    "runtime_byte_parity": 40,
+    "schema_violations": 0,
+    "semantic_cases": 8,
+    "semantic_drift": 0,
+    "unsafe_python": 0
+  },
+  "causal_ablations": {
+    "exact_value_verifier": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "format_router": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "hash_binder": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "json_serializer": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "python_serializer": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "safe_ast_verifier": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"}
+  },
+  "compiled_hashes": {
+    "field": "06ca9105b8f204c865371c7c8929564ecc2a6f0642d81a2229b576b80bf2da56",
+    "paraphrase_trace": "30ea3a7215392ce614fb4360799163e3169d1e20a0ffb221cbf0e06c5675034c",
+    "policy": "50a2fc83c6c77d7925745ca801940756f40db3d06b36635c1e9f7255f1481ac7",
+    "primary_trace": "bce7650e0ece89e9ea02dfcdabbccf6c3073a648febfa3e727d8ab638025b0b0"
+  },
+  "deterministic_compilations": 10,
+  "dispatch_count": 0,
+  "fixture_freeze_hash": "9b146254d0803cba013fb0c8976aba50e63581b29c510d256267ad8b0256c15c",
+  "fixture_freeze_verified": true,
+  "hierarchy_inventory": {
+    "L1": {"actions": 17, "states": 2},
+    "L2": {"conditions": 10, "operators": 6},
+    "L3": {"workflow_macros": 6},
+    "L4": {"interpretation_rules": 14},
+    "L5": {"skill_profiles": 1},
+    "SIZE": {"modes": 3, "signals": 5}
+  },
+  "independent_store_count": 2,
+  "instruction_expansion": {"compiled_graph_units": 49, "expansion_ratio": 3.5, "source_normative_clauses": 14},
+  "invalid_skill_cases": {
+    "missing-safe-python": {"code": "INCOMPLETE_SKILL", "status": "PASSED"},
+    "self-modification": {"code": "UNSUPPORTED_INSTRUCTION", "status": "PASSED"},
+    "unknown-execution": {"code": "UNSUPPORTED_INSTRUCTION", "status": "PASSED"}
+  },
+  "language_fidelity": {
+    "equivalent_skill_policy": true,
+    "input_paraphrase_graph_count": 1,
+    "malformed_result_refused": true,
+    "unknown_request_refused": true
+  },
+  "network_attempts": 0,
+  "policy_equivalence": {"primary_equals_granular_oracle": true, "primary_equals_paraphrase": true},
+  "production_store_accesses": 0,
+  "protected_hashes": {
+    "config/v5.0": "349b277c0251e53ecb33651982b062f30d5cb499b1ba4d35d11bb57d0dd24ef1",
+    "data/store-5.0.sqlite3": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b",
+    "docs/v5.0": "92245bf763f7fb559dc232d48ca63b2f8cc4d94de352117e4ec23957ef8f7e12",
+    "experiments/runtime_v5_0_compiled_surface_skill": "dca25c59e358d38b6f4f288bad693bb4d8469b47b92adab7a32cf7e43783cf17",
+    "experiments/runtime_v5_0_instruction_compression": "c790fef3b30b76191eddfc516e17c9186ac0f15f8291f86ee94b89cba555f982",
+    "reports/RUNTIME-5.0-LANGUAGE-FIDELITY-QUALIFICATION-001.md": "ffee8f2ffe23cd76a8952ccb4934b2bc02882d4c0cc89b2a72272e8abe7cb798",
+    "src/moth_launcher_v5": "00efd1f14d49a1f5beedc0f12fdd3d6203bd40a70c76784f8a6a7ecf0c8807b5",
+    "src/moth_runtime_v5_0": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6"
+  },
+  "protected_hashes_unchanged": true,
+  "python_execution_count": 0,
+  "refusal_preservation": {"byte_exact_with_control": 2, "cases": 2, "converted_to_artifacts": 0},
+  "result_hash": "df83263b1e3f8b7748a8e7b008667be396aa49085b27a474104a8bd2bbdfb783",
+  "schema": "moth-v5-json-python-surface-result/1.0",
+  "tampering_detected": {
+    "archive_envelope": true,
+    "format_label": true,
+    "json_value": true,
+    "layout": true,
+    "python_ast": true,
+    "runtime_semantics": true
+  },
+  "temporary_instances_removed": true,
+  "verdict": "BOUNDED_COMPILED_JSON_PYTHON_SURFACE_CONFIRMED"
+}

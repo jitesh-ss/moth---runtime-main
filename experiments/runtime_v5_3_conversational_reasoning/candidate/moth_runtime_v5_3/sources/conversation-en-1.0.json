@@ -1,0 +1,2677 @@
+{
+  "defaults": {
+    "packagea.location": "room2",
+    "packageb.location": "room1",
+    "robot1.battery": "6",
+    "robot1.carrying": "none",
+    "robot1.key": "yes",
+    "robot1.location": "room1",
+    "room1.locked": "no",
+    "room2.locked": "no",
+    "room3.locked": "no",
+    "room4.locked": "no",
+    "room5.locked": "no",
+    "room6.locked": "no"
+  },
+  "domain": {
+    "actions": [
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room1 room2 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room1 room2 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room1 room2 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room1 room2 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room1 room2 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room1 room2 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "robot1",
+          "robot1.carrying": "packagea"
+        },
+        "id": "pick up packagea robot1 room1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "room1",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packagea robot1 room1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packagea"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "robot1",
+          "robot1.carrying": "packageb"
+        },
+        "id": "pick up packageb robot1 room1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "room1",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packageb robot1 room1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packageb"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room1.locked": "no"
+        },
+        "id": "unlock room1 robot1 room2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room1.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room1"
+        },
+        "id": "move robot1 room2 room1 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room1.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room1"
+        },
+        "id": "move robot1 room2 room1 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room1.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room1"
+        },
+        "id": "move robot1 room2 room1 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room1.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room1"
+        },
+        "id": "move robot1 room2 room1 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room1.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room1"
+        },
+        "id": "move robot1 room2 room1 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room1.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room1"
+        },
+        "id": "move robot1 room2 room1 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room1.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room2 room3 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room2 room3 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room2 room3 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room2 room3 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room2 room3 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room2 room3 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "robot1",
+          "robot1.carrying": "packagea"
+        },
+        "id": "pick up packagea robot1 room2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "room2",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packagea robot1 room2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packagea"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "robot1",
+          "robot1.carrying": "packageb"
+        },
+        "id": "pick up packageb robot1 room2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "room2",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packageb robot1 room2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packageb"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room2.locked": "no"
+        },
+        "id": "unlock room2 robot1 room1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room2.locked": "no"
+        },
+        "id": "unlock room2 robot1 room3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room3 room2 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room3 room2 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room3 room2 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room3 room2 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room3 room2 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room2"
+        },
+        "id": "move robot1 room3 room2 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room2.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room3 room4 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room3 room4 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room3 room4 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room3 room4 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room3 room4 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room3 room4 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "robot1",
+          "robot1.carrying": "packagea"
+        },
+        "id": "pick up packagea robot1 room3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "room3",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packagea robot1 room3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packagea"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "robot1",
+          "robot1.carrying": "packageb"
+        },
+        "id": "pick up packageb robot1 room3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "room3",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packageb robot1 room3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packageb"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room3.locked": "no"
+        },
+        "id": "unlock room3 robot1 room2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room2"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room3.locked": "no"
+        },
+        "id": "unlock room3 robot1 room4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room4 room3 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room4 room3 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room4 room3 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room4 room3 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room4 room3 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room3"
+        },
+        "id": "move robot1 room4 room3 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room3.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room4 room5 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room4 room5 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room4 room5 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room4 room5 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room4 room5 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room4 room5 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "robot1",
+          "robot1.carrying": "packagea"
+        },
+        "id": "pick up packagea robot1 room4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "room4",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packagea robot1 room4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packagea"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "robot1",
+          "robot1.carrying": "packageb"
+        },
+        "id": "pick up packageb robot1 room4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "room4",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packageb robot1 room4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packageb"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room4.locked": "no"
+        },
+        "id": "unlock room4 robot1 room3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room3"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room4.locked": "no"
+        },
+        "id": "unlock room4 robot1 room5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room5 room4 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room5 room4 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room5 room4 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room5 room4 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room5 room4 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room4"
+        },
+        "id": "move robot1 room5 room4 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room4.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room6"
+        },
+        "id": "move robot1 room5 room6 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room6.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room6"
+        },
+        "id": "move robot1 room5 room6 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room6.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room6"
+        },
+        "id": "move robot1 room5 room6 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room6.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room6"
+        },
+        "id": "move robot1 room5 room6 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room6.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room6"
+        },
+        "id": "move robot1 room5 room6 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room6.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room6"
+        },
+        "id": "move robot1 room5 room6 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room6.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "robot1",
+          "robot1.carrying": "packagea"
+        },
+        "id": "pick up packagea robot1 room5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "room5",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packagea robot1 room5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packagea"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "robot1",
+          "robot1.carrying": "packageb"
+        },
+        "id": "pick up packageb robot1 room5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "room5",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packageb robot1 room5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packageb"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room5.locked": "no"
+        },
+        "id": "unlock room5 robot1 room4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room4"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room5.locked": "no"
+        },
+        "id": "unlock room5 robot1 room6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "0",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room6 room5 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "1",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room6 room5 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "2",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room6 room5 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "3",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room6 room5 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "4",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room6 room5 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "5",
+          "robot1.location": "room5"
+        },
+        "id": "move robot1 room6 room5 battery6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "6"
+          ],
+          [
+            "room5.locked",
+            "eq",
+            "no"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "robot1",
+          "robot1.carrying": "packagea"
+        },
+        "id": "pick up packagea robot1 room6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packagea.location": "room6",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packagea robot1 room6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "packagea.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packagea"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "robot1",
+          "robot1.carrying": "packageb"
+        },
+        "id": "pick up packageb robot1 room6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "none"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "packageb.location": "room6",
+          "robot1.carrying": "none"
+        },
+        "id": "drop packageb robot1 room6",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room6"
+          ],
+          [
+            "packageb.location",
+            "eq",
+            "robot1"
+          ],
+          [
+            "robot1.carrying",
+            "eq",
+            "packageb"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "room6.locked": "no"
+        },
+        "id": "unlock room6 robot1 room5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room5"
+          ],
+          [
+            "robot1.key",
+            "eq",
+            "yes"
+          ],
+          [
+            "room6.locked",
+            "eq",
+            "yes"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "6"
+        },
+        "id": "recharge robot1 battery0",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "0"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "6"
+        },
+        "id": "recharge robot1 battery1",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "1"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "6"
+        },
+        "id": "recharge robot1 battery2",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "2"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "6"
+        },
+        "id": "recharge robot1 battery3",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "3"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "6"
+        },
+        "id": "recharge robot1 battery4",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "4"
+          ]
+        ]
+      },
+      {
+        "cost": 1,
+        "effects": {
+          "robot1.battery": "6"
+        },
+        "id": "recharge robot1 battery5",
+        "pre": [
+          [
+            "robot1.location",
+            "eq",
+            "room1"
+          ],
+          [
+            "robot1.battery",
+            "eq",
+            "5"
+          ]
+        ]
+      }
+    ],
+    "variables": {
+      "packagea.location": [
+        "room1",
+        "room2",
+        "room3",
+        "room4",
+        "room5",
+        "room6",
+        "robot1"
+      ],
+      "packageb.location": [
+        "room1",
+        "room2",
+        "room3",
+        "room4",
+        "room5",
+        "room6",
+        "robot1"
+      ],
+      "robot1.battery": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "robot1.carrying": [
+        "none",
+        "packagea",
+        "packageb"
+      ],
+      "robot1.key": [
+        "yes",
+        "no"
+      ],
+      "robot1.location": [
+        "room1",
+        "room2",
+        "room3",
+        "room4",
+        "room5",
+        "room6"
+      ],
+      "room1.locked": [
+        "yes",
+        "no"
+      ],
+      "room2.locked": [
+        "yes",
+        "no"
+      ],
+      "room3.locked": [
+        "yes",
+        "no"
+      ],
+      "room4.locked": [
+        "yes",
+        "no"
+      ],
+      "room5.locked": [
+        "yes",
+        "no"
+      ],
+      "room6.locked": [
+        "yes",
+        "no"
+      ]
+    }
+  },
+  "entities": {
+    "packagea": {
+      "aliases": [
+        "package a",
+        "parcel a"
+      ],
+      "type": "package"
+    },
+    "packageb": {
+      "aliases": [
+        "package b",
+        "parcel b"
+      ],
+      "type": "package"
+    },
+    "robot1": {
+      "aliases": [
+        "robot 1",
+        "robot one",
+        "the robot",
+        "robot"
+      ],
+      "type": "robot"
+    },
+    "room1": {
+      "aliases": [
+        "room 1",
+        "room one"
+      ],
+      "type": "room"
+    },
+    "room2": {
+      "aliases": [
+        "room 2",
+        "room two"
+      ],
+      "type": "room"
+    },
+    "room3": {
+      "aliases": [
+        "room 3",
+        "room three"
+      ],
+      "type": "room"
+    },
+    "room4": {
+      "aliases": [
+        "room 4",
+        "room four"
+      ],
+      "type": "room"
+    },
+    "room5": {
+      "aliases": [
+        "room 5",
+        "room five"
+      ],
+      "type": "room"
+    },
+    "room6": {
+      "aliases": [
+        "room 6",
+        "room six"
+      ],
+      "type": "room"
+    }
+  },
+  "frames": [
+    {
+      "id": "where",
+      "pattern": "(?:where is|where\\'s) (?P<entity>.+)",
+      "predicate": null
+    },
+    {
+      "id": "location",
+      "pattern": "(?P<entity>.+?) is (?P<neg>not )?(?:in|at) (?P<value>room ?[a-z0-9]+)",
+      "predicate": "location"
+    },
+    {
+      "id": "battery",
+      "pattern": "(?P<entity>.+?) has (?P<value>[0-6]) (?:battery|charge)(?: units)?",
+      "predicate": "battery"
+    },
+    {
+      "id": "key",
+      "pattern": "(?P<entity>.+?) (?P<neg>does not have|has) (?:the |a )?key",
+      "predicate": "key"
+    },
+    {
+      "id": "locked",
+      "pattern": "(?:the door to )?(?P<entity>room ?[a-z0-9]+) is (?P<value>locked|unlocked)",
+      "predicate": "locked"
+    },
+    {
+      "id": "deliver",
+      "pattern": "(?:please )?(?:take|deliver|bring|move) (?P<entity>.+?) to (?P<value>room ?[a-z0-9]+)",
+      "predicate": null
+    },
+    {
+      "id": "plan",
+      "pattern": "(?:please )?(?:plan|find a plan|make a plan)(?: to)? (?:take|deliver|bring|move) (?P<entity>.+?) to (?P<value>room ?[a-z0-9]+)",
+      "predicate": null
+    },
+    {
+      "id": "why",
+      "pattern": "why(?: can\\'t .+| cannot .+| did .+| is .+)?",
+      "predicate": null
+    },
+    {
+      "id": "repeat",
+      "pattern": "(?:repeat that|show (?:the|that) plan(?: again)?|what was (?:the|that) plan)",
+      "predicate": null
+    },
+    {
+      "id": "confirm",
+      "pattern": "(?:yes|yes that is correct|use the new value)",
+      "predicate": null
+    },
+    {
+      "id": "cancel",
+      "pattern": "(?:no|cancel|never mind)",
+      "predicate": null
+    }
+  ],
+  "limits": {
+    "actions": 8192,
+    "clauses": 256,
+    "depth": 32,
+    "expansions": 100000,
+    "facts": 4096,
+    "message_tokens": 512
+  },
+  "schema": "moth-chat-source/5.3"
+}

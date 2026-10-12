@@ -1,0 +1,19 @@
+{
+  "base_artifact_hash": "bae305a2c7b92459443608730c3788b9123b2767b7fa0defff6ef05b1546a9c5",
+  "schema": "moth-autonomous-json-source-freeze/5.1-experiment",
+  "sources": {
+    "PLAN.md": "10647674f6e7e5f2d16115baa19537fe1d4245e56ee4ba70a5836cebf3248f0e",
+    "README.md": "892a0adff754fc06c677d6d70c60c5b7b958c211221581128829852314ec4191",
+    "SPEC.md": "dae18ffd073c40fda071711aeeaf533d89150ab3b67cf0a3adc5bf04e7a74738",
+    "TASKS.md": "5f2edeacc4b33c53b6ea5da90327a1f40ab8c392e375e9a2e2c853341b8f12a5",
+    "campaign.py": "22f8444c5c0ef1915b16d345dad1b42c02663578ef7576d8749fd69fc6effb18",
+    "candidate_runtime.py": "3e7d3aaf5e374046ce7a8718daf21f3d296c95587fb4f051a3ad7ed14dab23b5",
+    "compiler.py": "4f87dbdc4c339a4a78e3034ba04f72c670402a3749ca7ec03636a1cc378f0032",
+    "fixtures/json-formatting-field-en-1.0.json": "1bbc4aea63f98ed094bfd76af6bc4ecbf8ff90ae5c6e518210699bc7bd5798c3",
+    "fixtures/json-formatting/SKILL.md": "b3688e27940d335be65d58235a0228896482c631e312a15ff2af0a6c819e7248",
+    "fixtures/metamorphic-panel-1.0.json": "9c59ddf6cf5fa900c9bae120968f985f5be7d6ab246cb998adb7cb98dd8e744b",
+    "fixtures/negative-panel-1.0.json": "30bdfdc58101746ab7eb6f941104d99b21d5e7c79c445075f18dd56e545ed88f",
+    "fixtures/qualification-panel-1.0.json": "17d8585f6ce10ac7fe3c6f7dbb6bfe22757fe532fece29d8ce1f505f8c71fc8b",
+    "generate_fixtures.py": "7b2db8f949461e30c4a4e470a72bdd78875427377824b696b1379c403716af24"
+  }
+}

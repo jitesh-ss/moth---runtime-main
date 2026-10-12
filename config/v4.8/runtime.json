@@ -1,0 +1,28 @@
+{
+  "schema": "moth-runtime-release/4.8",
+  "runtime": "4.8",
+  "runtime_id": "moth-runtime/4.8",
+  "canonical": false,
+  "default": false,
+  "canonical_runtime": "4.7",
+  "launcher_default_runtime": null,
+  "store_schema": "proof-energy-world-store/4.8",
+  "result_schema": "moth-world-result/4.8",
+  "handoff_schema": "moth-world-handoff/4.8",
+  "bundle_schema": "moth-world-bundle/4.8",
+  "world_roles": [
+    "INPUT",
+    "MAIN",
+    "SURFACE"
+  ],
+  "text_only": true,
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "maximum_relational_depth": 50,
+  "maximum_program_steps": 16,
+  "production_store": "data/store-4.8.sqlite3",
+  "production_worlds_empty": true,
+  "active_bundle": null,
+  "source_runtime": "4.7",
+  "status": "OPT_IN_EMPTY_UNQUALIFIED"
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "moth-architecture-lock/4.8",
+  "runtime": "4.8",
+  "canonical": false,
+  "canonical_runtime": "4.7",
+  "launcher_default_runtime": null,
+  "status": "OPT_IN_EMPTY_UNQUALIFIED",
+  "documents": {
+    "architecture": {
+      "path": "docs/v4.8/ARCHITECTURE.md",
+      "sha256": "1ed5fc85ec8d7643aa2bd25a447355d0ccd88bf8dea5d6ae1e788ca442ac8197"
+    },
+    "product": {
+      "path": "docs/v4.8/PRODUCT.md",
+      "sha256": "465098f772eec51002c7b596b04f8d97648f0d16fd8427ec3291a160d9165572"
+    },
+    "specification": {
+      "path": "docs/v4.8/SPEC.md",
+      "sha256": "0e10b45ac654e5f12c13c69086da07fd5712c9da0f9a4e05578161d1ace8c751"
+    }
+  },
+  "configuration": {
+    "runtime": {
+      "path": "config/v4.8/runtime.json",
+      "sha256": "d300b0d01f5e01fdd07dbcaa284d2c47d7718a4758e331a302d795e18b6bca37"
+    },
+    "world_contracts": {
+      "path": "config/v4.8/worlds.json",
+      "sha256": "74a25511755243a41d1271f11caf89ee4c0df30645a843bfdb025e323a17af3b"
+    },
+    "grounding": {
+      "path": "config/v4.8/grounding-en-1.0.json",
+      "sha256": "a9940103d041c1186a6c9347564184498d041856a95a0b805a9075f86ac7ea70"
+    },
+    "encoder": {
+      "path": "config/v4.8/encoder-text-en-1.0.json",
+      "sha256": "2b17357bdd7b914e427b4afbccedffe4f0d41c80a6d083ed9f47087bc3f93666"
+    }
+  },
+  "implementation": {
+    "path": "src/moth_runtime_v4_8",
+    "tree_hash_algorithm": "sha256(path-relative-root || NUL || sha256(file-bytes) for sorted top-level Python files)",
+    "tree_sha256": "8da8ba298039f0887c3f04d009069feb802eda64a583c146d1e48b63d478fd2c",
+    "imports_runtime_4_7": false
+  },
+  "launcher": {
+    "path": "src/moth_launcher",
+    "tree_hash_algorithm": "sha256(path-relative-root || NUL || sha256(file-bytes) for sorted top-level Python files)",
+    "tree_sha256": "c55341f228be9ee52254295f84989993085a79057578b8767ee652b7607e4791",
+    "explicit_runtime_required": true,
+    "supported_runtimes": [
+      "4.7",
+      "4.8"
+    ]
+  },
+  "schemas": {
+    "store": "proof-energy-world-store/4.8",
+    "result": "moth-world-result/4.8",
+    "handoff": "moth-world-handoff/4.8",
+    "bundle": "moth-world-bundle/4.8"
+  },
+  "worlds": {
+    "roles": [
+      "INPUT",
+      "MAIN",
+      "SURFACE"
+    ],
+    "production_content_empty": true,
+    "active_bundle": null
+  },
+  "production_store": {
+    "path": "data/store-4.8.sqlite3",
+    "initialized": true,
+    "generation_count": 0,
+    "episode_count": 0,
+    "sha256": "b8695b7c59e8830b184f4d23eb76ea00273e272c573af309e141200bf4872334"
+  },
+  "runtime_4_7_preservation": {
+    "implementation_path": "src/moth_runtime",
+    "implementation_tree_sha256": "a83b04b1730813e0edcfd85daa0d70399c7757426bb4dd4f00acb320fbda756b",
+    "config_tree_sha256": "1cbcea8472505631db43ee17cd6a28c14c8bcfe6e2576c2ad1d740a0aa601a06",
+    "locked_documents_tree_sha256": "1b37b8ab3f4d56e8051f7b26a490ad893dc41718d06ae5ee211f24e3330bc21f",
+    "production_store_path": "data/store-4.7.sqlite3",
+    "production_store_sha256": "4bda69217d0e64b398508e206a670dd99f3e64976dc9e7a0aadb5f22e55cd3da",
+    "preserved_after_implementation": true
+  },
+  "verification": {
+    "focused_and_standalone_tests": {
+      "passed": 74,
+      "failed": 0
+    },
+    "offline_real_bge_smoke": {
+      "passed": true,
+      "encoder_dimension": 1024,
+      "encoder_fingerprint": "50a97793006228514d638dd440ab7ef1b03e315f49628ff9f0b2bdea7a3e1888",
+      "settlement_count": 6,
+      "handoff_count": 4,
+      "network_attempts": 0,
+      "role_separation_verified": true,
+      "input_domain_edges": 0,
+      "surface_domain_meanings": 0
+    }
+  },
+  "qualification": {
+    "verdict": "NOT_RUN",
+    "language_fidelity_claimed": false,
+    "surface_realization_claimed": false
+  },
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "earlier_stores_migrated": false,
+  "standalone": true
+}

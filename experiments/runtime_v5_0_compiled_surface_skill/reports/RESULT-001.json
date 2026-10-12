@@ -1,0 +1,90 @@
+{
+  "causal_ablations": {
+    "coverage_verifier": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "discourse_planner": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "hash_binder": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "lexicalizer": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"},
+    "size_interpreter": {"code": "INCOMPLETE_SURFACE_POLICY", "status": "PASSED"}
+  },
+  "compiled_hashes": {
+    "field": "0f4bb191323e72b27e1d17a4dccaff8e30bd6f00b65fe1790a24fd714f876b1b",
+    "paraphrase_trace": "e3f2dd7629233190679f6c394133f550c512c6e134a02911d6354fe751f287ce",
+    "policy": "2bb8b4d5a1e14fde5123105ec937371936ba0e638b1e2ab621bea5357211642c",
+    "primary_trace": "26d42714cb37ded320cddac85a3aca597ee9d8360d957431cf7337b7d80cbdb1"
+  },
+  "deterministic_compilations": 10,
+  "dispatch_count": 0,
+  "execution_performed": false,
+  "fixture_freeze_hash": "55d6f8c02f4858debd7b7300628643c072666370b357156b06a61bd356be8733",
+  "fixture_freeze_verified": true,
+  "hierarchy_inventory": {
+    "L1": {"actions": 15, "states": 2},
+    "L2": {"conditions": 8, "operators": 6},
+    "L3": {"workflow_macros": 6},
+    "L4": {"interpretation_rules": 12},
+    "L5": {"skill_profiles": 1},
+    "SIZE": {"modes": 3, "signals": 8}
+  },
+  "independent_store_count": 2,
+  "instruction_expansion": {
+    "compiled_graph_units": 43,
+    "expansion_ratio": 3.583333,
+    "source_normative_clauses": 12
+  },
+  "invalid_skill_cases": {
+    "missing-fidelity": {"code": "INCOMPLETE_SKILL", "status": "PASSED"},
+    "self-modification": {"code": "UNSUPPORTED_INSTRUCTION", "status": "PASSED"},
+    "unknown-action": {"code": "UNSUPPORTED_INSTRUCTION", "status": "PASSED"}
+  },
+  "language_fidelity": {
+    "equivalent_skill_policy": true,
+    "input_paraphrase_graph_count": 1,
+    "malformed_result_refused": true,
+    "unknown_presentation_refused": true
+  },
+  "network_attempts": 0,
+  "policy_equivalence": {
+    "primary_equals_granular_oracle": true,
+    "primary_equals_paraphrase": true
+  },
+  "production_store_accesses": 0,
+  "protected_hashes": {
+    "config/v5.0": "349b277c0251e53ecb33651982b062f30d5cb499b1ba4d35d11bb57d0dd24ef1",
+    "data/store-5.0.sqlite3": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b",
+    "docs/v5.0": "92245bf763f7fb559dc232d48ca63b2f8cc4d94de352117e4ec23957ef8f7e12",
+    "experiments/runtime_v5_0_instruction_compression": "c790fef3b30b76191eddfc516e17c9186ac0f15f8291f86ee94b89cba555f982",
+    "reports/RUNTIME-5.0-LANGUAGE-FIDELITY-QUALIFICATION-001.md": "ffee8f2ffe23cd76a8952ccb4934b2bc02882d4c0cc89b2a72272e8abe7cb798",
+    "src/moth_launcher_v5": "00efd1f14d49a1f5beedc0f12fdd3d6203bd40a70c76784f8a6a7ecf0c8807b5",
+    "src/moth_runtime_v5_0": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6"
+  },
+  "protected_hashes_unchanged": true,
+  "refusal_preservation": {"byte_exact_with_control": 2, "cases": 2, "converted_to_answers": 0},
+  "result_hash": "4d6af08b5eba7b6d8a4840298dd13eb8662f992ee55dde9e70ddbd42511aa894",
+  "schema": "moth-v5-compiled-surface-result/1.0",
+  "surface_archive_replays": 48,
+  "surface_campaign": {
+    "distinct_response_hashes": 21,
+    "natural_responses": 48,
+    "prose_violations": 0,
+    "runtime_byte_parity": 48,
+    "semantic_cases": 8,
+    "semantic_omissions": 0,
+    "size_requests": 6,
+    "size_violations": 0,
+    "unsupported_additions": 0,
+    "word_ranges": {
+      "CONCISE": {"maximum": 20, "minimum": 16},
+      "DETAILED": {"maximum": 64, "minimum": 55},
+      "STANDARD": {"maximum": 30, "minimum": 27}
+    }
+  },
+  "tampering_detected": {
+    "archive_envelope": true,
+    "outcome_first_text": true,
+    "runtime_semantics": true,
+    "semantic_claims": true,
+    "size_mode": true
+  },
+  "temporary_instances_removed": true,
+  "verdict": "BOUNDED_COMPILED_NATURAL_SURFACE_CONFIRMED"
+}

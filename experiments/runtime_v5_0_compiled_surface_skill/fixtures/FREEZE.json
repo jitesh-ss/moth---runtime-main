@@ -1,0 +1,21 @@
+{
+  "schema": "moth-v5-compiled-surface-freeze/1.0",
+  "frozen_before_execution": true,
+  "date": "2026-09-02",
+  "fixtures": {
+    "campaign-en-1.0.json": "f42a68e01f2885f67112721a9e5535c95dedaf379c66362667133a115f7a9272",
+    "granular-surface-oracle-1.0.json": "33ea8ed40cb5b2ebc7bf47d97387472301df624d85d1a783932001b67209e57f",
+    "natural-response-paraphrase/SKILL.md": "1b656006673ff8986570931644bcc3db46134fbe105a1e8c94e679396bb6bd3d",
+    "natural-response/SKILL.md": "201c11630c9195106e4966648a378ee404c02454b79e2ae0160114df75dca3dd",
+    "surface-base-field-en-1.0.json": "fde28fc928b7295722f9d6028a79c65abeda92cfadef4e77ee5cfdc57bd54868"
+  },
+  "protected": {
+    "config/v5.0": "349b277c0251e53ecb33651982b062f30d5cb499b1ba4d35d11bb57d0dd24ef1",
+    "data/store-5.0.sqlite3": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b",
+    "docs/v5.0": "92245bf763f7fb559dc232d48ca63b2f8cc4d94de352117e4ec23957ef8f7e12",
+    "experiments/runtime_v5_0_instruction_compression": "c790fef3b30b76191eddfc516e17c9186ac0f15f8291f86ee94b89cba555f982",
+    "reports/RUNTIME-5.0-LANGUAGE-FIDELITY-QUALIFICATION-001.md": "ffee8f2ffe23cd76a8952ccb4934b2bc02882d4c0cc89b2a72272e8abe7cb798",
+    "src/moth_launcher_v5": "00efd1f14d49a1f5beedc0f12fdd3d6203bd40a70c76784f8a6a7ecf0c8807b5",
+    "src/moth_runtime_v5_0": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6"
+  }
+}

@@ -1,0 +1,1362 @@
+[
+  {
+    "id": "remember-00",
+    "turns": [
+      {
+        "message": "package A is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in room1"
+  },
+  {
+    "id": "correct-00",
+    "turns": [
+      {
+        "message": "package A is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "conflict-00",
+    "turns": [
+      {
+        "message": "package A is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package A is in room 2.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "retract-00",
+    "turns": [
+      {
+        "message": "package A is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package A is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-00",
+    "turns": [
+      {
+        "message": "package A is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package A is not in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-00",
+    "turns": [
+      {
+        "message": "package A is in room 1 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-00",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package A",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in"
+  },
+  {
+    "id": "plan-00",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-01",
+    "turns": [
+      {
+        "message": "package B is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in room2"
+  },
+  {
+    "id": "correct-01",
+    "turns": [
+      {
+        "message": "package B is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room3"
+  },
+  {
+    "id": "conflict-01",
+    "turns": [
+      {
+        "message": "package B is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package B is in room 3.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room3"
+  },
+  {
+    "id": "retract-01",
+    "turns": [
+      {
+        "message": "package B is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package B is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-01",
+    "turns": [
+      {
+        "message": "package B is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package B is not in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-01",
+    "turns": [
+      {
+        "message": "package B is in room 2 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-01",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package B",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in"
+  },
+  {
+    "id": "plan-01",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-02",
+    "turns": [
+      {
+        "message": "package A is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in room3"
+  },
+  {
+    "id": "correct-02",
+    "turns": [
+      {
+        "message": "package A is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room4"
+  },
+  {
+    "id": "conflict-02",
+    "turns": [
+      {
+        "message": "package A is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package A is in room 4.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room4"
+  },
+  {
+    "id": "retract-02",
+    "turns": [
+      {
+        "message": "package A is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package A is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-02",
+    "turns": [
+      {
+        "message": "package A is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package A is not in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-02",
+    "turns": [
+      {
+        "message": "package A is in room 3 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-02",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package A",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in"
+  },
+  {
+    "id": "plan-02",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-03",
+    "turns": [
+      {
+        "message": "package B is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in room4"
+  },
+  {
+    "id": "correct-03",
+    "turns": [
+      {
+        "message": "package B is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room5"
+  },
+  {
+    "id": "conflict-03",
+    "turns": [
+      {
+        "message": "package B is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package B is in room 5.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room5"
+  },
+  {
+    "id": "retract-03",
+    "turns": [
+      {
+        "message": "package B is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package B is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-03",
+    "turns": [
+      {
+        "message": "package B is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package B is not in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-03",
+    "turns": [
+      {
+        "message": "package B is in room 4 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-03",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package B",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in"
+  },
+  {
+    "id": "plan-03",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-04",
+    "turns": [
+      {
+        "message": "package A is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in room5"
+  },
+  {
+    "id": "correct-04",
+    "turns": [
+      {
+        "message": "package A is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 6.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room6"
+  },
+  {
+    "id": "conflict-04",
+    "turns": [
+      {
+        "message": "package A is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package A is in room 6.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room6"
+  },
+  {
+    "id": "retract-04",
+    "turns": [
+      {
+        "message": "package A is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package A is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-04",
+    "turns": [
+      {
+        "message": "package A is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package A is not in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-04",
+    "turns": [
+      {
+        "message": "package A is in room 5 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-04",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package A",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in"
+  },
+  {
+    "id": "plan-04",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-05",
+    "turns": [
+      {
+        "message": "package B is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in room1"
+  },
+  {
+    "id": "correct-05",
+    "turns": [
+      {
+        "message": "package B is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "conflict-05",
+    "turns": [
+      {
+        "message": "package B is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package B is in room 2.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "retract-05",
+    "turns": [
+      {
+        "message": "package B is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package B is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-05",
+    "turns": [
+      {
+        "message": "package B is in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package B is not in room 1.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-05",
+    "turns": [
+      {
+        "message": "package B is in room 1 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-05",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package B",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in"
+  },
+  {
+    "id": "plan-05",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-06",
+    "turns": [
+      {
+        "message": "package A is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in room2"
+  },
+  {
+    "id": "correct-06",
+    "turns": [
+      {
+        "message": "package A is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room3"
+  },
+  {
+    "id": "conflict-06",
+    "turns": [
+      {
+        "message": "package A is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package A is in room 3.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room3"
+  },
+  {
+    "id": "retract-06",
+    "turns": [
+      {
+        "message": "package A is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package A is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-06",
+    "turns": [
+      {
+        "message": "package A is in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package A is not in room 2.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-06",
+    "turns": [
+      {
+        "message": "package A is in room 2 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-06",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package A",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in"
+  },
+  {
+    "id": "plan-06",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-07",
+    "turns": [
+      {
+        "message": "package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in room3"
+  },
+  {
+    "id": "correct-07",
+    "turns": [
+      {
+        "message": "package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room4"
+  },
+  {
+    "id": "conflict-07",
+    "turns": [
+      {
+        "message": "package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package B is in room 4.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room4"
+  },
+  {
+    "id": "retract-07",
+    "turns": [
+      {
+        "message": "package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-07",
+    "turns": [
+      {
+        "message": "package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package B is not in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-07",
+    "turns": [
+      {
+        "message": "package B is in room 3 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-07",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package B",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in"
+  },
+  {
+    "id": "plan-07",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-08",
+    "turns": [
+      {
+        "message": "package A is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in room4"
+  },
+  {
+    "id": "correct-08",
+    "turns": [
+      {
+        "message": "package A is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room5"
+  },
+  {
+    "id": "conflict-08",
+    "turns": [
+      {
+        "message": "package A is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package A is in room 5.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room5"
+  },
+  {
+    "id": "retract-08",
+    "turns": [
+      {
+        "message": "package A is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package A is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-08",
+    "turns": [
+      {
+        "message": "package A is in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package A is not in room 4.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-08",
+    "turns": [
+      {
+        "message": "package A is in room 4 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-08",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package A",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packagea is in"
+  },
+  {
+    "id": "plan-08",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  },
+  {
+    "id": "remember-09",
+    "turns": [
+      {
+        "message": "package B is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in room5"
+  },
+  {
+    "id": "correct-09",
+    "turns": [
+      {
+        "message": "package B is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, it is in room 6.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room6"
+  },
+  {
+    "id": "conflict-09",
+    "turns": [
+      {
+        "message": "package B is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "package B is in room 6.",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "yes",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room6"
+  },
+  {
+    "id": "retract-09",
+    "turns": [
+      {
+        "message": "package B is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Forget that package B is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "negative-09",
+    "turns": [
+      {
+        "message": "package B is in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Actually, package B is not in room 5.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is it?",
+        "status": "INSUFFICIENT_INFORMATION"
+      }
+    ],
+    "last_contains": "do not know"
+  },
+  {
+    "id": "unknown-09",
+    "turns": [
+      {
+        "message": "package B is in room 5 and teleport everything immediately.",
+        "status": "CLARIFICATION_REQUIRED"
+      }
+    ],
+    "last_contains": "rephrase"
+  },
+  {
+    "id": "ambiguity-09",
+    "turns": [
+      {
+        "message": "Package A is in room 2 and package B is in room 3.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Where is the package?",
+        "status": "CLARIFICATION_REQUIRED"
+      },
+      {
+        "message": "package B",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "packageb is in"
+  },
+  {
+    "id": "plan-09",
+    "turns": [
+      {
+        "message": "Robot one is in room one. Package A is in room two.",
+        "status": "ACKNOWLEDGED"
+      },
+      {
+        "message": "Take it to room three.",
+        "status": "ANSWER"
+      },
+      {
+        "message": "Where is package A?",
+        "status": "ANSWER"
+      }
+    ],
+    "last_contains": "room2"
+  }
+]

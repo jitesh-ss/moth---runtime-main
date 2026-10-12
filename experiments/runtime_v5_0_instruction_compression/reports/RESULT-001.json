@@ -1,0 +1,88 @@
+{
+  "archive_tampering_detected": true,
+  "behavior": {
+    "composite": {
+      "byte_exact_replays": 12,
+      "cases": 12,
+      "statuses": {"ANSWER": 3, "AUTHORITY_REQUIRED": 1, "REFUSED": 8},
+      "unsafe_acceptances": 0
+    },
+    "paraphrase": {
+      "byte_exact_replays": 12,
+      "cases": 12,
+      "statuses": {"ANSWER": 3, "AUTHORITY_REQUIRED": 1, "REFUSED": 8},
+      "unsafe_acceptances": 0
+    },
+    "single": {
+      "byte_exact_replays": 12,
+      "cases": 12,
+      "statuses": {"ANSWER": 3, "AUTHORITY_REQUIRED": 1, "REFUSED": 8},
+      "unsafe_acceptances": 0
+    },
+    "total_oracle_comparisons": 36,
+    "unsafe_acceptances": 0
+  },
+  "causal_ablations": {
+    "L1_atomic_substrate": {"code": "FIELD_L1", "status": "PASSED"},
+    "L2_control_policy": {"code": "FIELD_L2", "status": "PASSED"},
+    "L3_workflow_macro": {"code": "FIELD_L5", "status": "PASSED"},
+    "L4_interpretation": {"code": "UNSUPPORTED_INSTRUCTION", "status": "PASSED"},
+    "L5_skill_closure": {"code": "INCOMPLETE_SKILL", "status": "PASSED"},
+    "L6_composition": {"code": "FIELD_L6", "status": "PASSED"}
+  },
+  "compiled_hashes": {
+    "composite_policy": "118eb9f62ec4c7e05edde3e0c4f345c156e50c71425411ab39a37cca3e5f8401",
+    "composite_trace": "de944e07df17cb2a70ffa1bfff39b00ceb41e8fd269f4337e109b5fe6841448d",
+    "evidence_policy": "dccac28a470051f101ea6944a513e560f006b51d344dfed69e2b1351f6201274",
+    "field": "572c2f23054c3898f7cd07b2848a147b0e99791fbe7bfed9366670962b20d7da",
+    "paraphrase_policy": "e9bd5922821e577a35cb3d968827c5d9c27e0bdf2d45e53ec2959e8c3340a36a",
+    "paraphrase_trace": "d342778cb9eb8a2667e1c87fd75dbbc667de7a3cafd57ad190f5abeddc76f703",
+    "primary_trace": "ccfb856663fc2a15f5e1c736bc74d6ef5d4cfa44cc08c87020f33908c8bca622",
+    "single_policy": "e9bd5922821e577a35cb3d968827c5d9c27e0bdf2d45e53ec2959e8c3340a36a"
+  },
+  "deterministic_compilations": 10,
+  "dispatch_count": 0,
+  "external_workspace_writes": 0,
+  "fixture_freeze_verified": true,
+  "hierarchy_gates": {
+    "L1_atomic_actions": "PASSED",
+    "L2_control_policy": "PASSED",
+    "L3_workflow_expansion": "PASSED",
+    "L4_skill_language_interpretation": "PASSED",
+    "L5_single_skill_intention_fidelity": "PASSED",
+    "L6_multi_skill_composition": "PASSED"
+  },
+  "hierarchy_inventory": {
+    "L1": {"actions": 12, "states": 3},
+    "L2": {"conditions": 5, "operators": 8},
+    "L3": {"workflow_macros": 7},
+    "L4": {"interpretation_rules": 16},
+    "L5": {"skill_profiles": 2},
+    "L6": {"composition_rules": 1}
+  },
+  "instruction_compression": {
+    "compiled_graph_units": 30,
+    "complete_skill_clauses_in_base_field": 0,
+    "expansion_ratio": 2.5,
+    "source_normative_clauses": 12
+  },
+  "invalid_skill_cases": {
+    "ambiguous-clause": {"code": "AMBIGUOUS_INSTRUCTION", "status": "PASSED"},
+    "missing-safety": {"code": "INCOMPLETE_SKILL", "status": "PASSED"},
+    "self-modification": {"code": "UNSUPPORTED_INSTRUCTION", "status": "PASSED"},
+    "unknown-primitive": {"code": "UNSUPPORTED_INSTRUCTION", "status": "PASSED"}
+  },
+  "network_attempts": 0,
+  "policy_equivalence": {
+    "composite_equals_granular_oracle": true,
+    "evidence_equals_granular_oracle": true,
+    "paraphrase_equals_primary": true,
+    "primary_equals_granular_oracle": true
+  },
+  "production_imports": [],
+  "protected_hashes_unchanged": true,
+  "schema": "moth-instruction-compression-result/1.0",
+  "temporary_instances_removed": true,
+  "verdict": "BOUNDED_HIERARCHICAL_INSTRUCTION_FIDELITY_CONFIRMED"
+}
+

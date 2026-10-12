@@ -1,0 +1,60 @@
+{
+  "schema": "moth-world-contracts/4.8",
+  "runtime": "4.8",
+  "grounding": {
+    "phase": "PRE_WORLD",
+    "candidate_world": "INPUT",
+    "repeated_between_worlds": false
+  },
+  "roles": [
+    {
+      "role": "INPUT",
+      "settlement_input": "GROUNDED_PROGRAM",
+      "settlement_output": "MAIN_REQUEST",
+      "grounding_performed_by_world": false
+    },
+    {
+      "role": "MAIN",
+      "settlement_input": "MAIN_REQUEST",
+      "settlement_output": "SEMANTIC_RESULT",
+      "receives_raw_prompt": false
+    },
+    {
+      "role": "SURFACE",
+      "settlement_input": "SEMANTIC_RESULT",
+      "settlement_output": "SURFACE_RESPONSE",
+      "required_primitive": "REALIZE_SEMANTIC_RESULT",
+      "required_primitive_count": 1,
+      "receives_raw_prompt": false
+    }
+  ],
+  "handoffs": [
+    {
+      "source": "INPUT",
+      "target": "MAIN",
+      "payload_kind": "MAIN_REQUEST"
+    },
+    {
+      "source": "MAIN",
+      "target": "SURFACE",
+      "payload_kind": "SEMANTIC_RESULT"
+    }
+  ],
+  "settlement": {
+    "energy": "E_w=(K_w+1)*1000000*V_w+C_w",
+    "required_violation_count": 0,
+    "required_proof_count": 1,
+    "independent_verification": true,
+    "stage_energies_combined": false
+  },
+  "initial_state": {
+    "input_head": null,
+    "main_head": null,
+    "surface_head": null,
+    "active_bundle": null,
+    "generation_count": 0,
+    "source_count": 0,
+    "episode_count": 0
+  },
+  "status": "FROZEN_CONTRACT_EMPTY_CONTENT"
+}

@@ -1,0 +1,29 @@
+{
+  "schema": "moth-instruction-compression-freeze/1.0",
+  "frozen_before_execution": true,
+  "date": "2026-09-02",
+  "fixtures": {
+    "base-field-en-1.0.json": "25308367f11b1400a3656ff31bdec84e9c8f2a0ca77fd2a05a3b68c1136cb820",
+    "campaign-1.0.json": "72dfecc93499e77b1e8af3df5841f94884b366554a87148718a83323219b8764",
+    "evidence-ledger/SKILL.md": "3e51b6ac4b817da45d063e2e36c18acad966792411fa9a796fe7474d27aed747",
+    "granular-oracle-1.0.json": "00a2e0ac50573537008fb398f4157d36971524cd4b53050153afb610732813ba",
+    "safe-text-patch-paraphrase/SKILL.md": "847c641beb61f8a7c6672490ea516a795b4012e2aac9c274b16263547fe58b20",
+    "safe-text-patch/SKILL.md": "ff5af05fde77caf8b0367627d69e8dba5dee2c2471a4dd9cb88ea0b532558196"
+  },
+  "protected": {
+    "config/v4.7": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "config/v4.8": "8e12c7bdabc8da2b4b2f46f02a54b401931f7064a95af313ad62523673a56e4a",
+    "config/v4.9": "76617cb2ac4adb0b0ab7ac7dc7a74983a6d6f06355b83dff1132364021e00a5d",
+    "config/v5.0": "942c4edf222666c8b5141ba997b04adf8cce4b23c5516d64a7e55bc8a7056cc3",
+    "data/store-4.7.sqlite3": "4bda69217d0e64b398508e206a670dd99f3e64976dc9e7a0aadb5f22e55cd3da",
+    "data/store-4.8.sqlite3": "b8695b7c59e8830b184f4d23eb76ea00273e272c573af309e141200bf4872334",
+    "data/store-4.9.sqlite3": "3dbe7b143ea1e6a77cbd983759d4fc8c3d50c4bf08395f983476972f7f07e0e4",
+    "data/store-5.0.sqlite3": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b",
+    "src/moth_launcher": "27f6a33d6ecec259391d05ffafde23dad1c2044cbb655d9aa367ef5790e06f5e",
+    "src/moth_launcher_v5": "2cfdf3ae01296418f757aae5c6bada8c892b25e3a692c5d721457714b5258b43",
+    "src/moth_runtime": "38158aa9b840b937f69d5a734d954f20e373cc3957e7524cfb487f06078e3698",
+    "src/moth_runtime_v4_8": "10e73f821a81aa6c7270b3a844024cb3b6d24c5948c4d2a14a5da147bf014ee6",
+    "src/moth_runtime_v4_9": "99322b12f9a56316eb01aec65a27f716125336d520a0ff8c52567f566bcee15e",
+    "src/moth_runtime_v5_0": "ef6556335fbceba13eb77228c8441ec13fc5e915a0f0fcb76d5e7eb7d4d08ea0"
+  }
+}

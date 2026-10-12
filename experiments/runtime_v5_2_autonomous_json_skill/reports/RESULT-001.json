@@ -1,0 +1,103 @@
+{
+  "causal": {
+    "no_skill": true,
+    "router_ablation": true
+  },
+  "claim": "SAFETENSORS_AUTONOMOUS_JSON_PARITY_CONFIRMED",
+  "compiled_objects": {
+    "field": {
+      "file_hash": "32cd31b5b8c60507b3b7b186bed198f5c962c26e33019a031706c0ab67073f48",
+      "logical_hash": "7a359c4f5be88a37b3064c736d6435140bb9dea8297afc9e92f8b53a503d0f5a",
+      "schema": "moth-compiled-field/5.2"
+    },
+    "foundation": {
+      "candidate_count": 2,
+      "file_hash": "be3eba9170026fe87ce590ef75c83710f362287d48c17696da83de8267bca329",
+      "logical_hash": "8138893e1e7f2d2701fa67d41e46f878da59f377740d0e603514a965a08ec349",
+      "schema": "moth-energy-foundation/5.2"
+    },
+    "skill": {
+      "compilation_id": "7ed1f2d87fd326408ba1c9f525f33265c605597e137e422e6a5fee2990f31ecb",
+      "file_hash": "76dd760f5e60132f2592aaa085187759ecc33fa3fc6ab762a9e45c0cd54156d8",
+      "logical_hash": "b25ed3d7b6d6c2f43106befb45fda1c201364a36dc4c02f156e3001c22bed63f",
+      "policy_hash": "1a2baefbd792350b101b87b836616df9f22a771b3d43928d2ceae0e1f61511ca",
+      "schema": "moth-compiled-skill/5.2"
+    }
+  },
+  "determinism": {
+    "field_object_hash": "32cd31b5b8c60507b3b7b186bed198f5c962c26e33019a031706c0ab67073f48",
+    "foundation_object_hash": "be3eba9170026fe87ce590ef75c83710f362287d48c17696da83de8267bca329",
+    "identical": true,
+    "repetitions": 3,
+    "skill_object_hash": "76dd760f5e60132f2592aaa085187759ecc33fa3fc6ab762a9e45c0cd54156d8"
+  },
+  "metamorphic": {
+    "cases": 64,
+    "passed": 64,
+    "relations": {
+      "different_value": 8,
+      "same_response": 8,
+      "same_result": 16,
+      "same_value": 24,
+      "same_value_different_bytes": 8
+    }
+  },
+  "negative": {
+    "cases": 96,
+    "categories": {
+      "ambiguous_field": 8,
+      "authority": 8,
+      "contradictory_layout": 8,
+      "duplicate_rename": 8,
+      "hcf_conflict": 8,
+      "lossy": 8,
+      "malformed": 8,
+      "missing_field": 8,
+      "resource_limit": 8,
+      "unrelated": 8,
+      "unsupported_calculation": 8,
+      "unsupported_format": 8
+    },
+    "correct_typed_refusals": 96
+  },
+  "positive": {
+    "cases": 240,
+    "exact": 240,
+    "families": {
+      "canonical_order": 15,
+      "compact_json": 15,
+      "flat_selection": 15,
+      "grouped_records": 15,
+      "heterogeneous_array": 15,
+      "homogeneous_records": 15,
+      "keyed_map": 15,
+      "nested_object": 15,
+      "nullable_sparse": 15,
+      "paginated_envelope": 15,
+      "pretty_json": 15,
+      "projection_rename": 15,
+      "result_envelope": 15,
+      "scalar_array": 15,
+      "source_order": 15,
+      "success_error_union": 15
+    },
+    "prompt_only": 240
+  },
+  "promoted_runtime_modified": false,
+  "report_hash": "4b42c3a6362e4bb4c996cb6222b2af0975f864ed2e840cddb923f2de58cd8e39",
+  "schema": "moth-autonomous-json-qualification/5.2-experiment",
+  "side_effects": {
+    "code_executions": 0,
+    "network": 0,
+    "tool_dispatches": 0,
+    "workspace_writes_during_turns": 0
+  },
+  "source_hashes": {
+    "experiments/runtime_v5_1_autonomous_json_skill/fixtures/json-formatting-field-en-1.0.json": "1bbc4aea63f98ed094bfd76af6bc4ecbf8ff90ae5c6e518210699bc7bd5798c3",
+    "experiments/runtime_v5_1_autonomous_json_skill/fixtures/json-formatting/SKILL.md": "b3688e27940d335be65d58235a0228896482c631e312a15ff2af0a6c819e7248",
+    "experiments/runtime_v5_1_autonomous_json_skill/fixtures/metamorphic-panel-1.0.json": "9c59ddf6cf5fa900c9bae120968f985f5be7d6ab246cb998adb7cb98dd8e744b",
+    "experiments/runtime_v5_1_autonomous_json_skill/fixtures/negative-panel-1.0.json": "30bdfdc58101746ab7eb6f941104d99b21d5e7c79c445075f18dd56e545ed88f",
+    "experiments/runtime_v5_1_autonomous_json_skill/fixtures/qualification-panel-1.0.json": "17d8585f6ce10ac7fe3c6f7dbb6bfe22757fe532fece29d8ce1f505f8c71fc8b"
+  },
+  "verdict": "PASS"
+}

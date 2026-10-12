@@ -1,0 +1,202 @@
+{
+  "schema": "moth-instruction-base-field/1.0",
+  "field_id": "bounded-agent-skill-en-1.0",
+  "language": "en",
+  "layers": {
+    "L1": {
+      "actions": [
+        "LOCATE_TARGET",
+        "READ_TARGET",
+        "CHECK_TEXT_FILE",
+        "CHECK_SCOPE",
+        "COUNT_MATCHES",
+        "STAGE_REPLACEMENT",
+        "APPLY_REPLACEMENT",
+        "READ_RESULT",
+        "VERIFY_EXACT_CHANGE",
+        "HASH_RESULT",
+        "REPORT_RESULT",
+        "RECORD_EVIDENCE"
+      ],
+      "states": [
+        "ANSWER",
+        "REFUSED",
+        "AUTHORITY_REQUIRED"
+      ]
+    },
+    "L2": {
+      "operators": [
+        "SEQUENCE",
+        "REQUIRES",
+        "MUST",
+        "MUST_NOT",
+        "ASK_FIRST",
+        "REFUSE_IF",
+        "COMPLETE_IF",
+        "INSERT_BEFORE"
+      ],
+      "conditions": [
+        "TARGET_PROTECTED",
+        "TARGET_MISSING_OR_AMBIGUOUS",
+        "PRECONDITION_UNPROVEN",
+        "VERIFICATION_FAILED",
+        "MODIFICATION_OUTSIDE_SCOPE"
+      ]
+    },
+    "L3": {
+      "workflow_macros": {
+        "INSPECT_TARGET": ["LOCATE_TARGET", "READ_TARGET"],
+        "VALIDATE_SCOPE": ["CHECK_TEXT_FILE", "CHECK_SCOPE"],
+        "VALIDATE_CARDINALITY": ["COUNT_MATCHES"],
+        "REPLACE_EXACT": ["STAGE_REPLACEMENT", "APPLY_REPLACEMENT"],
+        "VERIFY_CHANGE": ["READ_RESULT", "VERIFY_EXACT_CHANGE", "HASH_RESULT"],
+        "REPORT_VERIFIED": ["REPORT_RESULT"],
+        "AUDIT_EVIDENCE": ["RECORD_EVIDENCE"]
+      }
+    }
+  },
+  "interpretation_rules": [
+    {
+      "id": "TRIGGER_SAFE_TEXT_PATCH",
+      "sections": ["description", "purpose"],
+      "groups": [["replace", "change", "substitute"], ["text value", "known value", "text"], ["text file", "file", "artifact"]]
+    },
+    {
+      "id": "STEP_INSPECT",
+      "sections": ["procedure"],
+      "groups": [["inspect", "examine", "review"], ["target", "file", "artifact"], ["before", "prior to", "first"]]
+    },
+    {
+      "id": "STEP_SCOPE",
+      "sections": ["procedure"],
+      "groups": [["ensure", "confirm", "check"], ["text file", "text artifact"], ["permitted workspace", "allowed workspace", "permitted scope"]]
+    },
+    {
+      "id": "STEP_CARDINALITY",
+      "sections": ["procedure"],
+      "groups": [["old text", "existing value", "match"], ["exactly once", "single occurrence", "one occurrence"]]
+    },
+    {
+      "id": "STEP_REPLACE",
+      "sections": ["procedure"],
+      "groups": [["replace", "change", "substitute"], ["occurrence", "old text", "existing value"], ["requested new text", "new value", "replacement"]]
+    },
+    {
+      "id": "STEP_VERIFY",
+      "sections": ["procedure"],
+      "groups": [["check", "verify", "confirm"], ["resulting file", "updated artifact", "after the change"]]
+    },
+    {
+      "id": "STEP_REPORT",
+      "sections": ["procedure"],
+      "groups": [["report", "tell", "summarize"], ["target", "file"], ["verification evidence", "evidence", "verification result"]]
+    },
+    {
+      "id": "POLICY_UNRELATED",
+      "sections": ["safety"],
+      "groups": [["never", "do not"], ["unrelated", "additional"], ["files", "text", "content"]]
+    },
+    {
+      "id": "POLICY_PROTECTED",
+      "sections": ["safety"],
+      "groups": [["ask", "request"], ["authorization", "approval", "permission"], ["protected", "restricted"]]
+    },
+    {
+      "id": "POLICY_TARGET_UNIQUE",
+      "sections": ["safety"],
+      "groups": [["refuse", "stop"], ["missing or ambiguous", "cannot uniquely identify", "absent or non-unique"]]
+    },
+    {
+      "id": "POLICY_PRECONDITION",
+      "sections": ["safety"],
+      "groups": [["refuse", "stop"], ["preconditions", "required conditions", "required condition"], ["cannot be established", "are not proven", "is not proven"]]
+    },
+    {
+      "id": "COMPLETE_AFTER_VERIFY",
+      "sections": ["completion"],
+      "groups": [["completion", "success"], ["verification succeeds", "verification passes"], ["report", "reported"]]
+    },
+    {
+      "id": "TRIGGER_EVIDENCE_LEDGER",
+      "sections": ["description", "purpose"],
+      "groups": [["after", "when"], ["workflow", "skill"], ["changes a file", "modifies a file", "file change"]]
+    },
+    {
+      "id": "STEP_RECORD_EVIDENCE",
+      "sections": ["procedure"],
+      "groups": [["record", "capture"], ["before and after", "prior and resulting"], ["digests", "hashes"], ["after verification", "once verification passes"]]
+    },
+    {
+      "id": "STEP_INCLUDE_EVIDENCE",
+      "sections": ["procedure"],
+      "groups": [["include", "attach"], ["evidence record", "audit record"], ["final report", "report"]]
+    },
+    {
+      "id": "POLICY_NO_FALSE_SUCCESS",
+      "sections": ["safety"],
+      "groups": [["never", "do not"], ["report success", "claim success"], ["verification failed", "failed verification"]]
+    }
+  ],
+  "skill_profiles": {
+    "SAFE_TEXT_PATCH": {
+      "required_rules": [
+        "TRIGGER_SAFE_TEXT_PATCH",
+        "STEP_INSPECT",
+        "STEP_SCOPE",
+        "STEP_CARDINALITY",
+        "STEP_REPLACE",
+        "STEP_VERIFY",
+        "STEP_REPORT",
+        "POLICY_UNRELATED",
+        "POLICY_PROTECTED",
+        "POLICY_TARGET_UNIQUE",
+        "POLICY_PRECONDITION",
+        "COMPLETE_AFTER_VERIFY"
+      ],
+      "workflow": [
+        "INSPECT_TARGET",
+        "VALIDATE_SCOPE",
+        "VALIDATE_CARDINALITY",
+        "REPLACE_EXACT",
+        "VERIFY_CHANGE",
+        "REPORT_VERIFIED"
+      ],
+      "trigger": "TEXT_REPLACEMENT_REQUEST",
+      "policies": [
+        {"id": "NO_UNRELATED_CHANGES", "mode": "MUST_NOT", "condition": "MODIFICATION_OUTSIDE_SCOPE", "outcome": "SCOPE_VIOLATION"},
+        {"id": "PROTECTED_REQUIRES_AUTHORITY", "mode": "ASK_FIRST", "condition": "TARGET_PROTECTED", "outcome": "PROTECTED_TARGET"},
+        {"id": "MISSING_OR_AMBIGUOUS_REFUSES", "mode": "REFUSE_IF", "condition": "TARGET_MISSING_OR_AMBIGUOUS", "outcome": "TARGET_NOT_UNIQUE"},
+        {"id": "PRECONDITION_FAILURE_REFUSES", "mode": "REFUSE_IF", "condition": "PRECONDITION_UNPROVEN", "outcome": "PRECONDITION_FAILED"}
+      ],
+      "completion": ["EXACT_REPLACEMENT_APPLIED", "UNRELATED_STATE_UNCHANGED", "VERIFICATION_PASSED", "REPORT_EMITTED"]
+    },
+    "EVIDENCE_LEDGER": {
+      "required_rules": ["TRIGGER_EVIDENCE_LEDGER", "STEP_RECORD_EVIDENCE", "STEP_INCLUDE_EVIDENCE", "POLICY_NO_FALSE_SUCCESS"],
+      "workflow": ["AUDIT_EVIDENCE"],
+      "trigger": "VERIFIED_FILE_CHANGE",
+      "policies": [
+        {"id": "NO_FALSE_SUCCESS", "mode": "MUST_NOT", "condition": "VERIFICATION_FAILED", "outcome": "VERIFICATION_FAILED"}
+      ],
+      "completion": ["EVIDENCE_RECORDED"]
+    }
+  },
+  "composition_rules": [
+    {
+      "id": "SAFE_PATCH_WITH_EVIDENCE",
+      "base": "SAFE_TEXT_PATCH",
+      "extension": "EVIDENCE_LEDGER",
+      "operator": "INSERT_BEFORE",
+      "insert_action": "RECORD_EVIDENCE",
+      "anchor_action": "REPORT_RESULT",
+      "policy": "NO_FALSE_SUCCESS",
+      "completion": "EVIDENCE_RECORDED"
+    }
+  ],
+  "limits": {
+    "maximum_skill_bytes": 65536,
+    "maximum_normative_clauses": 64,
+    "maximum_graph_units": 512,
+    "maximum_composed_skills": 4
+  }
+}
+

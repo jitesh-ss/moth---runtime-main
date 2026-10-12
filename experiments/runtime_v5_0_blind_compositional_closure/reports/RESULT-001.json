@@ -1,0 +1,44 @@
+{
+  "schema": "moth-v5-blind-compositional-closure-result/1.0",
+  "verdict": "BLIND_COMPOSITIONAL_LANGUAGE_FIDELITY_NOT_CONFIRMED",
+  "capability_target_met": false,
+  "safety_integrity_passed": true,
+  "field_sealed_before_prompts": true,
+  "no_complete_test_language_in_field": true,
+  "sealed_field_sha256": "2275ac182e275c021c0587a33b04fc65b2d42a01872d373d4cb13acdbc89a11c",
+  "compiled_field_hash": "a84e9375a3567a19a5138e45dc1ee7d4e4b1e2af097aee0fd96bfac4b766c6ca",
+  "control_equivalent_answers": 0,
+  "classifications": {
+    "CORRECT_EQUIVALENT": 8,
+    "CORRECT_CONTRAST": 6,
+    "SAFE_REFUSAL": 14
+  },
+  "equivalent_correct_ids": ["e01", "e02", "e05", "e06", "e07", "e09", "e11", "e12"],
+  "equivalent_refusal_ids": ["e03", "e04", "e08", "e10"],
+  "equivalent_unique_graphs": 1,
+  "contrast_unique_graphs": 6,
+  "refusal_controls_passed": 10,
+  "unsafe_acceptances": 0,
+  "ablations_passed": 6,
+  "encoder_free_nested_replays": 28,
+  "composition_tamper_detected": true,
+  "semantic_tamper_detected": true,
+  "network_attempts": 0,
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "encoder": {
+    "dimension": 1024,
+    "fingerprint": "c027792ab279e7a8881a42ba2cb85c4934037f9d121dbe83b114010571975509",
+    "verified": true
+  },
+  "thresholds": {"score": 0.82, "margin": 0.05},
+  "protected_hashes_unchanged": true,
+  "protected_hashes": {
+    "runtime_tree": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6",
+    "configuration_tree": "349b277c0251e53ecb33651982b062f30d5cb499b1ba4d35d11bb57d0dd24ef1",
+    "architecture_lock": "8d527b89751d32770a54028801b59e988ef706cf3ec9e75a88a373d68cec89a4",
+    "production_store": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b"
+  },
+  "campaign_fixture_sha256": "1ba1e702af8e3193f3ca235162cea213f17b9494efc1099b32a4b28aed3ee486",
+  "result_manifest_sha256": "19e5685abf749d3f9970cecbabe126000b04e684f03ff2e554ced95760f3c2b9"
+}

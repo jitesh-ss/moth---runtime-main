@@ -1,0 +1,30 @@
+{
+  "schema": "moth-v5-adversarial-semantic-result/1.0",
+  "verdict": "ADVERSARIAL_SEMANTIC_INVARIANCE_CONFIRMED",
+  "cases": 50,
+  "accepted": 43,
+  "equivalent_accepted": 40,
+  "valid_contrasts": 3,
+  "expected_refusals": 7,
+  "refused": 7,
+  "unsafe_acceptances": 0,
+  "equivalence_graph_counts": {
+    "delivery": 1,
+    "deployment": 1
+  },
+  "shared_main_program_count": 1,
+  "main_world_hash": "4d9792bd04718073f2c3f0af127f1e05fa99922d901f3a103d2b04a638d82198",
+  "encoder_free_replays": 50,
+  "semantic_tamper_detected": true,
+  "execution_performed": false,
+  "dispatch_count": 0,
+  "protected_hashes_unchanged": true,
+  "protected_hashes": {
+    "architecture_lock": "8d527b89751d32770a54028801b59e988ef706cf3ec9e75a88a373d68cec89a4",
+    "configuration_tree": "349b277c0251e53ecb33651982b062f30d5cb499b1ba4d35d11bb57d0dd24ef1",
+    "production_store": "2987c4e9175c37739824f8168c18f1bbdf4185b026b33b818c14c54f9ffdda6b",
+    "runtime_tree": "aa0b061f11aa28b7ad83beaa9de29ba2e02a637dca4dc6eee79f160734757db6"
+  },
+  "fixture_sha256": "de42ff6bfecaf638361d78d9d8d15a426db0168beaa50b01c8fdaf780406a52a",
+  "result_manifest_sha256": "39548532abaea8b7f35faa94d26e1a19d379281655581d5724fe636556f18b72"
+}

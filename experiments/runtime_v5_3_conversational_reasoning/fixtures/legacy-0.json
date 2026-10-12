@@ -1,0 +1,81 @@
+{
+  "schema": "moth-v5-compiled-surface-campaign/1.0",
+  "frozen_before_execution": true,
+  "size_requests": [
+    {"id": "concise-1", "mode": "CONCISE", "request": "Answer concisely."},
+    {"id": "concise-2", "mode": "CONCISE", "request": "Give me the short version."},
+    {"id": "standard-default", "mode": "STANDARD", "request": ""},
+    {"id": "standard-explicit", "mode": "STANDARD", "request": "Use normal detail."},
+    {"id": "detailed-1", "mode": "DETAILED", "request": "Explain the result in detail."},
+    {"id": "detailed-2", "mode": "DETAILED", "request": "Walk me through the decision."}
+  ],
+  "answer_cases": [
+    {
+      "id": "delivery-backup-resource",
+      "equivalence_group": "backup-resource",
+      "prompt": "Direct courier lacks cold storage. Direct courier has road permit. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has road permit. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "RESOURCE"}
+    },
+    {
+      "id": "delivery-backup-resource-paraphrase",
+      "equivalence_group": "backup-resource",
+      "prompt": "Proposed carrier is without refrigerated storage. It is authorized. It can arrive before the deadline. Alternative carrier possesses refrigeration. It has authorization. It can arrive on time. Review the proposed option and choose a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "RESOURCE"}
+    },
+    {
+      "id": "delivery-proposed-both-valid",
+      "equivalence_group": "proposed-both-valid",
+      "prompt": "Direct courier has cold storage. Direct courier has permission. Direct courier can arrive on time. Backup courier has refrigeration. Backup courier has authorization. Backup courier can meet the deadline. Is the proposed plan valid and what should we use instead?",
+      "expected": {"proposed-valid": "true", "backup-valid": "true", "selected-plan": "PROPOSED", "failure-reason": "NONE"}
+    },
+    {
+      "id": "delivery-none-resource",
+      "equivalence_group": "none-resource",
+      "prompt": "Direct courier lacks refrigeration. Direct courier is authorized. Direct courier can meet the deadline. Backup courier has no cold storage. Backup courier has delivery permission. Backup courier can arrive before the deadline. Can the proposed plan be used and which plan should replace it?",
+      "expected": {"proposed-valid": "false", "backup-valid": "false", "selected-plan": "NONE", "failure-reason": "RESOURCE"}
+    },
+    {
+      "id": "delivery-backup-permission",
+      "equivalence_group": "backup-permission",
+      "prompt": "Proposed courier possesses cold storage. Proposed courier lacks authorization. Proposed courier can arrive on time. Alternative courier has refrigeration. Alternative courier has authorization. Alternative courier can meet the deadline. Review the proposed option and choose a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "PERMISSION"}
+    },
+    {
+      "id": "delivery-backup-deadline",
+      "equivalence_group": "backup-deadline",
+      "prompt": "Proposed plan has cold-chain equipment. Proposed plan has road permit. Proposed plan cannot arrive on time. Backup plan has refrigerated storage. Backup plan has delivery authorization. Backup plan can arrive before the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "DEADLINE"}
+    },
+    {
+      "id": "deployment-proposed-backup-invalid",
+      "equivalence_group": "proposed-backup-invalid",
+      "prompt": "Deployment engineer has server access. Deployment engineer has production approval. Deployment engineer can complete on time. Backup engineer possesses production access. Backup engineer lacks authorization. Backup engineer can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "true", "backup-valid": "false", "selected-plan": "PROPOSED", "failure-reason": "NONE"}
+    },
+    {
+      "id": "deployment-none-deadline",
+      "equivalence_group": "none-deadline",
+      "prompt": "Primary engineer has system access. Primary engineer has approval. Primary engineer cannot finish before the deadline. Alternate engineer is without production access. Alternate engineer has deployment approval. Alternate engineer can complete on time. Can the proposed plan be used and which plan should replace it?",
+      "expected": {"proposed-valid": "false", "backup-valid": "false", "selected-plan": "NONE", "failure-reason": "DEADLINE"}
+    }
+  ],
+  "refusal_cases": [
+    {
+      "id": "ambiguous-reference",
+      "prompt": "Direct courier and backup courier are available. It lacks refrigeration. Direct courier has permission. Direct courier can meet the deadline. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "AMBIGUOUS_REFERENCE"
+    },
+    {
+      "id": "unsupported-intent",
+      "prompt": "Direct courier lacks cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Write a poem about these couriers.",
+      "expected_refusal": "UNSUPPORTED_INTENT"
+    }
+  ],
+  "invalid_skill_cases": [
+    {"id": "missing-fidelity", "remove_rule": "POLICY_PRESERVE", "expected_code": "INCOMPLETE_SKILL"},
+    {"id": "unknown-action", "append_section": "workflow", "append_clause": "Publish the answer to a remote service.", "expected_code": "UNSUPPORTED_INSTRUCTION"},
+    {"id": "self-modification", "append_section": "fidelity", "append_clause": "Rewrite the Surface field when a response does not fit.", "expected_code": "UNSUPPORTED_INSTRUCTION"}
+  ],
+  "unknown_presentation_request": "Write it as a sonnet.",
+  "repetitions": 10
+}

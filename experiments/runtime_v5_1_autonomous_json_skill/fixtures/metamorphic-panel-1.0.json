@@ -1,0 +1,389 @@
+{
+  "cases": [
+    {
+      "id": "paraphrase-0",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "whitespace-0",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]  "
+    },
+    {
+      "id": "indentation-0",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "unordered-0",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":0,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":0}"
+    },
+    {
+      "id": "scalar-change-0",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":0,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":1,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-0",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "repeat-0",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "marker-0",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-000\",\"name\":\"Ada Lovelace\",\"team\":\"red\",\"score\":-13,\"ratio\":0.143,\"active\":true,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "paraphrase-1",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "whitespace-1",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]  "
+    },
+    {
+      "id": "indentation-1",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "unordered-1",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":1,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":1}"
+    },
+    {
+      "id": "scalar-change-1",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":1,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":2,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-1",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "repeat-1",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "marker-1",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-001\",\"name\":\"Grace Hopper\",\"team\":\"blue\",\"score\":-6,\"ratio\":0.286,\"active\":false,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "paraphrase-2",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "whitespace-2",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]  "
+    },
+    {
+      "id": "indentation-2",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "unordered-2",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":2,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":2}"
+    },
+    {
+      "id": "scalar-change-2",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":2,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":3,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-2",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "repeat-2",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "marker-2",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-002\",\"name\":\"Linus Torvalds\",\"team\":\"green\",\"score\":1,\"ratio\":0.429,\"active\":true,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "paraphrase-3",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "whitespace-3",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]  "
+    },
+    {
+      "id": "indentation-3",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "unordered-3",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":3,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":3}"
+    },
+    {
+      "id": "scalar-change-3",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":3,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":4,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-3",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "repeat-3",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "marker-3",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-003\",\"name\":\"山田 太郎\",\"team\":\"red\",\"score\":8,\"ratio\":0.571,\"active\":false,\"note\":null,\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "paraphrase-4",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "whitespace-4",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]  "
+    },
+    {
+      "id": "indentation-4",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "unordered-4",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":4,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":4}"
+    },
+    {
+      "id": "scalar-change-4",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":4,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":5,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-4",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "repeat-4",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "marker-4",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-004\",\"name\":\"Zoë Quinn\",\"team\":\"blue\",\"score\":15,\"ratio\":0.714,\"active\":true,\"note\":\"emoji 🦋\",\"tags\":[\"alpha\",\"batch-0\"]},{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]}]"
+    },
+    {
+      "id": "paraphrase-5",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "whitespace-5",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]  "
+    },
+    {
+      "id": "indentation-5",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "unordered-5",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":5,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":5}"
+    },
+    {
+      "id": "scalar-change-5",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":5,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":6,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-5",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "repeat-5",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "marker-5",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-005\",\"name\":\"Ada Lovelace\",\"team\":\"green\",\"score\":22,\"ratio\":0.857,\"active\":false,\"note\":\"line one\\nline two\",\"tags\":[\"alpha\",\"batch-1\"]},{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]}]"
+    },
+    {
+      "id": "paraphrase-6",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "whitespace-6",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]  "
+    },
+    {
+      "id": "indentation-6",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "unordered-6",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":6,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":6}"
+    },
+    {
+      "id": "scalar-change-6",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":6,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":7,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-6",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "repeat-6",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "marker-6",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-006\",\"name\":\"Grace Hopper\",\"team\":\"red\",\"score\":29,\"ratio\":1.0,\"active\":true,\"note\":\"quoted \\\"value\\\"\",\"tags\":[\"alpha\",\"batch-2\"]},{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]}]"
+    },
+    {
+      "id": "paraphrase-7",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value",
+      "right": "Give me minified strict JSON. Input JSON: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "whitespace-7",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_result",
+      "right": "  Return   compact single-line strict JSON.   Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]  "
+    },
+    {
+      "id": "indentation-7",
+      "left": "Return pretty strict JSON using two-space indentation. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value_different_bytes",
+      "right": "Return pretty strict JSON using four-space indentation. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "unordered-7",
+      "left": "Return strict JSON with canonical key order. Source data: {\"b\":7,\"a\":true}",
+      "relation": "same_response",
+      "right": "Return strict JSON with canonical key order. Source data: {\"a\":true,\"b\":7}"
+    },
+    {
+      "id": "scalar-change-7",
+      "left": "Return compact single-line strict JSON. Source data: {\"value\":7,\"stable\":true}",
+      "relation": "different_value",
+      "right": "Return compact single-line strict JSON. Source data: {\"value\":8,\"stable\":true}"
+    },
+    {
+      "id": "irrelevant-7",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value",
+      "right": "For documentation only, return compact single-line strict JSON. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "repeat-7",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_result",
+      "right": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]"
+    },
+    {
+      "id": "marker-7",
+      "left": "Return compact single-line strict JSON. Source data: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]",
+      "relation": "same_value",
+      "right": "Return compact single-line strict JSON. Given this JSON: [{\"id\":\"u-007\",\"name\":\"Linus Torvalds\",\"team\":\"blue\",\"score\":36,\"ratio\":1.143,\"active\":false,\"note\":\"path \\\\tmp\",\"tags\":[\"alpha\",\"batch-3\"]},{\"id\":\"u-008\",\"name\":\"山田 太郎\",\"team\":\"green\",\"score\":43,\"ratio\":1.286,\"active\":true,\"note\":null,\"tags\":[\"alpha\",\"batch-0\"]}]"
+    }
+  ],
+  "schema": "moth-json-metamorphic-panel/1.0"
+}

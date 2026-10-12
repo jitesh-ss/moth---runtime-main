@@ -1,0 +1,21 @@
+{
+  "schema": "moth-v5-relation-identification-rules/1.0",
+  "frozen_before_execution": true,
+  "predicate": "satisfies",
+  "subject_roles": ["PROPOSED", "BACKUP"],
+  "object_roles": ["RESOURCE", "PERMISSION", "DEADLINE"],
+  "coordinates": {
+    "polarity": "NEGATIVE",
+    "modality": "ASSERTED",
+    "time": "PRESENT",
+    "quantity": "SINGULAR"
+  },
+  "rules": [
+    {"id": "negative-missing", "construction": "{SUBJECT} is missing {OBJECT}"},
+    {"id": "negative-possession", "construction": "{SUBJECT} does not possess {OBJECT}"},
+    {"id": "negative-deficiency", "construction": "{SUBJECT} is deficient in {OBJECT}"},
+    {"id": "negative-provision", "construction": "{SUBJECT} cannot provide {OBJECT}"},
+    {"id": "negative-shortage", "construction": "{SUBJECT} is short of {OBJECT}"},
+    {"id": "negative-without-access", "construction": "{SUBJECT} operates without access to {OBJECT}"}
+  ]
+}

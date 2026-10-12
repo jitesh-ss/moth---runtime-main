@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "moth-runtime-foundation/5.1",
+  "type": "object",
+  "required": ["schema", "runtime", "hcf_schema", "base_fields", "compiled_worlds", "encoder", "context", "surface"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "moth-runtime-foundation/5.1"},
+    "runtime": {"const": "5.1"},
+    "hcf_schema": {"const": "moth-hcf-field/5.1"},
+    "base_fields": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/base_field"}
+    },
+    "compiled_worlds": {
+      "type": "object",
+      "required": ["INPUT", "MAIN", "SURFACE"],
+      "additionalProperties": false,
+      "properties": {
+        "INPUT": {"$ref": "#/$defs/world"},
+        "MAIN": {"$ref": "#/$defs/world"},
+        "SURFACE": {"$ref": "#/$defs/world"}
+      }
+    },
+    "encoder": {
+      "type": "object",
+      "required": ["kind", "fingerprint", "thresholds"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {"enum": ["DETERMINISTIC", "LOCAL_BGE"]},
+        "fingerprint": {"type": "string", "minLength": 1},
+        "thresholds": {"type": "object"}
+      }
+    },
+    "context": {
+      "type": "object",
+      "required": ["max_message_tokens", "active_context_tokens"],
+      "additionalProperties": false,
+      "properties": {
+        "max_message_tokens": {"type": "integer", "minimum": 1},
+        "active_context_tokens": {"type": "integer", "minimum": 1}
+      }
+    },
+    "surface": {
+      "type": "object",
+      "required": ["modes"],
+      "additionalProperties": false,
+      "properties": {
+        "modes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"enum": ["concise", "detailed", "structured"]}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "base_field": {
+      "type": "object",
+      "required": ["field_id", "path", "sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "field_id": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "world": {
+      "type": "object",
+      "required": ["path", "sha256", "generation_id", "world_hash"],
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "generation_id": {"type": "string", "minLength": 1},
+        "world_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    }
+  }
+}

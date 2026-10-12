@@ -1,0 +1,11 @@
+{
+  "schema": "moth-hcf-campaign/1.0",
+  "cases": [
+    "base-precedence",
+    "system-precedence",
+    "direct-delegation",
+    "redelegation-chain",
+    "same-level-conflict",
+    "distinct-tie"
+  ]
+}

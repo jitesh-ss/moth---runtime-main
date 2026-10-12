@@ -1,0 +1,91 @@
+{
+  "schema": "moth-compositional-language-cases/1.0",
+  "frozen_before_campaign": true,
+  "accepted": [
+    {
+      "id": "d01-resource-repair",
+      "domain": "delivery",
+      "equivalence_group": "delivery-resource-repair",
+      "prompt": "Direct courier lacks cold storage. Direct courier has road permit. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has road permit. Backup courier can meet the deadline. Can the proposed plan be used and which plan should replace it?",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "RESOURCE"}
+    },
+    {
+      "id": "d02-resource-repair-pronouns",
+      "domain": "delivery",
+      "equivalence_group": "delivery-resource-repair",
+      "prompt": "Proposed carrier has no refrigerated storage. It is authorized. It can arrive before the deadline. Alternative carrier possesses refrigeration. It is authorized. It can arrive on time. Review the proposed option and choose a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "RESOURCE"}
+    },
+    {
+      "id": "d03-resource-repair-reordered",
+      "domain": "delivery",
+      "equivalence_group": "delivery-resource-repair",
+      "prompt": "Backup carrier can meet the deadline. Direct carrier has permission. Backup carrier has cold storage. Direct carrier is without refrigeration. Backup carrier has permission. Direct carrier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "RESOURCE"}
+    },
+    {
+      "id": "d04-proposed-valid",
+      "domain": "delivery",
+      "prompt": "Proposed courier has cold storage. Proposed courier has road permit. Proposed courier can arrive on time. Backup courier lacks refrigeration. Backup courier has permission. Backup courier can meet the deadline. Is the proposed plan valid and what should we use instead?",
+      "expected": {"proposed-valid": "true", "backup-valid": "false", "selected-plan": "PROPOSED", "failure-reason": "NONE"}
+    },
+    {
+      "id": "d05-no-valid-plan",
+      "domain": "delivery",
+      "prompt": "Direct courier has refrigeration. Direct courier lacks authorization. Direct courier can meet the deadline. Backup courier has cold storage. Backup courier has road permit. Backup courier cannot arrive before the deadline. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "false", "selected-plan": "NONE", "failure-reason": "PERMISSION"}
+    },
+    {
+      "id": "p01-permission-repair",
+      "domain": "deployment",
+      "equivalence_group": "deployment-permission-repair",
+      "prompt": "Deployment engineer has server access. Deployment engineer lacks production approval. Deployment engineer can finish before the deadline. Backup engineer has production access. Backup engineer has deployment approval. Backup engineer can finish before the deadline. Can the proposed plan be used and which plan should replace it?",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "PERMISSION"}
+    },
+    {
+      "id": "p02-permission-repair-pronouns",
+      "domain": "deployment",
+      "equivalence_group": "deployment-permission-repair",
+      "prompt": "Proposed engineer possesses system access. It is not authorized. It can complete on time. Alternative engineer has server access. It has authorization. It can meet the deadline. Review the proposed option and choose a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "PERMISSION"}
+    },
+    {
+      "id": "p03-deadline-repair",
+      "domain": "deployment",
+      "prompt": "Primary engineer has server access. Primary engineer has production approval. Primary engineer cannot finish before the deadline. Alternate engineer has production access. Alternate engineer has approval. Alternate engineer can complete on time. Validate the proposed plan and select a replacement.",
+      "expected": {"proposed-valid": "false", "backup-valid": "true", "selected-plan": "BACKUP", "failure-reason": "DEADLINE"}
+    }
+  ],
+  "refusals": [
+    {
+      "id": "r01-ambiguous-pronoun",
+      "domain": "delivery",
+      "prompt": "Direct courier and backup courier are available. It lacks refrigeration. Direct courier has permission. Direct courier can meet the deadline. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "AMBIGUOUS_REFERENCE"
+    },
+    {
+      "id": "r02-missing-fact",
+      "domain": "delivery",
+      "prompt": "Direct courier lacks cold storage. Direct courier has permission. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "INCOMPLETE_FACT_GRAPH"
+    },
+    {
+      "id": "r03-conflicting-fact",
+      "domain": "delivery",
+      "prompt": "Direct courier lacks cold storage. Direct courier has refrigeration. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "CONFLICTING_FACTS"
+    },
+    {
+      "id": "r04-unknown-entity",
+      "domain": "delivery",
+      "prompt": "Drone courier lacks cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Validate the proposed plan and select a replacement.",
+      "expected_refusal": "UNKNOWN_ENTITY"
+    },
+    {
+      "id": "r05-unsupported-intent",
+      "domain": "delivery",
+      "prompt": "Direct courier lacks cold storage. Direct courier has permission. Direct courier can meet the deadline. Backup courier has refrigeration. Backup courier has permission. Backup courier can meet the deadline. Write a poem about these couriers.",
+      "expected_refusal": "UNSUPPORTED_INTENT"
+    }
+  ]
+}

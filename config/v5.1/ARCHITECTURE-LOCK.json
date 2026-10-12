@@ -1,0 +1,116 @@
+{
+  "schema": "moth-architecture-lock/5.1",
+  "runtime": "5.1",
+  "canonical": false,
+  "canonical_runtime": "4.7",
+  "launcher_default_runtime": null,
+  "status": "WEIGHT_FREE_COMPILED_MODEL_ARTIFACT_5_1_CONFIRMED",
+  "documents": {
+    "architecture": {
+      "path": "docs/v5.1/ARCHITECTURE.md",
+      "sha256": "7f58f172aa75b81f764b9d6ebeccd40e676b753273c712efef167c3b96c9f12e"
+    },
+    "product": {
+      "path": "docs/v5.1/PRODUCT.md",
+      "sha256": "0e5c208a13e60ac45b90a8670dcafacfe9a5c6c3bd426ac050c8c7a32962766c"
+    },
+    "specification": {
+      "path": "docs/v5.1/SPEC.md",
+      "sha256": "ee689ab97a705598a7e69502d01ff7ab49784f7e43386e5ecb7f3b0ddcbe4f0a"
+    },
+    "baseline": {
+      "path": "docs/v5.1/BASELINE-HASHES.json",
+      "sha256": "a81e9b9e6a24373684a8dd3439a426349c8e64738460ecca23aa57466f214e55"
+    }
+  },
+  "configuration": {
+    "runtime": {
+      "path": "config/v5.1/runtime.json",
+      "sha256": "1e7f0622866b9df7fca0c1c3b73f2cc5bb7d4868dda58c302c931745f235ae8b"
+    },
+    "base_hcf": {
+      "path": "config/v5.1/base-hcf-en-1.0.json",
+      "sha256": "dbeaf77441f9bba62b0fa60c01067f6f359f9ee070c1f7efc3b1ac9f4cb10724"
+    },
+    "foundation_schema": {
+      "path": "config/v5.1/foundation-manifest.schema.json",
+      "sha256": "e0a2222339120501e3f7b8ec2d5c1472f6397064f6caeb06117b19350433e1f9"
+    },
+    "model_artifact_schema": {
+      "path": "config/v5.1/model-artifact.schema.json",
+      "sha256": "f9da16b4e68eac4c94ad5eea0ddb471eda55c428390a86e7838417be2c2a2df7"
+    },
+    "compiled_field_schema": {
+      "path": "config/v5.1/compiled-field-archive.schema.json",
+      "sha256": "15f082d1670a00f5b6a50030b71be1c1b3300031b9b7593e570f6de61c5fc8b7"
+    }
+  },
+  "implementation": {
+    "path": "src/moth_runtime_v5_1",
+    "tree_hash_algorithm": "sha256(path-relative-root || NUL || sha256(file-bytes) for sorted top-level Python files)",
+    "tree_sha256": "162b36b37a1b5b415201aab6550d003705f83c48f4f08888ae9a45616e8f1e10",
+    "reuses_runtime_5_0_kernel": true,
+    "modifies_runtime_5_0": false,
+    "imports_experiments": false
+  },
+  "launcher": {
+    "path": "src/moth_launcher_v5_1",
+    "tree_hash_algorithm": "sha256(path-relative-root || NUL || sha256(file-bytes) for sorted top-level Python files)",
+    "tree_sha256": "256c84e884de9b7c4022024ea359dc90113644c1a213e4c8b43cfa96f64e5b6c",
+    "explicit_runtime_required": true,
+    "supported_runtimes": ["4.7", "4.8", "4.9", "5.0", "5.1"]
+  },
+  "schemas": {
+    "store": "proof-energy-conversation-store/5.1",
+    "result": "moth-conversation-turn/5.1",
+    "foundation": "moth-runtime-foundation/5.1",
+    "hcf": "moth-hcf-field/5.1",
+    "hcf_trace": "moth-hcf-settlement/5.1",
+    "active_context": "moth-active-context/5.1"
+  },
+  "hierarchy": {
+    "levels": ["BASE", "SYSTEM", "CONTEXT"],
+    "within_level_numeric_priority": false,
+    "conditional_delegation": true,
+    "energy": "LEXICOGRAPHIC(BASE,SYSTEM,CONTEXT,GROUNDING)"
+  },
+  "qualification": {
+    "path": "reports/RUNTIME-5.1-HCF-QUALIFICATION-001.md",
+    "sha256": "fe1522be46ae6a34a7b7138acef25f4df37fb18cd2dc02eb13aadba188f555c8",
+    "verdict": "BOUNDED_CONVERSATIONAL_HCF_RUNTIME_CONFIRMED",
+    "focused_tests": {"passed": 24, "failed": 0},
+    "hcf_campaign": {"passed": 6, "failed": 0},
+    "runtime_5_0_regression": {"passed": 54, "failed": 0},
+    "full_regression": {
+      "passed": 168,
+      "failed": 5,
+      "known_failures": [
+        "Four sealed legacy CLI assertions hard-code the pre-5.1 launcher usage text",
+        "Runtime 4.8 architecture-lock mismatch"
+      ]
+    },
+    "artifact": {
+      "path": "experiments/runtime_v5_1_compiled_artifact/reports/QUALIFICATION-001.md",
+      "sha256": "5d5b9364430c3e42899dba1098324aac3d1f067b7e7d5e3bafebc7867de2c0d9",
+      "verdict": "WEIGHT_FREE_COMPILED_MODEL_ARTIFACT_5_1_CONFIRMED",
+      "artifact_hash": "bae305a2c7b92459443608730c3788b9123b2767b7fa0defff6ef05b1546a9c5",
+      "compiled_fields": 5,
+      "compiled_skills": 10,
+      "surface_outputs": 168,
+      "inert_plan_cases": 36,
+      "focused_tests": {"passed": 23, "failed": 0}
+    }
+  },
+  "boundaries": {
+    "console_only": true,
+    "network": false,
+    "external_models": false,
+    "tool_dispatch": false,
+    "world_management": false,
+    "weight_loading": false,
+    "weight_free_compiled_artifact": true,
+    "final_model_artifact": false
+  },
+  "production_store_created": false,
+  "earlier_stores_migrated": false
+}

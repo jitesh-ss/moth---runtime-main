@@ -1,0 +1,11 @@
+{
+  "schema": "moth-runtime-v5.2-qualification-baseline/1.0",
+  "runtime_5_1_compiled_json_bytes": 99406,
+  "maximum_storage_ratio": 0.75,
+  "required_surface_outputs": 168,
+  "required_inert_skill_plans": 36,
+  "required_clean_builds": 3,
+  "energy_tuple": ["BASE", "SYSTEM", "CONTEXT", "GROUNDING"],
+  "canonical_compiled_container": "SAFETENSORS",
+  "catalog": "SQLITE"
+}

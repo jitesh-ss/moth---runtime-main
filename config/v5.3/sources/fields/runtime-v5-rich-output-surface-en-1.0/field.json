@@ -1,0 +1,156 @@
+{
+  "schema": "moth-surface-instruction-field/1.0",
+  "field_id": "runtime-v5-rich-output-surface-en-1.0",
+  "language": "en",
+  "layers": {
+    "L1": {
+      "actions": [
+        "VALIDATE_SEMANTIC_RESULT",
+        "SELECT_PRESENTATION_ROUTE",
+        "PLAN_DISCOURSE",
+        "REALIZE_MATERIAL_FACTS",
+        "FORMAT_OUTPUT",
+        "VERIFY_INVERSE_RECOVERY",
+        "VERIFY_LAYOUT",
+        "VERIFY_SIZE",
+        "BIND_HASHES",
+        "EMIT_ARTIFACT"
+      ],
+      "states": ["ANSWER", "REFUSED"]
+    },
+    "L2": {
+      "operators": ["SEQUENCE", "MUST", "MUST_NOT", "DEFAULT_IF", "REFUSE_IF", "COMPLETE_IF"],
+      "conditions": [
+        "SEMANTIC_RESULT_MALFORMED",
+        "PRESENTATION_UNSUPPORTED",
+        "MATERIAL_FACT_MISSING",
+        "UNSUPPORTED_FACT_ADDED",
+        "INVERSE_RECOVERY_FAILED",
+        "LAYOUT_INVALID",
+        "SIZE_INVALID",
+        "HASH_BINDING_INVALID"
+      ]
+    },
+    "L3": {
+      "workflow_macros": {
+        "INSPECT": ["VALIDATE_SEMANTIC_RESULT"],
+        "ROUTE": ["SELECT_PRESENTATION_ROUTE"],
+        "REALIZE": ["PLAN_DISCOURSE", "REALIZE_MATERIAL_FACTS", "FORMAT_OUTPUT"],
+        "VERIFY": ["VERIFY_INVERSE_RECOVERY", "VERIFY_LAYOUT", "VERIFY_SIZE"],
+        "BIND": ["BIND_HASHES"],
+        "RETURN": ["EMIT_ARTIFACT"]
+      }
+    }
+  },
+  "interpretation_rules": [
+    {"id": "TRIGGER_PROSE_RANGE", "sections": ["description"], "groups": [["realize", "render"], ["verified plan decision", "confirmed plan outcome"], ["compact", "brief"], ["detailed", "expanded"], ["natural prose", "fluent text"]]},
+    {"id": "TRIGGER_TONE_ADAPTATION", "sections": ["description"], "groups": [["adapt", "restyle"], ["verified plan decision", "confirmed plan outcome"], ["formal", "professional"], ["conversational", "friendly"], ["english prose", "english text"]]},
+    {"id": "TRIGGER_MARKDOWN_STRUCTURE", "sections": ["description"], "groups": [["format", "arrange"], ["verified plan decision", "confirmed plan outcome"], ["bullets", "list"], ["markdown table", "markdown grid"]]},
+    {"id": "TRIGGER_MIXED_RESPONSE", "sections": ["description"], "groups": [["combine", "merge"], ["verified plan decision", "confirmed plan outcome"], ["explanation", "rationale"], ["json"], ["action plan", "sequenced next steps"]]},
+    {"id": "STEP_INSPECT", "sections": ["workflow"], "groups": [["inspect", "examine"], ["verified semantic result", "confirmed semantic outcome"], ["before", "prior to"]]},
+    {"id": "STEP_ROUTE", "sections": ["workflow"], "groups": [["select", "choose"], ["only", "exclusively"], ["supported presentation request", "recognized presentation instruction"], ["output family", "response family"]]},
+    {"id": "STEP_PLAN_REALIZE", "sections": ["workflow"], "groups": [["plan", "design"], ["output", "response"], ["realize", "express"], ["all four", "every"], ["material decision facts", "important decision fact"]]},
+    {"id": "POLICY_PRESERVE", "sections": ["fidelity"], "groups": [["proposed validity"], ["backup validity"], ["selected plan"], ["failure reason"], ["without omission or addition", "no missing or extra content"]]},
+    {"id": "POLICY_REFUSE_BIND", "sections": ["fidelity"], "groups": [["refuse", "fail closed"], ["malformed semantic result", "invalid semantic outcome"], ["unsupported presentation request", "unknown presentation instruction"], ["bind", "attach"], ["compiled policy", "compiled instructions"]]},
+    {"id": "POLICY_SIZE", "sections": ["size"], "groups": [["output", "response"], ["deterministic", "fixed"], ["line"], ["word"], ["byte"], ["selected mode", "chosen mode"]]},
+    {"id": "COMPLETE_RECOVER", "sections": ["completion"], "groups": [["only", "only when"], ["inverse recovery", "reverse recovery"], ["exact semantic equality", "identical semantics"], ["layout verification", "layout check"], ["passes", "succeeds"]]},
+    {"id": "COMPLETE_EMIT", "sections": ["completion"], "groups": [["emit", "return"], ["only", "just"], ["verified output artifact", "validated response artifact"]]}
+  ],
+  "skill_profiles": {
+    "PROSE_RANGE": {
+      "required_rules": ["TRIGGER_PROSE_RANGE", "STEP_INSPECT", "STEP_ROUTE", "STEP_PLAN_REALIZE", "POLICY_PRESERVE", "POLICY_REFUSE_BIND", "POLICY_SIZE", "COMPLETE_RECOVER", "COMPLETE_EMIT"],
+      "trigger": "VERIFIED_DECISION_FOR_PROSE_RANGE",
+      "workflow": ["INSPECT", "ROUTE", "REALIZE", "VERIFY", "BIND", "RETURN"],
+      "policies": [
+        {"id": "EXACT_RECOVERY", "mode": "MUST", "condition": "INVERSE_RECOVERY_FAILED", "outcome": "SEMANTIC_DRIFT"},
+        {"id": "HASH_BINDING", "mode": "MUST", "condition": "HASH_BINDING_INVALID", "outcome": "HASH_BINDING_INVALID"},
+        {"id": "LAYOUT_REQUIRED", "mode": "MUST", "condition": "LAYOUT_INVALID", "outcome": "LAYOUT_INVALID"},
+        {"id": "MALFORMED_REFUSES", "mode": "REFUSE_IF", "condition": "SEMANTIC_RESULT_MALFORMED", "outcome": "MALFORMED_SEMANTIC_RESULT"},
+        {"id": "NO_ADDITIONS", "mode": "MUST_NOT", "condition": "UNSUPPORTED_FACT_ADDED", "outcome": "UNSUPPORTED_ADDITION"},
+        {"id": "NO_OMISSIONS", "mode": "MUST_NOT", "condition": "MATERIAL_FACT_MISSING", "outcome": "SEMANTIC_OMISSION"},
+        {"id": "SIZE_REQUIRED", "mode": "MUST", "condition": "SIZE_INVALID", "outcome": "SIZE_INVALID"},
+        {"id": "UNKNOWN_PRESENTATION_REFUSES", "mode": "REFUSE_IF", "condition": "PRESENTATION_UNSUPPORTED", "outcome": "UNSUPPORTED_PRESENTATION"}
+      ],
+      "completion": ["EXACT_SEMANTICS_RECOVERED", "HASHES_BOUND", "LAYOUT_SATISFIED", "SIZE_SATISFIED", "ARTIFACT_EMITTED"]
+    },
+    "TONE_ADAPTATION": {
+      "required_rules": ["TRIGGER_TONE_ADAPTATION", "STEP_INSPECT", "STEP_ROUTE", "STEP_PLAN_REALIZE", "POLICY_PRESERVE", "POLICY_REFUSE_BIND", "POLICY_SIZE", "COMPLETE_RECOVER", "COMPLETE_EMIT"],
+      "trigger": "VERIFIED_DECISION_FOR_TONE_ADAPTATION",
+      "workflow": ["INSPECT", "ROUTE", "REALIZE", "VERIFY", "BIND", "RETURN"],
+      "policies": [
+        {"id": "EXACT_RECOVERY", "mode": "MUST", "condition": "INVERSE_RECOVERY_FAILED", "outcome": "SEMANTIC_DRIFT"},
+        {"id": "HASH_BINDING", "mode": "MUST", "condition": "HASH_BINDING_INVALID", "outcome": "HASH_BINDING_INVALID"},
+        {"id": "LAYOUT_REQUIRED", "mode": "MUST", "condition": "LAYOUT_INVALID", "outcome": "LAYOUT_INVALID"},
+        {"id": "MALFORMED_REFUSES", "mode": "REFUSE_IF", "condition": "SEMANTIC_RESULT_MALFORMED", "outcome": "MALFORMED_SEMANTIC_RESULT"},
+        {"id": "NO_ADDITIONS", "mode": "MUST_NOT", "condition": "UNSUPPORTED_FACT_ADDED", "outcome": "UNSUPPORTED_ADDITION"},
+        {"id": "NO_OMISSIONS", "mode": "MUST_NOT", "condition": "MATERIAL_FACT_MISSING", "outcome": "SEMANTIC_OMISSION"},
+        {"id": "SIZE_REQUIRED", "mode": "MUST", "condition": "SIZE_INVALID", "outcome": "SIZE_INVALID"},
+        {"id": "UNKNOWN_PRESENTATION_REFUSES", "mode": "REFUSE_IF", "condition": "PRESENTATION_UNSUPPORTED", "outcome": "UNSUPPORTED_PRESENTATION"}
+      ],
+      "completion": ["EXACT_SEMANTICS_RECOVERED", "HASHES_BOUND", "LAYOUT_SATISFIED", "SIZE_SATISFIED", "ARTIFACT_EMITTED"]
+    },
+    "MARKDOWN_STRUCTURE": {
+      "required_rules": ["TRIGGER_MARKDOWN_STRUCTURE", "STEP_INSPECT", "STEP_ROUTE", "STEP_PLAN_REALIZE", "POLICY_PRESERVE", "POLICY_REFUSE_BIND", "POLICY_SIZE", "COMPLETE_RECOVER", "COMPLETE_EMIT"],
+      "trigger": "VERIFIED_DECISION_FOR_MARKDOWN_STRUCTURE",
+      "workflow": ["INSPECT", "ROUTE", "REALIZE", "VERIFY", "BIND", "RETURN"],
+      "policies": [
+        {"id": "EXACT_RECOVERY", "mode": "MUST", "condition": "INVERSE_RECOVERY_FAILED", "outcome": "SEMANTIC_DRIFT"},
+        {"id": "HASH_BINDING", "mode": "MUST", "condition": "HASH_BINDING_INVALID", "outcome": "HASH_BINDING_INVALID"},
+        {"id": "LAYOUT_REQUIRED", "mode": "MUST", "condition": "LAYOUT_INVALID", "outcome": "LAYOUT_INVALID"},
+        {"id": "MALFORMED_REFUSES", "mode": "REFUSE_IF", "condition": "SEMANTIC_RESULT_MALFORMED", "outcome": "MALFORMED_SEMANTIC_RESULT"},
+        {"id": "NO_ADDITIONS", "mode": "MUST_NOT", "condition": "UNSUPPORTED_FACT_ADDED", "outcome": "UNSUPPORTED_ADDITION"},
+        {"id": "NO_OMISSIONS", "mode": "MUST_NOT", "condition": "MATERIAL_FACT_MISSING", "outcome": "SEMANTIC_OMISSION"},
+        {"id": "SIZE_REQUIRED", "mode": "MUST", "condition": "SIZE_INVALID", "outcome": "SIZE_INVALID"},
+        {"id": "UNKNOWN_PRESENTATION_REFUSES", "mode": "REFUSE_IF", "condition": "PRESENTATION_UNSUPPORTED", "outcome": "UNSUPPORTED_PRESENTATION"}
+      ],
+      "completion": ["EXACT_SEMANTICS_RECOVERED", "HASHES_BOUND", "LAYOUT_SATISFIED", "SIZE_SATISFIED", "ARTIFACT_EMITTED"]
+    },
+    "MIXED_RESPONSE": {
+      "required_rules": ["TRIGGER_MIXED_RESPONSE", "STEP_INSPECT", "STEP_ROUTE", "STEP_PLAN_REALIZE", "POLICY_PRESERVE", "POLICY_REFUSE_BIND", "POLICY_SIZE", "COMPLETE_RECOVER", "COMPLETE_EMIT"],
+      "trigger": "VERIFIED_DECISION_FOR_MIXED_RESPONSE",
+      "workflow": ["INSPECT", "ROUTE", "REALIZE", "VERIFY", "BIND", "RETURN"],
+      "policies": [
+        {"id": "EXACT_RECOVERY", "mode": "MUST", "condition": "INVERSE_RECOVERY_FAILED", "outcome": "SEMANTIC_DRIFT"},
+        {"id": "HASH_BINDING", "mode": "MUST", "condition": "HASH_BINDING_INVALID", "outcome": "HASH_BINDING_INVALID"},
+        {"id": "LAYOUT_REQUIRED", "mode": "MUST", "condition": "LAYOUT_INVALID", "outcome": "LAYOUT_INVALID"},
+        {"id": "MALFORMED_REFUSES", "mode": "REFUSE_IF", "condition": "SEMANTIC_RESULT_MALFORMED", "outcome": "MALFORMED_SEMANTIC_RESULT"},
+        {"id": "NO_ADDITIONS", "mode": "MUST_NOT", "condition": "UNSUPPORTED_FACT_ADDED", "outcome": "UNSUPPORTED_ADDITION"},
+        {"id": "NO_OMISSIONS", "mode": "MUST_NOT", "condition": "MATERIAL_FACT_MISSING", "outcome": "SEMANTIC_OMISSION"},
+        {"id": "SIZE_REQUIRED", "mode": "MUST", "condition": "SIZE_INVALID", "outcome": "SIZE_INVALID"},
+        {"id": "UNKNOWN_PRESENTATION_REFUSES", "mode": "REFUSE_IF", "condition": "PRESENTATION_UNSUPPORTED", "outcome": "UNSUPPORTED_PRESENTATION"}
+      ],
+      "completion": ["EXACT_SEMANTICS_RECOVERED", "HASHES_BOUND", "LAYOUT_SATISFIED", "SIZE_SATISFIED", "ARTIFACT_EMITTED"]
+    }
+  },
+  "size_signals": {
+    "CONCISE": ["compact natural prose", "markdown bullet list"],
+    "STANDARD": ["formal professional tone", "conversational explanation", "markdown table", "action plan"],
+    "DETAILED": ["detailed explanation", "explanation with json"]
+  },
+  "size_bands": {
+    "CONCISE": {"minimum_words": 8, "maximum_words": 48, "minimum_sentences": 1, "maximum_sentences": 5},
+    "STANDARD": {"minimum_words": 8, "maximum_words": 80, "minimum_sentences": 1, "maximum_sentences": 8},
+    "DETAILED": {"minimum_words": 16, "maximum_words": 120, "minimum_sentences": 2, "maximum_sentences": 12}
+  },
+  "presentation_routes": [
+    {"request": "return compact natural prose", "profile": "PROSE_RANGE", "mode": "COMPACT_PROSE"},
+    {"request": "return a detailed explanation", "profile": "PROSE_RANGE", "mode": "DETAILED_PROSE"},
+    {"request": "use formal professional tone", "profile": "TONE_ADAPTATION", "mode": "FORMAL_TONE"},
+    {"request": "explain conversationally", "profile": "TONE_ADAPTATION", "mode": "CONVERSATIONAL_TONE"},
+    {"request": "return a markdown bullet list", "profile": "MARKDOWN_STRUCTURE", "mode": "MARKDOWN_BULLETS"},
+    {"request": "return a markdown table", "profile": "MARKDOWN_STRUCTURE", "mode": "MARKDOWN_TABLE"},
+    {"request": "explain and include json", "profile": "MIXED_RESPONSE", "mode": "EXPLANATION_JSON"},
+    {"request": "return an action plan", "profile": "MIXED_RESPONSE", "mode": "ACTION_PLAN"}
+  ],
+  "mode_limits": {
+    "COMPACT_PROSE": {"minimum_words": 12, "maximum_words": 40, "minimum_lines": 1, "maximum_lines": 1, "maximum_bytes": 512},
+    "DETAILED_PROSE": {"minimum_words": 32, "maximum_words": 100, "minimum_lines": 9, "maximum_lines": 12, "maximum_bytes": 1536},
+    "FORMAL_TONE": {"minimum_words": 18, "maximum_words": 60, "minimum_lines": 1, "maximum_lines": 1, "maximum_bytes": 768},
+    "CONVERSATIONAL_TONE": {"minimum_words": 16, "maximum_words": 60, "minimum_lines": 1, "maximum_lines": 1, "maximum_bytes": 768},
+    "MARKDOWN_BULLETS": {"minimum_words": 8, "maximum_words": 32, "minimum_lines": 4, "maximum_lines": 4, "maximum_bytes": 512},
+    "MARKDOWN_TABLE": {"minimum_words": 8, "maximum_words": 36, "minimum_lines": 6, "maximum_lines": 6, "maximum_bytes": 768},
+    "EXPLANATION_JSON": {"minimum_words": 16, "maximum_words": 80, "minimum_lines": 10, "maximum_lines": 10, "maximum_bytes": 1536},
+    "ACTION_PLAN": {"minimum_words": 20, "maximum_words": 80, "minimum_lines": 4, "maximum_lines": 4, "maximum_bytes": 1024}
+  },
+  "limits": {"maximum_skill_bytes": 65536, "maximum_clauses": 64, "maximum_graph_units": 128, "maximum_artifact_bytes": 4096}
+}
